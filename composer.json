@@ -1,0 +1,15 @@
+{
+    "name": "hipex/pack-api",
+    "description": "Wrapper around Hipex hosting platform API",
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Freek Gruntjes",
+            "email": "freek@hipex.io"
+        }
+    ],
+    "require": {
+        "euautomation/graphql-client": "^0.2"
+    }
+}
