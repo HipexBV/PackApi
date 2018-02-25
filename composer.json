@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "HipexPackApi\\": "src/"
+            "HipexPackApi\\": "src/HipexPackApi/"
         }
     },
     "require": {
