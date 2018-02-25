@@ -1,3 +1,6 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfe9899595cd474ea95c62af46bcf803)](https://www.codacy.com/app/Fgruntjes/PackApi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HipexBV/PackApi&amp;utm_campaign=Badge_Grade)
+
 # PackApi
 Wrapper around Hipex hosting platform API. Have a look at https://www.hipex.io/. The better part of this library
 is generated from the File generated from [https://service.hipex.io/hipex-pack-api](https://service.hipex.io/hipex-pack-api) GraphQL endpoint.
