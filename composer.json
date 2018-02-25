@@ -9,6 +9,11 @@
             "email": "freek@hipex.io"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "HipexPackApi\\": "src/"
+        }
+    },
     "require": {
         "euautomation/graphql-client": "^0.2"
     }
