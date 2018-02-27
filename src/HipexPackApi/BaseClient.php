@@ -10,6 +10,7 @@ use EUAutomation\GraphQL\Client as GraphQLClient;
 use EUAutomation\GraphQL\Response;
 use HipexPackApi\Exception;
 use Psr\Http\Message\ResponseInterface;
+use Psr\SimpleCache\CacheInterface;
 
 /**
  * Class Client
@@ -30,23 +31,29 @@ class BaseClient extends GraphQLClient
     /**
      * @var string|null
      */
-    private $tokenFile;
+    private $token;
 
     /**
-     * @var string|null
+     * @var CacheInterface
      */
-    private $token;
+    private $cache;
 
     /**
      * Client constructor.
      *
      * @param string $url
-     * @param string|null $tokenFile
      */
-    public function __construct(string $url = self::API_URL, string $tokenFile = null)
+    public function __construct(string $url = self::API_URL)
     {
         parent::__construct($url);
-        $this->tokenFile = $tokenFile;
+    }
+
+    /**
+     * @param CacheInterface $cache
+     */
+    public function setCache(CacheInterface $cache)
+    {
+        $this->cache = $cache;
     }
 
     /**
@@ -143,16 +150,10 @@ class BaseClient extends GraphQLClient
             return $this->token;
         }
 
-        $file = $this->getAuthTokenFile();
-        if (!file_exists($file)) {
-            return null;
+        if ($this->cache) {
+            $this->token = $this->cache->get(__CLASS__ . '/auth-token');
         }
 
-        if (!is_readable($file)) {
-            throw new Exception\RuntimeException(sprintf('Token file %s not readable.', $file));
-        }
-
-        $this->token = file_get_contents($file) ?: null;
         return $this->token;
     }
 
@@ -167,29 +168,9 @@ class BaseClient extends GraphQLClient
             return;
         }
 
-        $file = $this->getAuthTokenFile();
-        if (file_exists($file)) {
-            if (!is_writable($file)) {
-                throw new Exception\RuntimeException(sprintf('Token file %s not writable.', $file));
-            }
-        } else {
-            if (!is_writable(\dirname($file))) {
-                throw new Exception\RuntimeException(sprintf('Token file %s not writable.', $file));
-            }
-        }
-
         $this->token = $auth[0];
-        file_put_contents($this->getAuthTokenFile(), $auth[0]);
-    }
-
-    /**
-     * @return string
-     */
-    private function getAuthTokenFile(): string
-    {
-        if (!$this->tokenFile) {
-            $this->tokenFile = DIRECTORY_SEPARATOR . trim(getenv('HOME'), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '.hipex-console-auth';
+        if ($this->cache) {
+            $this->cache->set(__CLASS__ . '/auth-token', $auth[0]);
         }
-        return $this->tokenFile;
     }
 }
