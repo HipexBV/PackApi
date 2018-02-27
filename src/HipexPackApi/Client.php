@@ -11,5 +11,11 @@ namespace HipexPackApi;
  */
 class Client extends Generated\Client
 {
-
+    /**
+     * {@inheritdoc}
+     */
+    public function login(string $username, string $password)
+    {
+        return parent::mutateLogin($username, $password);
+    }
 }

@@ -50,23 +50,19 @@ class BaseClient extends GraphQLClient
     }
 
     /**
-     * @param string $method
-     * @param array $arguments
+     * @param string $query
+     * @param array $variables
+     * @param array $headers
      * @return Response
-     * @throws Exception\ExceptionInterface
      */
-    public function call(string $method, array $arguments = []): Response
+    public function response($query, $variables = [], $headers = [])
     {
-        $file = self::QUERY_DIRECTORY . DIRECTORY_SEPARATOR . $this->getMethodFile($method);
-        if (!file_exists($file)) {
-            throw new Exception\BadMethodCallException(sprintf('Method %s::%s not found.', static::class, $method));
-        }
-
         try {
-            $response = $this->response(file_get_contents($file), $arguments);
+            $response = parent::response($query, $variables, $headers);
         } catch (\Exception $e) {
             throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
+
         if ($response->hasErrors()) {
             throw new Exception\RuntimeException(implode(PHP_EOL, $response->errors()));
         }
@@ -76,13 +72,13 @@ class BaseClient extends GraphQLClient
 
     /**
      * {@inheritdoc}
-     * @throws Exception\RuntimeException
      */
     public function raw($query, $variables = [], $headers = [])
     {
         if (empty($headers['Authorization'])) {
             $headers['Authorization'] = $this->getAuthToken();
         }
+
         $response = parent::raw($query, $variables, $headers);
         $this->setAuthToken($response);
 
@@ -104,7 +100,23 @@ class BaseClient extends GraphQLClient
      */
     public function introspect(): Response
     {
-        return $this->call('introspect');
+        return $this->response(file_get_contents(__DIR__ . '/introspect.graphql'));
+    }
+
+    /**
+     * @param string $method
+     * @param array $arguments
+     * @return Response
+     * @throws Exception\ExceptionInterface
+     */
+    protected function call(string $method, array $arguments = []): Response
+    {
+        $file = self::QUERY_DIRECTORY . DIRECTORY_SEPARATOR . $this->getMethodFile($method);
+        if (!file_exists($file)) {
+            throw new Exception\BadMethodCallException(sprintf('Method %s::%s not found.', static::class, $method));
+        }
+
+        return $this->response(file_get_contents($file), $arguments);
     }
 
     /**
@@ -136,7 +148,7 @@ class BaseClient extends GraphQLClient
             return null;
         }
 
-        if (is_readable($file)) {
+        if (!is_readable($file)) {
             throw new Exception\RuntimeException(sprintf('Token file %s not readable.', $file));
         }
 
@@ -156,8 +168,14 @@ class BaseClient extends GraphQLClient
         }
 
         $file = $this->getAuthTokenFile();
-        if (!is_writable($file)) {
-            throw new Exception\RuntimeException(sprintf('Token file %s not writable.', $file));
+        if (file_exists($file)) {
+            if (!is_writable($file)) {
+                throw new Exception\RuntimeException(sprintf('Token file %s not writable.', $file));
+            }
+        } else {
+            if (!is_writable(\dirname($file))) {
+                throw new Exception\RuntimeException(sprintf('Token file %s not writable.', $file));
+            }
         }
 
         $this->token = $auth[0];
