@@ -4,7 +4,7 @@
  * @copyright (c) Hipex B.V. 2015-18
  */
 
-namespace HipexPackApi;
+namespace HipexPackApi\Schema;
 
 
 abstract class BaseType
