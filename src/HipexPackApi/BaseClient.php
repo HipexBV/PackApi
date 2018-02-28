@@ -9,6 +9,11 @@ namespace HipexPackApi;
 use EUAutomation\GraphQL\Client as GraphQLClient;
 use EUAutomation\GraphQL\Response;
 use HipexPackApi\Exception;
+use HipexPackApi\Schema\BaseQuery;
+use HipexPackApi\Schema\BaseType;
+use InvalidArgumentException;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
 
@@ -16,13 +21,8 @@ use Psr\SimpleCache\CacheInterface;
  * Class Client
  *
  */
-class BaseClient extends GraphQLClient
+class BaseClient
 {
-    /**
-     * Directory containing graphql queries
-     */
-    const QUERY_DIRECTORY = __DIR__ . '/Generated/queries';
-
     /**
      * Default API url
      */
@@ -39,13 +39,18 @@ class BaseClient extends GraphQLClient
     private $cache;
 
     /**
+     * @var GraphQLClient|null
+     */
+    private $client;
+
+    /**
      * Client constructor.
      *
-     * @param string $url
+     * @param GraphQLClient|null $client
      */
-    public function __construct(string $url = self::API_URL)
+    public function __construct(GraphQLClient $client = null)
     {
-        parent::__construct($url);
+        $this->client = $client ?: new GraphQLClient(self::API_URL);
     }
 
     /**
@@ -67,7 +72,7 @@ class BaseClient extends GraphQLClient
         try {
             $response = parent::response($query, $variables, $headers);
         } catch (\Exception $e) {
-            throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
+
         }
 
         if ($response->hasErrors()) {
@@ -78,18 +83,55 @@ class BaseClient extends GraphQLClient
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $query
+     * @param array $variables
+     * @param array $headers
+     * @return ResponseInterface
      */
-    public function raw($query, $variables = [], $headers = [])
+    public function rawQuery(string $query, array $variables = [], array $headers = []): ResponseInterface
     {
         if (empty($headers['Authorization'])) {
             $headers['Authorization'] = $this->getAuthToken();
         }
 
-        $response = parent::raw($query, $variables, $headers);
+        $response = $this->client->raw($query, $variables, $headers);
         $this->setAuthToken($response);
 
         return $response;
+    }
+
+    /**
+     * @param BaseQuery $query
+     * @param array $arguments
+     * @return BaseType
+     * @throws Exception\ExceptionInterface
+     */
+    public function query(BaseQuery $query, array $arguments = []): BaseType
+    {
+        $response = (string) $this->rawQuery($query->getBody(), $arguments)->getBody();
+
+        try {
+            $data = \GuzzleHttp\json_decode($response, true);
+        } catch (InvalidArgumentException $e) {
+            throw new Exception\InvalidArgumentException($e->getMessage(), $e->getCode(), $e);
+        }
+
+        if (isset($data['errors'])) {
+            throw new Exception\RuntimeException(implode(PHP_EOL, array_column($data['errors'], 'message')));
+        }
+
+        if (!isset($data['data'])) {
+            throw new Exception\RuntimeException('No data key found in response');
+        }
+
+        $returnKey = $query->getReturnKey();
+        if (!isset($data['data'][$returnKey])) {
+            throw new Exception\RuntimeException(sprintf('Response key %s not found in response', $returnKey));
+        }
+
+        $returnType = $query->getReturnType();
+        $returnType->setData($data['data'][$returnKey]);
+        return $returnType;
     }
 
     /**
@@ -108,36 +150,6 @@ class BaseClient extends GraphQLClient
     public function introspect(): Response
     {
         return $this->response(file_get_contents(__DIR__ . '/introspect.graphql'));
-    }
-
-    /**
-     * @param string $method
-     * @param array $arguments
-     * @return Response
-     * @throws Exception\ExceptionInterface
-     */
-    protected function call(string $method, array $arguments = []): Response
-    {
-        $file = self::QUERY_DIRECTORY . DIRECTORY_SEPARATOR . $this->getMethodFile($method);
-        if (!file_exists($file)) {
-            throw new Exception\BadMethodCallException(sprintf('Method %s::%s not found.', static::class, $method));
-        }
-
-        return $this->response(file_get_contents($file), $arguments);
-    }
-
-    /**
-     * @param string $name
-     * @return string
-     */
-    private function getMethodFile(string $name): string
-    {
-        preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $name, $matches);
-        $ret = $matches[0];
-        foreach ($ret as &$match) {
-            $match = $match === strtoupper($match) ? strtolower($match) : lcfirst($match);
-        }
-        return implode('-', $ret) . '.graphql';
     }
 
     /**

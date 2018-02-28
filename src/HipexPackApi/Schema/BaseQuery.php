@@ -15,7 +15,12 @@ abstract class BaseQuery
     abstract public function getBody(): string;
 
     /**
+     * @return BaseType
+     */
+    abstract public function getReturnType(): BaseType;
+
+    /**
      * @return string
      */
-    abstract public function getReturnType(): string;
+    abstract public function getReturnKey(): string;
 }
