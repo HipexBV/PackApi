@@ -103,10 +103,10 @@ class BaseClient
     /**
      * @param BaseQuery $query
      * @param array $arguments
-     * @return BaseType
+     * @return BaseType|BaseType[]
      * @throws Exception\ExceptionInterface
      */
-    public function query(BaseQuery $query, array $arguments = []): BaseType
+    public function query(BaseQuery $query, array $arguments = [])
     {
         $response = (string) $this->rawQuery($query->getBody(), $arguments)->getBody();
 
@@ -130,8 +130,18 @@ class BaseClient
         }
 
         $returnType = $query->getReturnType();
-        $returnType->setData($data['data'][$returnKey]);
-        return $returnType;
+        if (!$query->getReturnArray()) {
+            $returnType->setData($data['data'][$returnKey]);
+            return $returnType;
+        }
+
+        $result = [];
+        foreach ($data['data'][$returnKey] as $item) {
+            $object = clone $returnType;
+            $object->setData($item);
+            $result[] = $object;
+        }
+        return $result;
     }
 
     /**

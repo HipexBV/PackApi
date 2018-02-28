@@ -17,6 +17,17 @@ abstract class BaseType
     private static $setterCache = [];
 
     /**
+     * BaseType constructor.
+     * @param array $data
+     */
+    public function __construct(array $data = null)
+    {
+        if ($data) {
+            $this->setData($data);
+        }
+    }
+
+    /**
      * @param array $data
      * @return $this
      */

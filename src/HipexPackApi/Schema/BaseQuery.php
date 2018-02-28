@@ -20,6 +20,11 @@ abstract class BaseQuery
     abstract public function getReturnType(): BaseType;
 
     /**
+     * @return bool
+     */
+    abstract public function getReturnArray(): bool;
+
+    /**
      * @return string
      */
     abstract public function getReturnKey(): string;
