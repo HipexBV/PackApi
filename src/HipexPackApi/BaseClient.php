@@ -65,27 +65,6 @@ class BaseClient
      * @param string $query
      * @param array $variables
      * @param array $headers
-     * @return Response
-     */
-    public function response($query, $variables = [], $headers = [])
-    {
-        try {
-            $response = parent::response($query, $variables, $headers);
-        } catch (\Exception $e) {
-
-        }
-
-        if ($response->hasErrors()) {
-            throw new Exception\RuntimeException(implode(PHP_EOL, $response->errors()));
-        }
-
-        return $response;
-    }
-
-    /**
-     * @param string $query
-     * @param array $variables
-     * @param array $headers
      * @return ResponseInterface
      */
     public function rawQuery(string $query, array $variables = [], array $headers = []): ResponseInterface
