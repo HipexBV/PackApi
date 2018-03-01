@@ -7,6 +7,12 @@ is generated from the File generated from [https://service.hipex.io/hipex-pack-a
 
 For a more extended documentation and API explorer please check out [https://service.hipex.io/hipex-pack-api/docs/](https://service.hipex.io/hipex-pack-api/docs/).
 
+## Installation
+
+```bash
+composer require hipex/pack-api
+```
+
 ## Usage
 On first usage a login is required. This will store a token in your home directory (~/.hipex-console-auth) or if set a token file provided.
 After login you can call the queries and mutations. When calling queries without login first the API will just return without result or on mutations throw an exception.
