@@ -151,6 +151,27 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
+	 * @return User[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryUser(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\User(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
 	 * @return Server[]|null
 	 * @throws ExceptionInterface
 	 */
