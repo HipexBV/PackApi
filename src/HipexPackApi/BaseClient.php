@@ -7,13 +7,12 @@
 namespace HipexPackApi;
 
 use EUAutomation\GraphQL\Client as GraphQLClient;
-use EUAutomation\GraphQL\Response;
 use HipexPackApi\Exception;
 use HipexPackApi\Schema\BaseQuery;
 use HipexPackApi\Schema\BaseType;
+use HipexPackApi\Schema\IntrospectQuery;
+use HipexPackApi\Schema\SchemaType;
 use InvalidArgumentException;
-use JMS\Serializer\Serializer;
-use JMS\Serializer\SerializerBuilder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
 
@@ -133,12 +132,12 @@ class BaseClient
     }
 
     /**
-     * @return Response
+     * @return SchemaType
      * @throws Exception\ExceptionInterface
      */
-    public function introspect(): Response
+    public function introspect(): SchemaType
     {
-        return $this->response(file_get_contents(__DIR__ . '/introspect.graphql'));
+        return $this->query(new IntrospectQuery());
     }
 
     /**
