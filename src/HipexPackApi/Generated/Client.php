@@ -34,6 +34,7 @@ use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\Server;
+use HipexPackApi\Generated\Schema\Type\ServerChange;
 use HipexPackApi\Generated\Schema\Type\User;
 
 /**
@@ -269,6 +270,27 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\Database(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return ServerChange[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryServerChange(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\ServerChange(), $arguments);
 	}
 
 
