@@ -35,14 +35,14 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * expires
 	 *
-	 * @var DateTime
+	 * @var DateTime|null
 	 */
 	private $expires;
 
 	/**
 	 * domain
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $domain;
 
@@ -140,9 +140,9 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * expires
 	 *
-	 * @return DateTime
+	 * @return DateTime|null
 	 */
-	public function getExpires(): DateTime
+	public function getExpires()
 	{
 		return $this->expires;
 	}
@@ -151,10 +151,10 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * expires
 	 *
-	 * @param DateTime $expires
+	 * @param DateTime|null $expires
 	 * @return $this
 	 */
-	public function setExpires($expires): self
+	public function setExpires($expires = null): self
 	{
 		$this->expires = $expires;
 		return $this;
@@ -164,9 +164,9 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * domain
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function getDomain(): string
+	public function getDomain()
 	{
 		return $this->domain;
 	}
@@ -175,10 +175,10 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * domain
 	 *
-	 * @param string $domain
+	 * @param string|null $domain
 	 * @return $this
 	 */
-	public function setDomain($domain): self
+	public function setDomain($domain = null): self
 	{
 		$this->domain = $domain;
 		return $this;
