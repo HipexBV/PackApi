@@ -30,6 +30,7 @@ use HipexPackApi\Generated\Schema\Type\FileTypeEnum;
 use HipexPackApi\Generated\Schema\Type\Filesystem;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
+use HipexPackApi\Generated\Schema\Type\MonitorQueryValue;
 use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
@@ -228,6 +229,101 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\DomainPointer(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $applicationId
+	 * @param string|null $startTime
+	 * @param string|null $endTime
+	 * @return MonitorQueryValue[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorDiskSpace(string $applicationId = null, string $startTime = null, string $endTime = null)
+	{
+		$arguments = [];
+		$arguments['applicationId'] = $applicationId;
+		$arguments['startTime'] = $startTime;
+		$arguments['endTime'] = $endTime;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorDiskSpace(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $applicationId
+	 * @param string|null $startTime
+	 * @param string|null $endTime
+	 * @return MonitorQueryValue[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorDiskIo(string $applicationId = null, string $startTime = null, string $endTime = null)
+	{
+		$arguments = [];
+		$arguments['applicationId'] = $applicationId;
+		$arguments['startTime'] = $startTime;
+		$arguments['endTime'] = $endTime;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorDiskIo(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $applicationId
+	 * @param string|null $startTime
+	 * @param string|null $endTime
+	 * @return MonitorQueryValue[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorNetworkTraffic(string $applicationId = null, string $startTime = null, string $endTime = null)
+	{
+		$arguments = [];
+		$arguments['applicationId'] = $applicationId;
+		$arguments['startTime'] = $startTime;
+		$arguments['endTime'] = $endTime;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorNetworkTraffic(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $applicationId
+	 * @param string|null $startTime
+	 * @param string|null $endTime
+	 * @return MonitorQueryValue[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorServerLoad(string $applicationId = null, string $startTime = null, string $endTime = null)
+	{
+		$arguments = [];
+		$arguments['applicationId'] = $applicationId;
+		$arguments['startTime'] = $startTime;
+		$arguments['endTime'] = $endTime;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorServerLoad(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $applicationId
+	 * @param string|null $startTime
+	 * @param string|null $endTime
+	 * @return MonitorQueryValue[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorMemoryUsage(string $applicationId = null, string $startTime = null, string $endTime = null)
+	{
+		$arguments = [];
+		$arguments['applicationId'] = $applicationId;
+		$arguments['startTime'] = $startTime;
+		$arguments['endTime'] = $endTime;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorMemoryUsage(), $arguments);
 	}
 
 
