@@ -56,21 +56,21 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * certificate
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $certificate;
 
 	/**
 	 * chain
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $chain;
 
 	/**
 	 * key
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $key;
 
@@ -87,6 +87,13 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 * @var Domain[]|null
 	 */
 	private $connectedDomains;
+
+	/**
+	 * certificateError
+	 *
+	 * @var string|null
+	 */
+	private $certificateError;
 
 
 	/**
@@ -221,9 +228,9 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * certificate
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function getCertificate(): string
+	public function getCertificate()
 	{
 		return $this->certificate;
 	}
@@ -232,10 +239,10 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * certificate
 	 *
-	 * @param string $certificate
+	 * @param string|null $certificate
 	 * @return $this
 	 */
-	public function setCertificate($certificate): self
+	public function setCertificate($certificate = null): self
 	{
 		$this->certificate = $certificate;
 		return $this;
@@ -245,9 +252,9 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * chain
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function getChain(): string
+	public function getChain()
 	{
 		return $this->chain;
 	}
@@ -256,10 +263,10 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * chain
 	 *
-	 * @param string $chain
+	 * @param string|null $chain
 	 * @return $this
 	 */
-	public function setChain($chain): self
+	public function setChain($chain = null): self
 	{
 		$this->chain = $chain;
 		return $this;
@@ -269,9 +276,9 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * key
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function getKey(): string
+	public function getKey()
 	{
 		return $this->key;
 	}
@@ -280,10 +287,10 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * key
 	 *
-	 * @param string $key
+	 * @param string|null $key
 	 * @return $this
 	 */
-	public function setKey($key): self
+	public function setKey($key = null): self
 	{
 		$this->key = $key;
 		return $this;
@@ -363,6 +370,30 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 
 
 	/**
+	 * certificateError
+	 *
+	 * @return string|null
+	 */
+	public function getCertificateError()
+	{
+		return $this->certificateError;
+	}
+
+
+	/**
+	 * certificateError
+	 *
+	 * @param string|null $certificateError
+	 * @return $this
+	 */
+	public function setCertificateError($certificateError = null): self
+	{
+		$this->certificateError = $certificateError;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -378,6 +409,7 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 		    'key' => $this->key,
 		    'connectedDomainPointers' => $this->connectedDomainPointers,
 		    'connectedDomains' => $this->connectedDomains,
+		    'certificateError' => $this->certificateError,
 		];
 	}
 }

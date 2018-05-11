@@ -27,6 +27,7 @@ class SslCertificate extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        connectedDomains {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        certificateError' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;
