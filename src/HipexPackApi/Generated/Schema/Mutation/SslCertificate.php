@@ -13,14 +13,6 @@ class SslCertificate extends \HipexPackApi\Schema\BaseQuery
 		$body = '';
 		$body .= 'mutation SslCertificate($entity: SslCertificateInput, $delete: Boolean!) {' . PHP_EOL;
 		$body .= '    SslCertificate(entity: $entity, delete: $delete) {' . PHP_EOL;
-		$body .= '        id' . PHP_EOL;
-		$body .= '        issuer' . PHP_EOL;
-		$body .= '        expires' . PHP_EOL;
-		$body .= '        domain' . PHP_EOL;
-		$body .= '        alternativeDomains' . PHP_EOL;
-		$body .= '        certificate' . PHP_EOL;
-		$body .= '        chain' . PHP_EOL;
-		$body .= '        key' . PHP_EOL;
 		$body .= '        connectedDomainPointers {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
@@ -28,6 +20,14 @@ class SslCertificate extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        certificateError' . PHP_EOL;
+		$body .= '        alternativeDomains' . PHP_EOL;
+		$body .= '        id' . PHP_EOL;
+		$body .= '        issuer' . PHP_EOL;
+		$body .= '        expires' . PHP_EOL;
+		$body .= '        domain' . PHP_EOL;
+		$body .= '        certificate' . PHP_EOL;
+		$body .= '        chain' . PHP_EOL;
+		$body .= '        key' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;
@@ -39,7 +39,7 @@ class SslCertificate extends \HipexPackApi\Schema\BaseQuery
 	 */
 	public function getReturnType(): BaseType
 	{
-		return new \HipexPackApi\Generated\Schema\Type\SSLCertificate();
+		return new \HipexPackApi\Generated\Schema\Type\SslCertificate();
 	}
 
 

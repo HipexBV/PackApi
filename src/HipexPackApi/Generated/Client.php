@@ -33,9 +33,9 @@ use HipexPackApi\Generated\Schema\Type\IntegrationTest;
 use HipexPackApi\Generated\Schema\Type\MonitorQueryValue;
 use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
-use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\Server;
 use HipexPackApi\Generated\Schema\Type\ServerChange;
+use HipexPackApi\Generated\Schema\Type\SslCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
 
 /**
@@ -332,7 +332,7 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return SSLCertificate[]|null
+	 * @return SslCertificate[]|null
 	 * @throws ExceptionInterface
 	 */
 	public function querySSLCertificate(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
@@ -571,7 +571,7 @@ class Client extends BaseClient
 	/**
 	 * @param SslCertificateInput|null $entity
 	 * @param bool $delete
-	 * @return SSLCertificate|null
+	 * @return SslCertificate|null
 	 * @throws ExceptionInterface
 	 */
 	public function mutateSslCertificate(SslCertificateInput $entity = null, bool $delete)

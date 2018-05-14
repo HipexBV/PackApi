@@ -32,11 +32,11 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	private $server;
 
 	/**
-	 * sslCertificate
+	 * letsEncryptCertificate
 	 *
-	 * @var SSLCertificate|null
+	 * @var LetsEncryptCertificate|null
 	 */
-	private $sslCertificate;
+	private $letsEncryptCertificate;
 
 	/**
 	 * letsEncryptSsl
@@ -46,11 +46,11 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	private $letsEncryptSsl;
 
 	/**
-	 * certificate
+	 * sslCertificate
 	 *
-	 * @var SSLCertificate|null
+	 * @var SslCertificate|null
 	 */
-	private $certificate;
+	private $sslCertificate;
 
 	/**
 	 * pointer
@@ -119,28 +119,28 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 
 
 	/**
-	 * sslCertificate
+	 * letsEncryptCertificate
 	 *
-	 * @return SSLCertificate|null
+	 * @return LetsEncryptCertificate|null
 	 */
-	public function getSslCertificate()
+	public function getLetsEncryptCertificate()
 	{
-		return $this->sslCertificate;
+		return $this->letsEncryptCertificate;
 	}
 
 
 	/**
-	 * sslCertificate
+	 * letsEncryptCertificate
 	 *
-	 * @param SSLCertificate|null $sslCertificate
+	 * @param LetsEncryptCertificate|null $letsEncryptCertificate
 	 * @return $this
 	 */
-	public function setSslCertificate($sslCertificate = null): self
+	public function setLetsEncryptCertificate($letsEncryptCertificate = null): self
 	{
-		if ($sslCertificate !== null && !$sslCertificate instanceof \HipexPackApi\Generated\Schema\Type\SSLCertificate) {
-		    $sslCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($sslCertificate);
+		if ($letsEncryptCertificate !== null && !$letsEncryptCertificate instanceof \HipexPackApi\Generated\Schema\Type\LetsEncryptCertificate) {
+		    $letsEncryptCertificate = new \HipexPackApi\Generated\Schema\Type\LetsEncryptCertificate($letsEncryptCertificate);
 		}
-		$this->sslCertificate = $sslCertificate;
+		$this->letsEncryptCertificate = $letsEncryptCertificate;
 		return $this;
 	}
 
@@ -170,28 +170,28 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 
 
 	/**
-	 * certificate
+	 * sslCertificate
 	 *
-	 * @return SSLCertificate|null
+	 * @return SslCertificate|null
 	 */
-	public function getCertificate()
+	public function getSslCertificate()
 	{
-		return $this->certificate;
+		return $this->sslCertificate;
 	}
 
 
 	/**
-	 * certificate
+	 * sslCertificate
 	 *
-	 * @param SSLCertificate|null $certificate
+	 * @param SslCertificate|null $sslCertificate
 	 * @return $this
 	 */
-	public function setCertificate($certificate = null): self
+	public function setSslCertificate($sslCertificate = null): self
 	{
-		if ($certificate !== null && !$certificate instanceof \HipexPackApi\Generated\Schema\Type\SSLCertificate) {
-		    $certificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($certificate);
+		if ($sslCertificate !== null && !$sslCertificate instanceof \HipexPackApi\Generated\Schema\Type\SslCertificate) {
+		    $sslCertificate = new \HipexPackApi\Generated\Schema\Type\SslCertificate($sslCertificate);
 		}
-		$this->certificate = $certificate;
+		$this->sslCertificate = $sslCertificate;
 		return $this;
 	}
 
@@ -255,9 +255,9 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		return [
 		    'id' => $this->id,
 		    'server' => $this->server,
-		    'sslCertificate' => $this->sslCertificate,
+		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
 		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		    'certificate' => $this->certificate,
+		    'sslCertificate' => $this->sslCertificate,
 		    'pointer' => $this->pointer,
 		    'domain' => $this->domain,
 		];

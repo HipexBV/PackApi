@@ -17,11 +17,11 @@ class DomainPointer extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        server {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
-		$body .= '        sslCertificate {' . PHP_EOL;
+		$body .= '        letsEncryptCertificate {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        letsEncryptSsl' . PHP_EOL;
-		$body .= '        certificate {' . PHP_EOL;
+		$body .= '        sslCertificate {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        pointer' . PHP_EOL;
