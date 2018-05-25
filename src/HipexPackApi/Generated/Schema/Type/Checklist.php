@@ -63,7 +63,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * status
 	 *
-	 * @var ResultTypeEnum|null
+	 * @var string|null
 	 */
 	private $status;
 
@@ -233,7 +233,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * status
 	 *
-	 * @return ResultTypeEnum|null
+	 * @return string|null
 	 */
 	public function getStatus()
 	{
@@ -244,11 +244,14 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * status
 	 *
-	 * @param ResultTypeEnum|null $status
+	 * @param string|null $status
 	 * @return $this
 	 */
 	public function setStatus($status = null): self
 	{
+		if ($status !== null && !$status instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $status = new \HipexPackApi\Generated\Schema\Type\string($status);
+		}
 		$this->status = $status;
 		return $this;
 	}

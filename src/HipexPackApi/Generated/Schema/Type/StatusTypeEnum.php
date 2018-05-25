@@ -13,7 +13,7 @@ namespace HipexPackApi\Generated\Schema\Type;
  * Check result in checklist.
  * @codeCoverageIgnore
  */
-class ResultTypeEnum extends \HipexPackApi\Schema\BaseType
+class StatusTypeEnum extends \HipexPackApi\Schema\BaseType
 {
 	/** Test executed successfully and no problems are found. */
 	const VALUE_GOOD = 'GOOD';

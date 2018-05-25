@@ -35,7 +35,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * type
 	 *
-	 * @var SSHKeyTypeEnum|null
+	 * @var string|null
 	 */
 	private $type;
 
@@ -119,7 +119,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * type
 	 *
-	 * @return SSHKeyTypeEnum|null
+	 * @return string|null
 	 */
 	public function getType()
 	{
@@ -130,11 +130,14 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * type
 	 *
-	 * @param SSHKeyTypeEnum|null $type
+	 * @param string|null $type
 	 * @return $this
 	 */
 	public function setType($type = null): self
 	{
+		if ($type !== null && !$type instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $type = new \HipexPackApi\Generated\Schema\Type\string($type);
+		}
 		$this->type = $type;
 		return $this;
 	}

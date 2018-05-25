@@ -9,9 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Input;
 
-use HipexPackApi\Generated\Schema\Type\AccessLogEnum;
-use HipexPackApi\Generated\Schema\Type\PhpVersionEnum;
 use JsonSerializable;
+use string;
 
 /**
  * Domain entity
@@ -43,14 +42,14 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * mainPhp
 	 *
-	 * @var PhpVersionEnum|null
+	 * @var string|null
 	 */
 	private $mainPhp;
 
 	/**
 	 * alternativePhp
 	 *
-	 * @var PhpVersionEnum|null
+	 * @var string|null
 	 */
 	private $alternativePhp;
 
@@ -85,7 +84,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * saveAccessLogs
 	 *
-	 * @var AccessLogEnum|null
+	 * @var string|null
 	 */
 	private $saveAccessLogs;
 
@@ -186,7 +185,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * mainPhp
 	 *
-	 * @return PhpVersionEnum|null
+	 * @return string|null
 	 */
 	public function getMainPhp()
 	{
@@ -197,11 +196,14 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * mainPhp
 	 *
-	 * @param PhpVersionEnum|null $mainPhp
+	 * @param string|null $mainPhp
 	 * @return $this
 	 */
 	public function setMainPhp($mainPhp = null): self
 	{
+		if ($mainPhp !== null && !$mainPhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $mainPhp = new \HipexPackApi\Generated\Schema\Type\string($mainPhp);
+		}
 		$this->mainPhp = $mainPhp;
 		return $this;
 	}
@@ -210,7 +212,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * alternativePhp
 	 *
-	 * @return PhpVersionEnum|null
+	 * @return string|null
 	 */
 	public function getAlternativePhp()
 	{
@@ -221,11 +223,14 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * alternativePhp
 	 *
-	 * @param PhpVersionEnum|null $alternativePhp
+	 * @param string|null $alternativePhp
 	 * @return $this
 	 */
 	public function setAlternativePhp($alternativePhp = null): self
 	{
+		if ($alternativePhp !== null && !$alternativePhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $alternativePhp = new \HipexPackApi\Generated\Schema\Type\string($alternativePhp);
+		}
 		$this->alternativePhp = $alternativePhp;
 		return $this;
 	}
@@ -330,7 +335,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * saveAccessLogs
 	 *
-	 * @return AccessLogEnum|null
+	 * @return string|null
 	 */
 	public function getSaveAccessLogs()
 	{
@@ -341,11 +346,14 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * saveAccessLogs
 	 *
-	 * @param AccessLogEnum|null $saveAccessLogs
+	 * @param string|null $saveAccessLogs
 	 * @return $this
 	 */
 	public function setSaveAccessLogs($saveAccessLogs = null): self
 	{
+		if ($saveAccessLogs !== null && !$saveAccessLogs instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $saveAccessLogs = new \HipexPackApi\Generated\Schema\Type\string($saveAccessLogs);
+		}
 		$this->saveAccessLogs = $saveAccessLogs;
 		return $this;
 	}

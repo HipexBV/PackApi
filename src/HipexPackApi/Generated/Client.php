@@ -26,7 +26,6 @@ use HipexPackApi\Generated\Schema\Type\Database;
 use HipexPackApi\Generated\Schema\Type\DatabaseUser;
 use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
-use HipexPackApi\Generated\Schema\Type\FileTypeEnum;
 use HipexPackApi\Generated\Schema\Type\Filesystem;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
@@ -37,6 +36,7 @@ use HipexPackApi\Generated\Schema\Type\Server;
 use HipexPackApi\Generated\Schema\Type\ServerChange;
 use HipexPackApi\Generated\Schema\Type\SslCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
+use HipexPackApi\Generated\Schema\Type\string;
 
 /**
  * @codeCoverageIgnore
@@ -67,12 +67,12 @@ class Client extends BaseClient
 	/**
 	 * @param string|null $path
 	 * @param int|null $depth
-	 * @param FileTypeEnum|null $type
+	 * @param string|null $type
 	 * @param int $userId
 	 * @return Filesystem[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryFilesystemUser(string $path = null, int $depth = null, FileTypeEnum $type = null, int $userId)
+	public function queryFilesystemUser(string $path = null, int $depth = null, string $type = null, int $userId)
 	{
 		$arguments = [];
 		$arguments['path'] = $path;
@@ -88,12 +88,12 @@ class Client extends BaseClient
 	/**
 	 * @param string|null $path
 	 * @param int|null $depth
-	 * @param FileTypeEnum|null $type
+	 * @param string|null $type
 	 * @param int $applicationId
 	 * @return Filesystem[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryFilesystemApplication(string $path = null, int $depth = null, FileTypeEnum $type = null, int $applicationId)
+	public function queryFilesystemApplication(string $path = null, int $depth = null, string $type = null, int $applicationId)
 	{
 		$arguments = [];
 		$arguments['path'] = $path;

@@ -17,13 +17,19 @@ class AccessLogEnum extends \HipexPackApi\Schema\BaseType
 {
 	/** Disabled */
 	const VALUE_DISABLED = 'DISABLED';
-	/** Default format */
+	/** Default */
 	const VALUE_DEFAULT = 'DEFAULT';
-	/** Default format with $bytes_sent */
+	/** Nginx compressed */
+	const VALUE_COMPRESSION = 'COMPRESSION';
+	/** Nginx combined */
+	const VALUE_COMBINED = 'COMBINED';
+	/** Nginx combined with request time */
+	const VALUE_TIMED_COMBINED = 'TIMED_COMBINED';
+	/** Default with $bytes_sent */
 	const VALUE_DEFAULT_WITH_HEADER_BYTES = 'DEFAULT_WITH_HEADER_BYTES';
 	/** Behind load balancer / CloudFlare */
 	const VALUE_FORWARD_IP = 'FORWARD_IP';
-	/** Rull requests */
+	/** Full requests */
 	const VALUE_FULL = 'FULL';
 
 }

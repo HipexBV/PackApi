@@ -9,8 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Input;
 
-use HipexPackApi\Generated\Schema\Type\SortDirectionEnum;
 use JsonSerializable;
+use string;
 
 /**
  * Sort field direction options are "asc" or "desc" by default "asc" is assumed"
@@ -28,7 +28,7 @@ class SortInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * direction
 	 *
-	 * @var SortDirectionEnum|null
+	 * @var string|null
 	 */
 	private $direction;
 
@@ -60,7 +60,7 @@ class SortInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * direction
 	 *
-	 * @return SortDirectionEnum|null
+	 * @return string|null
 	 */
 	public function getDirection()
 	{
@@ -71,11 +71,14 @@ class SortInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	/**
 	 * direction
 	 *
-	 * @param SortDirectionEnum|null $direction
+	 * @param string|null $direction
 	 * @return $this
 	 */
 	public function setDirection($direction = null): self
 	{
+		if ($direction !== null && !$direction instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $direction = new \HipexPackApi\Generated\Schema\Type\string($direction);
+		}
 		$this->direction = $direction;
 		return $this;
 	}

@@ -35,7 +35,7 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * type
 	 *
-	 * @var FileTypeEnum
+	 * @var string
 	 */
 	private $type;
 
@@ -98,9 +98,9 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * type
 	 *
-	 * @return FileTypeEnum
+	 * @return string
 	 */
-	public function getType(): FileTypeEnum
+	public function getType(): string
 	{
 		return $this->type;
 	}
@@ -109,11 +109,14 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * type
 	 *
-	 * @param FileTypeEnum $type
+	 * @param string $type
 	 * @return $this
 	 */
 	public function setType($type): self
 	{
+		if ($type !== null && !$type instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $type = new \HipexPackApi\Generated\Schema\Type\string($type);
+		}
 		$this->type = $type;
 		return $this;
 	}

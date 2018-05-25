@@ -104,21 +104,21 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * mainPhp
 	 *
-	 * @var PhpVersionEnum
+	 * @var string
 	 */
 	private $mainPhp;
 
 	/**
 	 * accessLogs
 	 *
-	 * @var AccessLogEnum
+	 * @var string
 	 */
 	private $accessLogs;
 
 	/**
 	 * alternativePhp
 	 *
-	 * @var PhpVersionEnum
+	 * @var string
 	 */
 	private $alternativePhp;
 
@@ -494,9 +494,9 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * mainPhp
 	 *
-	 * @return PhpVersionEnum
+	 * @return string
 	 */
-	public function getMainPhp(): PhpVersionEnum
+	public function getMainPhp(): string
 	{
 		return $this->mainPhp;
 	}
@@ -505,11 +505,14 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * mainPhp
 	 *
-	 * @param PhpVersionEnum $mainPhp
+	 * @param string $mainPhp
 	 * @return $this
 	 */
 	public function setMainPhp($mainPhp): self
 	{
+		if ($mainPhp !== null && !$mainPhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $mainPhp = new \HipexPackApi\Generated\Schema\Type\string($mainPhp);
+		}
 		$this->mainPhp = $mainPhp;
 		return $this;
 	}
@@ -518,9 +521,9 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * accessLogs
 	 *
-	 * @return AccessLogEnum
+	 * @return string
 	 */
-	public function getAccessLogs(): AccessLogEnum
+	public function getAccessLogs(): string
 	{
 		return $this->accessLogs;
 	}
@@ -529,11 +532,14 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * accessLogs
 	 *
-	 * @param AccessLogEnum $accessLogs
+	 * @param string $accessLogs
 	 * @return $this
 	 */
 	public function setAccessLogs($accessLogs): self
 	{
+		if ($accessLogs !== null && !$accessLogs instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $accessLogs = new \HipexPackApi\Generated\Schema\Type\string($accessLogs);
+		}
 		$this->accessLogs = $accessLogs;
 		return $this;
 	}
@@ -542,9 +548,9 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * alternativePhp
 	 *
-	 * @return PhpVersionEnum
+	 * @return string
 	 */
-	public function getAlternativePhp(): PhpVersionEnum
+	public function getAlternativePhp(): string
 	{
 		return $this->alternativePhp;
 	}
@@ -553,11 +559,14 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * alternativePhp
 	 *
-	 * @param PhpVersionEnum $alternativePhp
+	 * @param string $alternativePhp
 	 * @return $this
 	 */
 	public function setAlternativePhp($alternativePhp): self
 	{
+		if ($alternativePhp !== null && !$alternativePhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
+		    $alternativePhp = new \HipexPackApi\Generated\Schema\Type\string($alternativePhp);
+		}
 		$this->alternativePhp = $alternativePhp;
 		return $this;
 	}
