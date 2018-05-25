@@ -35,29 +35,43 @@ class BaseClient
     /**
      * @var CacheInterface
      */
-    private $cache;
+    private $tokenStorage;
 
     /**
      * @var GraphQLClient|null
      */
     private $client;
+    /**
+     * @var string
+     */
+    private $url;
 
     /**
      * Client constructor.
      *
-     * @param GraphQLClient|null $client
+     * @param string $url
      */
-    public function __construct(GraphQLClient $client = null)
+    public function __construct(string $url = self::API_URL)
     {
-        $this->client = $client ?: new GraphQLClient(self::API_URL);
+        $this->client = new GraphQLClient($url);
+        $this->url = $url;
     }
 
     /**
-     * @param CacheInterface $cache
+     * @param CacheInterface $tokenStorage
      */
-    public function setCache(CacheInterface $cache)
+    public function setTokenStorage(CacheInterface $tokenStorage)
     {
-        $this->cache = $cache;
+        $this->tokenStorage = $tokenStorage;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setApiUrl(string $url)
+    {
+        $this->url = $url;
+        $this->client->setUrl($url);
     }
 
     /**
@@ -150,8 +164,8 @@ class BaseClient
             return $this->token;
         }
 
-        if ($this->cache) {
-            $this->token = $this->cache->get(__CLASS__ . '/auth-token');
+        if ($this->tokenStorage) {
+            $this->token = $this->tokenStorage->get($this->getCacheKey());
         }
 
         return $this->token;
@@ -169,8 +183,16 @@ class BaseClient
         }
 
         $this->token = $auth[0];
-        if ($this->cache) {
-            $this->cache->set(__CLASS__ . '/auth-token', $auth[0]);
+        if ($this->tokenStorage) {
+            $this->tokenStorage->set($this->getCacheKey(), $auth[0]);
         }
+    }
+
+    /**
+     * @return string
+     */
+    private function getCacheKey(): string
+    {
+        return 'hipex-pack-api.auth-token.' . md5($this->url);
     }
 }
