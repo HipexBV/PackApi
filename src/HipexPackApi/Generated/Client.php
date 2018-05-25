@@ -28,7 +28,7 @@ use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
-use HipexPackApi\Generated\Schema\Type\SslCertificate;
+use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
 
 /**
@@ -325,7 +325,7 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return SslCertificate[]|null
+	 * @return SSLCertificate[]|null
 	 * @throws ExceptionInterface
 	 */
 	public function querySSLCertificate(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
@@ -564,17 +564,17 @@ class Client extends BaseClient
 	/**
 	 * @param SslCertificateInput|null $entity
 	 * @param bool $delete
-	 * @return SslCertificate|null
+	 * @return SSLCertificate|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateSslCertificate(SslCertificateInput $entity = null, bool $delete)
+	public function mutateSSLCertificate(SslCertificateInput $entity = null, bool $delete)
 	{
 		$arguments = [];
 		$arguments['entity'] = $entity;
 		$arguments['delete'] = $delete;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SslCertificate(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSLCertificate(), $arguments);
 	}
 
 

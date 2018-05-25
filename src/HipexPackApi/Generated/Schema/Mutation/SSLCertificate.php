@@ -1,5 +1,5 @@
 <?php
-namespace HipexPackApi\Generated\Schema\Query;
+namespace HipexPackApi\Generated\Schema\Mutation;
 
 use HipexPackApi\Schema\BaseType;
 
@@ -11,8 +11,8 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseQuery
 	public function getBody(): string
 	{
 		$body = '';
-		$body .= 'query SSLCertificate($filter: FilterInput, $limit: Int, $skip: Int, $sort: SortInput) {' . PHP_EOL;
-		$body .= '    SSLCertificate(filter: $filter, limit: $limit, skip: $skip, sort: $sort) {' . PHP_EOL;
+		$body .= 'mutation SSLCertificate($entity: SslCertificateInput, $delete: Boolean!) {' . PHP_EOL;
+		$body .= '    SSLCertificate(entity: $entity, delete: $delete) {' . PHP_EOL;
 		$body .= '        connectedDomainPointers {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
@@ -48,7 +48,7 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseQuery
 	 */
 	public function getReturnArray(): bool
 	{
-		return true;
+		return false;
 	}
 
 

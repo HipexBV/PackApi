@@ -12,7 +12,7 @@ namespace HipexPackApi\Generated\Schema\Input;
 use JsonSerializable;
 
 /**
- * Ssl Certificate on domain
+ * SSL Certificate on domain
  * @codeCoverageIgnore
  */
 class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonSerializable

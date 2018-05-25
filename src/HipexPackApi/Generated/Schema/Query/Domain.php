@@ -21,7 +21,7 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        letsEncryptSsl' . PHP_EOL;
-		$body .= '        sslCertificate {' . PHP_EOL;
+		$body .= '        sSLCertificate {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        domain' . PHP_EOL;
