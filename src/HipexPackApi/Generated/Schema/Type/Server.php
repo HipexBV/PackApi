@@ -155,6 +155,7 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDomains($domains = null): self
 	{
 		$this->domains = [];
+		if ($domains === null) return $this;
 		foreach ($domains as $item) {
 		    $this->addDomainsValue($item);
 		}
@@ -191,6 +192,7 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setUsers($users = null): self
 	{
 		$this->users = [];
+		if ($users === null) return $this;
 		foreach ($users as $item) {
 		    $this->addUsersValue($item);
 		}
@@ -227,6 +229,7 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setSshKeys($sshKeys = null): self
 	{
 		$this->sshKeys = [];
+		if ($sshKeys === null) return $this;
 		foreach ($sshKeys as $item) {
 		    $this->addSshKeysValue($item);
 		}

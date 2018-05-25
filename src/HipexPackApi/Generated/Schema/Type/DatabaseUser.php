@@ -121,6 +121,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}

@@ -275,6 +275,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	public function setSteps($steps = null): self
 	{
 		$this->steps = [];
+		if ($steps === null) return $this;
 		foreach ($steps as $item) {
 		    $this->addStepsValue($item);
 		}

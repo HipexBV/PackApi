@@ -375,6 +375,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setMetaData($metaData = null): self
 	{
 		$this->metaData = [];
+		if ($metaData === null) return $this;
 		foreach ($metaData as $item) {
 		    $this->addMetaDataValue($item);
 		}
@@ -432,6 +433,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setExecutions($executions = null): self
 	{
 		$this->executions = [];
+		if ($executions === null) return $this;
 		foreach ($executions as $item) {
 		    $this->addExecutionsValue($item);
 		}

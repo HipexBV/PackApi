@@ -107,6 +107,7 @@ class PerformanceScanGroup extends \HipexPackApi\Schema\BaseType implements Json
 	public function setItems($items = null): self
 	{
 		$this->items = [];
+		if ($items === null) return $this;
 		foreach ($items as $item) {
 		    $this->addItemsValue($item);
 		}

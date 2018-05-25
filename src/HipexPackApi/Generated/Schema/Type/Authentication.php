@@ -231,6 +231,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setSettings($settings = null): self
 	{
 		$this->settings = [];
+		if ($settings === null) return $this;
 		foreach ($settings as $item) {
 		    $this->addSettingsValue($item);
 		}

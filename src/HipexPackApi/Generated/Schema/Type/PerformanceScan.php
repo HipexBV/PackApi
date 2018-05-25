@@ -327,6 +327,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	public function setGroups($groups = null): self
 	{
 		$this->groups = [];
+		if ($groups === null) return $this;
 		foreach ($groups as $item) {
 		    $this->addGroupsValue($item);
 		}

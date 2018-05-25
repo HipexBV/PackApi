@@ -207,6 +207,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setUsers($users = null): self
 	{
 		$this->users = [];
+		if ($users === null) return $this;
 		foreach ($users as $item) {
 		    $this->addUsersValue($item);
 		}
@@ -243,6 +244,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setServers($servers = null): self
 	{
 		$this->servers = [];
+		if ($servers === null) return $this;
 		foreach ($servers as $item) {
 		    $this->addServersValue($item);
 		}

@@ -583,6 +583,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setPointers($pointers = null): self
 	{
 		$this->pointers = [];
+		if ($pointers === null) return $this;
 		foreach ($pointers as $item) {
 		    $this->addPointersValue($item);
 		}
@@ -619,6 +620,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}
@@ -655,6 +657,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabaseUsers($databaseUsers = null): self
 	{
 		$this->databaseUsers = [];
+		if ($databaseUsers === null) return $this;
 		foreach ($databaseUsers as $item) {
 		    $this->addDatabaseUsersValue($item);
 		}
@@ -691,6 +694,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setIntegrationTests($integrationTests = null): self
 	{
 		$this->integrationTests = [];
+		if ($integrationTests === null) return $this;
 		foreach ($integrationTests as $item) {
 		    $this->addIntegrationTestsValue($item);
 		}
@@ -727,6 +731,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setFtpUsers($ftpUsers = null): self
 	{
 		$this->ftpUsers = [];
+		if ($ftpUsers === null) return $this;
 		foreach ($ftpUsers as $item) {
 		    $this->addFtpUsersValue($item);
 		}

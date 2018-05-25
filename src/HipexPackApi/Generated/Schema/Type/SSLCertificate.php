@@ -115,6 +115,7 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setConnectedDomainPointers($connectedDomainPointers = null): self
 	{
 		$this->connectedDomainPointers = [];
+		if ($connectedDomainPointers === null) return $this;
 		foreach ($connectedDomainPointers as $item) {
 		    $this->addConnectedDomainPointersValue($item);
 		}
@@ -151,6 +152,7 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setConnectedDomains($connectedDomains = null): self
 	{
 		$this->connectedDomains = [];
+		if ($connectedDomains === null) return $this;
 		foreach ($connectedDomains as $item) {
 		    $this->addConnectedDomainsValue($item);
 		}
@@ -211,6 +213,7 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setAlternativeDomains($alternativeDomains = null): self
 	{
 		$this->alternativeDomains = [];
+		if ($alternativeDomains === null) return $this;
 		foreach ($alternativeDomains as $item) {
 		    $this->addAlternativeDomainsValue($item);
 		}

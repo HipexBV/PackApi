@@ -172,6 +172,7 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	public function setChildren($children = null): self
 	{
 		$this->children = [];
+		if ($children === null) return $this;
 		foreach ($children as $item) {
 		    $this->addChildrenValue($item);
 		}

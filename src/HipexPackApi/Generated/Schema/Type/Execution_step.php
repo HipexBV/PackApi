@@ -90,6 +90,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setMessageArguments($messageArguments = null): self
 	{
 		$this->messageArguments = [];
+		if ($messageArguments === null) return $this;
 		foreach ($messageArguments as $item) {
 		    $this->addMessageArgumentsValue($item);
 		}
