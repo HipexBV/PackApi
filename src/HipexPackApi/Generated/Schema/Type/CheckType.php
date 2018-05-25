@@ -120,9 +120,6 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setStatus($status = null): self
 	{
-		if ($status !== null && !$status instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $status = new \HipexPackApi\Generated\Schema\Type\string($status);
-		}
 		$this->status = $status;
 		return $this;
 	}

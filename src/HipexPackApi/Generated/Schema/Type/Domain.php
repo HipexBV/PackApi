@@ -46,11 +46,11 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $letsEncryptSsl;
 
 	/**
-	 * sSLCertificate
+	 * SSLCertificate
 	 *
 	 * @var SSLCertificate|null
 	 */
-	private $sSLCertificate;
+	private $SSLCertificate;
 
 	/**
 	 * domain
@@ -282,28 +282,28 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
-	 * sSLCertificate
+	 * SSLCertificate
 	 *
 	 * @return SSLCertificate|null
 	 */
 	public function getSSLCertificate()
 	{
-		return $this->sSLCertificate;
+		return $this->SSLCertificate;
 	}
 
 
 	/**
-	 * sSLCertificate
+	 * SSLCertificate
 	 *
-	 * @param SSLCertificate|null $sSLCertificate
+	 * @param SSLCertificate|null $SSLCertificate
 	 * @return $this
 	 */
-	public function setSSLCertificate($sSLCertificate = null): self
+	public function setSSLCertificate($SSLCertificate = null): self
 	{
-		if ($sSLCertificate !== null && !$sSLCertificate instanceof \HipexPackApi\Generated\Schema\Type\SSLCertificate) {
-		    $sSLCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($sSLCertificate);
+		if ($SSLCertificate !== null && !$SSLCertificate instanceof \HipexPackApi\Generated\Schema\Type\SSLCertificate) {
+		    $SSLCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($SSLCertificate);
 		}
-		$this->sSLCertificate = $sSLCertificate;
+		$this->SSLCertificate = $SSLCertificate;
 		return $this;
 	}
 
@@ -510,9 +510,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setMainPhp($mainPhp): self
 	{
-		if ($mainPhp !== null && !$mainPhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $mainPhp = new \HipexPackApi\Generated\Schema\Type\string($mainPhp);
-		}
 		$this->mainPhp = $mainPhp;
 		return $this;
 	}
@@ -537,9 +534,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setAccessLogs($accessLogs): self
 	{
-		if ($accessLogs !== null && !$accessLogs instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $accessLogs = new \HipexPackApi\Generated\Schema\Type\string($accessLogs);
-		}
 		$this->accessLogs = $accessLogs;
 		return $this;
 	}
@@ -564,9 +558,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setAlternativePhp($alternativePhp): self
 	{
-		if ($alternativePhp !== null && !$alternativePhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $alternativePhp = new \HipexPackApi\Generated\Schema\Type\string($alternativePhp);
-		}
 		$this->alternativePhp = $alternativePhp;
 		return $this;
 	}
@@ -834,7 +825,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    'server' => $this->server,
 		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
 		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		    'sSLCertificate' => $this->sSLCertificate,
+		    'SSLCertificate' => $this->SSLCertificate,
 		    'domain' => $this->domain,
 		    'backup' => $this->backup,
 		    'user' => $this->user,

@@ -113,9 +113,6 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	 */
 	public function setType($type): self
 	{
-		if ($type !== null && !$type instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $type = new \HipexPackApi\Generated\Schema\Type\string($type);
-		}
 		$this->type = $type;
 		return $this;
 	}

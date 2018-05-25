@@ -134,9 +134,6 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setType($type = null): self
 	{
-		if ($type !== null && !$type instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $type = new \HipexPackApi\Generated\Schema\Type\string($type);
-		}
 		$this->type = $type;
 		return $this;
 	}

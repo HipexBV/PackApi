@@ -200,9 +200,6 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setMainPhp($mainPhp = null): self
 	{
-		if ($mainPhp !== null && !$mainPhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $mainPhp = new \HipexPackApi\Generated\Schema\Type\string($mainPhp);
-		}
 		$this->mainPhp = $mainPhp;
 		return $this;
 	}
@@ -227,9 +224,6 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setAlternativePhp($alternativePhp = null): self
 	{
-		if ($alternativePhp !== null && !$alternativePhp instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $alternativePhp = new \HipexPackApi\Generated\Schema\Type\string($alternativePhp);
-		}
 		$this->alternativePhp = $alternativePhp;
 		return $this;
 	}
@@ -350,9 +344,6 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setSaveAccessLogs($saveAccessLogs = null): self
 	{
-		if ($saveAccessLogs !== null && !$saveAccessLogs instanceof \HipexPackApi\Generated\Schema\Type\string) {
-		    $saveAccessLogs = new \HipexPackApi\Generated\Schema\Type\string($saveAccessLogs);
-		}
 		$this->saveAccessLogs = $saveAccessLogs;
 		return $this;
 	}
