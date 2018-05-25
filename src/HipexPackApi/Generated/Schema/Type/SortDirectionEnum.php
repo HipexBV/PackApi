@@ -14,7 +14,7 @@ namespace HipexPackApi\Generated\Schema\Type;
  */
 class SortDirectionEnum extends \HipexPackApi\Schema\BaseType
 {
-	const VALUE_ASC = 'ASC';
-	const VALUE_DESC = 'DESC';
+	const VALUE_ASC = 'asc';
+	const VALUE_DESC = 'desc';
 
 }

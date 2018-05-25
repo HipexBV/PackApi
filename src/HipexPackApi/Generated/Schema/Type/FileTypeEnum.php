@@ -16,10 +16,10 @@ namespace HipexPackApi\Generated\Schema\Type;
 class FileTypeEnum extends \HipexPackApi\Schema\BaseType
 {
 	/** File */
-	const VALUE_FILE = 'FILE';
+	const VALUE_FILE = 'file';
 	/** Directory */
-	const VALUE_DIRECTORY = 'DIRECTORY';
+	const VALUE_DIRECTORY = 'directory';
 	/** Symlink */
-	const VALUE_SYMLINK = 'SYMLINK';
+	const VALUE_SYMLINK = 'symlink';
 
 }

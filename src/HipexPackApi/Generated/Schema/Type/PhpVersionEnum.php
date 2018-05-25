@@ -16,16 +16,16 @@ namespace HipexPackApi\Generated\Schema\Type;
 class PhpVersionEnum extends \HipexPackApi\Schema\BaseType
 {
 	/** PHP 7.2 */
-	const VALUE_PHP72 = 'PHP72';
+	const VALUE_PHP72 = 'php72';
 	/** PHP 7.1 */
-	const VALUE_PHP71 = 'PHP71';
+	const VALUE_PHP71 = 'php71';
 	/** PHP 7.0 */
-	const VALUE_PHP70 = 'PHP70';
+	const VALUE_PHP70 = 'php70';
 	/** PHP 5.6 */
-	const VALUE_PHP56 = 'PHP56';
+	const VALUE_PHP56 = 'php56';
 	/** PHP 5.5 */
-	const VALUE_PHP55 = 'PHP55';
+	const VALUE_PHP55 = 'php55';
 	/** HipHop VM */
-	const VALUE_HHVM = 'HHVM';
+	const VALUE_HHVM = 'hhvm';
 
 }

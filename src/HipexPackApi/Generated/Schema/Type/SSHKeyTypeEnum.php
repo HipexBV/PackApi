@@ -15,12 +15,12 @@ namespace HipexPackApi\Generated\Schema\Type;
 class SSHKeyTypeEnum extends \HipexPackApi\Schema\BaseType
 {
 	/** ssh-rsa */
-	const VALUE_SSH_RSA = 'SSH_RSA';
+	const VALUE_SSH_RSA = 'ssh_rsa';
 	/** ssh-dsa */
-	const VALUE_SSH_DSA = 'SSH_DSA';
+	const VALUE_SSH_DSA = 'ssh_dsa';
 	/** ssh-dss */
-	const VALUE_SSH_DSS = 'SSH_DSS';
+	const VALUE_SSH_DSS = 'ssh_dss';
 	/** ssh-ecdsa */
-	const VALUE_SSH_ECDSA = 'SSH_ECDSA';
+	const VALUE_SSH_ECDSA = 'ssh_ecdsa';
 
 }
