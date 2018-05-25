@@ -10,7 +10,6 @@
 namespace HipexPackApi\Generated\Schema\Input;
 
 use JsonSerializable;
-use string;
 
 /**
  * Domain entity

@@ -10,7 +10,6 @@
 namespace HipexPackApi\Generated\Schema\Input;
 
 use JsonSerializable;
-use string;
 
 /**
  * Sort field direction options are "asc" or "desc" by default "asc" is assumed"
