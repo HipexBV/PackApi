@@ -9,7 +9,6 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
-use DateTime;
 use JsonSerializable;
 
 /**

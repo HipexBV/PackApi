@@ -26,17 +26,10 @@ use HipexPackApi\Generated\Schema\Type\Database;
 use HipexPackApi\Generated\Schema\Type\DatabaseUser;
 use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
-use HipexPackApi\Generated\Schema\Type\Filesystem;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
-use HipexPackApi\Generated\Schema\Type\MonitorQueryValue;
-use HipexPackApi\Generated\Schema\Type\PerformanceScan;
-use HipexPackApi\Generated\Schema\Type\SSHKey;
-use HipexPackApi\Generated\Schema\Type\Server;
-use HipexPackApi\Generated\Schema\Type\ServerChange;
 use HipexPackApi\Generated\Schema\Type\SslCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
-use HipexPackApi\Generated\Schema\Type\string;
 
 /**
  * @codeCoverageIgnore

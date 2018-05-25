@@ -9,7 +9,6 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
-use DateTime;
 use JsonSerializable;
 
 /**
@@ -127,7 +126,7 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	 *
 	 * @return DateTime
 	 */
-	public function getModifiedTime(): DateTime
+	public function getModifiedTime(): \DateTime
 	{
 		return $this->modifiedTime;
 	}

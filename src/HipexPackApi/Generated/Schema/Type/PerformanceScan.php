@@ -9,7 +9,6 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
-use DateTime;
 use JsonSerializable;
 
 /**
@@ -142,7 +141,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 *
 	 * @return DateTime
 	 */
-	public function getCreatedAt(): DateTime
+	public function getCreatedAt(): \DateTime
 	{
 		return $this->createdAt;
 	}
