@@ -10,6 +10,7 @@ use HipexPackApi\Client;
 use HipexPackApi\Exception\EntityNotFoundException;
 use HipexPackApi\Exception\ResultNonUniqueException;
 use HipexPackApi\Generated\Schema\Input\FilterInput;
+use HipexPackApi\Generated\Schema\Input\SortInput;
 use HipexPackApi\Schema\BaseQuery;
 use HipexPackApi\Schema\BaseType;
 
@@ -31,13 +32,14 @@ abstract class AbstractRepository
 
     /**
      * @param FilterInput $filter
+     * @param SortInput|null $sort
+     * @param int|null $limit
+     * @param int|null $skip
      * @return BaseType
-     * @throws EntityNotFoundException
-     * @throws ResultNonUniqueException
      */
-    public function findOne(FilterInput $filter): BaseType
+    public function findOne(FilterInput $filter, SortInput $sort = null, int $limit = null, int $skip = null): BaseType
     {
-        $result = $this->client->query($this->createQuery(), ['filter' => $filter, 'limit' => null, 'skip' => null, 'sort' => null]);
+        $result = $this->find($filter, $sort, $limit, $skip);
         if (empty($result)) {
             throw new EntityNotFoundException(sprintf('No entities found for %s', json_encode($filter)));
         }
@@ -93,6 +95,18 @@ abstract class AbstractRepository
         } catch (EntityNotFoundException $e) {
             return null;
         }
+    }
+
+    /**
+     * @param FilterInput $filter
+     * @param SortInput|null $sort
+     * @param int|null $limit
+     * @param int|null $skip
+     * @return BaseType[]|iterable
+     */
+    public function find(FilterInput $filter, SortInput $sort = null, int $limit = null, int $skip = null)
+    {
+        return (array) $this->client->query($this->createQuery(), ['filter' => $filter, 'limit' => $limit, 'skip' => $skip, 'sort' => $sort]);
     }
 
     /**
