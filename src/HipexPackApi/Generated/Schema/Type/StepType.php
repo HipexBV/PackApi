@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -41,7 +43,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * started
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $started;
 
@@ -152,7 +154,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * started
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getStarted()
 	{
@@ -163,12 +165,15 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * started
 	 *
-	 * @param DateTime|null $started
+	 * @param DateTimeInterface|null $started
 	 * @return $this
 	 */
 	public function setStarted($started = null): self
 	{
-		$this->started = $started === null ? null : (DateTime) $started;
+		if ($started !== null && !$started instanceof DateTimeInterface) {
+		    $started = new \DateTimeImmutable($started);
+		}
+		$this->started = $started;
 		return $this;
 	}
 

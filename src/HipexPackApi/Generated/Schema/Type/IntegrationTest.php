@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -34,7 +36,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $finished;
 
@@ -132,7 +134,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getFinished()
 	{
@@ -143,12 +145,15 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @param DateTime|null $finished
+	 * @param DateTimeInterface|null $finished
 	 * @return $this
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished === null ? null : (DateTime) $finished;
+		if ($finished !== null && !$finished instanceof DateTimeInterface) {
+		    $finished = new \DateTimeImmutable($finished);
+		}
+		$this->finished = $finished;
 		return $this;
 	}
 

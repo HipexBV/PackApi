@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -69,14 +71,14 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	/**
 	 * started
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $started;
 
 	/**
 	 * finished
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $finished;
 
@@ -286,7 +288,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	/**
 	 * started
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getStarted()
 	{
@@ -297,12 +299,15 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	/**
 	 * started
 	 *
-	 * @param DateTime|null $started
+	 * @param DateTimeInterface|null $started
 	 * @return $this
 	 */
 	public function setStarted($started = null): self
 	{
-		$this->started = $started === null ? null : (DateTime) $started;
+		if ($started !== null && !$started instanceof DateTimeInterface) {
+		    $started = new \DateTimeImmutable($started);
+		}
+		$this->started = $started;
 		return $this;
 	}
 
@@ -310,7 +315,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	/**
 	 * finished
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getFinished()
 	{
@@ -321,12 +326,15 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	/**
 	 * finished
 	 *
-	 * @param DateTime|null $finished
+	 * @param DateTimeInterface|null $finished
 	 * @return $this
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished === null ? null : (DateTime) $finished;
+		if ($finished !== null && !$finished instanceof DateTimeInterface) {
+		    $finished = new \DateTimeImmutable($finished);
+		}
+		$this->finished = $finished;
 		return $this;
 	}
 

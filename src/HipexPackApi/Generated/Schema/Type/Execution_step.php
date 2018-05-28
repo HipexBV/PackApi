@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -34,7 +36,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * finished
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $finished;
 
@@ -107,7 +109,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * finished
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getFinished()
 	{
@@ -118,12 +120,15 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	/**
 	 * finished
 	 *
-	 * @param DateTime|null $finished
+	 * @param DateTimeInterface|null $finished
 	 * @return $this
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished === null ? null : (DateTime) $finished;
+		if ($finished !== null && !$finished instanceof DateTimeInterface) {
+		    $finished = new \DateTimeImmutable($finished);
+		}
+		$this->finished = $finished;
 		return $this;
 	}
 

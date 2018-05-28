@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -34,7 +36,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * createdAt
 	 *
-	 * @var DateTime
+	 * @var DateTimeInterface
 	 */
 	private $createdAt;
 
@@ -55,7 +57,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $finished;
 
@@ -139,9 +141,9 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * createdAt
 	 *
-	 * @return DateTime
+	 * @return DateTimeInterface
 	 */
-	public function getCreatedAt(): \DateTime
+	public function getCreatedAt(): DateTimeInterface
 	{
 		return $this->createdAt;
 	}
@@ -150,11 +152,14 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * createdAt
 	 *
-	 * @param DateTime $createdAt
+	 * @param DateTimeInterface $createdAt
 	 * @return $this
 	 */
 	public function setCreatedAt($createdAt): self
 	{
+		if ($createdAt !== null && !$createdAt instanceof DateTimeInterface) {
+		    $createdAt = new \DateTimeImmutable($createdAt);
+		}
 		$this->createdAt = $createdAt;
 		return $this;
 	}
@@ -214,7 +219,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getFinished()
 	{
@@ -225,12 +230,15 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	/**
 	 * finished
 	 *
-	 * @param DateTime|null $finished
+	 * @param DateTimeInterface|null $finished
 	 * @return $this
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished === null ? null : (DateTime) $finished;
+		if ($finished !== null && !$finished instanceof DateTimeInterface) {
+		    $finished = new \DateTimeImmutable($finished);
+		}
+		$this->finished = $finished;
 		return $this;
 	}
 

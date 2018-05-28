@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -41,7 +43,7 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * modifiedTime
 	 *
-	 * @var DateTime
+	 * @var DateTimeInterface
 	 */
 	private $modifiedTime;
 
@@ -121,9 +123,9 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * modifiedTime
 	 *
-	 * @return DateTime
+	 * @return DateTimeInterface
 	 */
-	public function getModifiedTime(): \DateTime
+	public function getModifiedTime(): DateTimeInterface
 	{
 		return $this->modifiedTime;
 	}
@@ -132,11 +134,14 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	/**
 	 * modifiedTime
 	 *
-	 * @param DateTime $modifiedTime
+	 * @param DateTimeInterface $modifiedTime
 	 * @return $this
 	 */
 	public function setModifiedTime($modifiedTime): self
 	{
+		if ($modifiedTime !== null && !$modifiedTime instanceof DateTimeInterface) {
+		    $modifiedTime = new \DateTimeImmutable($modifiedTime);
+		}
 		$this->modifiedTime = $modifiedTime;
 		return $this;
 	}

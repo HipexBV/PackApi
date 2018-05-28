@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -48,7 +50,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * validUntil
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $validUntil;
 
@@ -173,7 +175,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * validUntil
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getValidUntil()
 	{
@@ -184,12 +186,15 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * validUntil
 	 *
-	 * @param DateTime|null $validUntil
+	 * @param DateTimeInterface|null $validUntil
 	 * @return $this
 	 */
 	public function setValidUntil($validUntil = null): self
 	{
-		$this->validUntil = $validUntil === null ? null : (DateTime) $validUntil;
+		if ($validUntil !== null && !$validUntil instanceof DateTimeInterface) {
+		    $validUntil = new \DateTimeImmutable($validUntil);
+		}
+		$this->validUntil = $validUntil;
 		return $this;
 	}
 

@@ -9,6 +9,8 @@
 
 namespace HipexPackApi\Generated\Schema\Type;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use JsonSerializable;
 
 /**
@@ -34,7 +36,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	/**
 	 * expires
 	 *
-	 * @var DateTime|null
+	 * @var DateTimeInterface|null
 	 */
 	private $expires;
 
@@ -118,7 +120,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	/**
 	 * expires
 	 *
-	 * @return DateTime|null
+	 * @return DateTimeInterface|null
 	 */
 	public function getExpires()
 	{
@@ -129,12 +131,15 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	/**
 	 * expires
 	 *
-	 * @param DateTime|null $expires
+	 * @param DateTimeInterface|null $expires
 	 * @return $this
 	 */
 	public function setExpires($expires = null): self
 	{
-		$this->expires = $expires === null ? null : (DateTime) $expires;
+		if ($expires !== null && !$expires instanceof DateTimeInterface) {
+		    $expires = new \DateTimeImmutable($expires);
+		}
+		$this->expires = $expires;
 		return $this;
 	}
 
