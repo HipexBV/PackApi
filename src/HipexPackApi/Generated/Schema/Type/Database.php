@@ -96,7 +96,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setDatabase($database = null): self
 	{
-		$this->database = $database;
+		$this->database = $database === null ? null : (string) $database;
 		return $this;
 	}
 
@@ -120,7 +120,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setBackup($backup = null): self
 	{
-		$this->backup = $backup;
+		$this->backup = $backup === null ? null : (bool) $backup;
 		return $this;
 	}
 
@@ -145,6 +145,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setUsers($users = null): self
 	{
 		$this->users = [];
+		if ($users === null) return $this;
 		foreach ($users as $item) {
 		    $this->addUsersValue($item);
 		}

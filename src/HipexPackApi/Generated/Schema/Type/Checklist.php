@@ -113,7 +113,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 		if ($domain !== null && !$domain instanceof \HipexPackApi\Generated\Schema\Type\Domain) {
 		    $domain = new \HipexPackApi\Generated\Schema\Type\Domain($domain);
 		}
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (Domain) $domain;
 		return $this;
 	}
 
@@ -140,7 +140,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 		if ($applicationInfo !== null && !$applicationInfo instanceof \HipexPackApi\Generated\Schema\Type\ApplicationInfo) {
 		    $applicationInfo = new \HipexPackApi\Generated\Schema\Type\ApplicationInfo($applicationInfo);
 		}
-		$this->applicationInfo = $applicationInfo;
+		$this->applicationInfo = $applicationInfo === null ? null : (ApplicationInfo) $applicationInfo;
 		return $this;
 	}
 
@@ -164,7 +164,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setError($error = null): self
 	{
-		$this->error = $error;
+		$this->error = $error === null ? null : (string) $error;
 		return $this;
 	}
 
@@ -188,7 +188,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -213,6 +213,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	public function setGroups($groups = null): self
 	{
 		$this->groups = [];
+		if ($groups === null) return $this;
 		foreach ($groups as $item) {
 		    $this->addGroupsValue($item);
 		}
@@ -248,7 +249,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setStatus($status = null): self
 	{
-		$this->status = $status;
+		$this->status = $status === null ? null : (string) $status;
 		return $this;
 	}
 

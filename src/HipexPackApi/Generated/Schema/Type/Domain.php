@@ -198,7 +198,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -225,7 +225,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($server !== null && !$server instanceof \HipexPackApi\Generated\Schema\Type\Server) {
 		    $server = new \HipexPackApi\Generated\Schema\Type\Server($server);
 		}
-		$this->server = $server;
+		$this->server = $server === null ? null : (Server) $server;
 		return $this;
 	}
 
@@ -252,7 +252,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($letsEncryptCertificate !== null && !$letsEncryptCertificate instanceof \HipexPackApi\Generated\Schema\Type\LetsEncryptCertificate) {
 		    $letsEncryptCertificate = new \HipexPackApi\Generated\Schema\Type\LetsEncryptCertificate($letsEncryptCertificate);
 		}
-		$this->letsEncryptCertificate = $letsEncryptCertificate;
+		$this->letsEncryptCertificate = $letsEncryptCertificate === null ? null : (LetsEncryptCertificate) $letsEncryptCertificate;
 		return $this;
 	}
 
@@ -276,7 +276,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setLetsEncryptSsl($letsEncryptSsl = null): self
 	{
-		$this->letsEncryptSsl = $letsEncryptSsl;
+		$this->letsEncryptSsl = $letsEncryptSsl === null ? null : (bool) $letsEncryptSsl;
 		return $this;
 	}
 
@@ -303,7 +303,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($SSLCertificate !== null && !$SSLCertificate instanceof \HipexPackApi\Generated\Schema\Type\SSLCertificate) {
 		    $SSLCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($SSLCertificate);
 		}
-		$this->SSLCertificate = $SSLCertificate;
+		$this->SSLCertificate = $SSLCertificate === null ? null : (SSLCertificate) $SSLCertificate;
 		return $this;
 	}
 
@@ -405,7 +405,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($customer !== null && !$customer instanceof \HipexPackApi\Generated\Schema\Type\Customer) {
 		    $customer = new \HipexPackApi\Generated\Schema\Type\Customer($customer);
 		}
-		$this->customer = $customer;
+		$this->customer = $customer === null ? null : (Customer) $customer;
 		return $this;
 	}
 
@@ -432,7 +432,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($lastPerformanceScan !== null && !$lastPerformanceScan instanceof \HipexPackApi\Generated\Schema\Type\PerformanceScan) {
 		    $lastPerformanceScan = new \HipexPackApi\Generated\Schema\Type\PerformanceScan($lastPerformanceScan);
 		}
-		$this->lastPerformanceScan = $lastPerformanceScan;
+		$this->lastPerformanceScan = $lastPerformanceScan === null ? null : (PerformanceScan) $lastPerformanceScan;
 		return $this;
 	}
 
@@ -459,7 +459,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($lastChecklist !== null && !$lastChecklist instanceof \HipexPackApi\Generated\Schema\Type\Checklist) {
 		    $lastChecklist = new \HipexPackApi\Generated\Schema\Type\Checklist($lastChecklist);
 		}
-		$this->lastChecklist = $lastChecklist;
+		$this->lastChecklist = $lastChecklist === null ? null : (Checklist) $lastChecklist;
 		return $this;
 	}
 
@@ -486,7 +486,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($lastIntegrationTest !== null && !$lastIntegrationTest instanceof \HipexPackApi\Generated\Schema\Type\IntegrationTest) {
 		    $lastIntegrationTest = new \HipexPackApi\Generated\Schema\Type\IntegrationTest($lastIntegrationTest);
 		}
-		$this->lastIntegrationTest = $lastIntegrationTest;
+		$this->lastIntegrationTest = $lastIntegrationTest === null ? null : (IntegrationTest) $lastIntegrationTest;
 		return $this;
 	}
 
@@ -583,6 +583,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setPointers($pointers = null): self
 	{
 		$this->pointers = [];
+		if ($pointers === null) return $this;
 		foreach ($pointers as $item) {
 		    $this->addPointersValue($item);
 		}
@@ -619,6 +620,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}
@@ -655,6 +657,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabaseUsers($databaseUsers = null): self
 	{
 		$this->databaseUsers = [];
+		if ($databaseUsers === null) return $this;
 		foreach ($databaseUsers as $item) {
 		    $this->addDatabaseUsersValue($item);
 		}
@@ -691,6 +694,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setIntegrationTests($integrationTests = null): self
 	{
 		$this->integrationTests = [];
+		if ($integrationTests === null) return $this;
 		foreach ($integrationTests as $item) {
 		    $this->addIntegrationTestsValue($item);
 		}
@@ -727,6 +731,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setFtpUsers($ftpUsers = null): self
 	{
 		$this->ftpUsers = [];
+		if ($ftpUsers === null) return $this;
 		foreach ($ftpUsers as $item) {
 		    $this->addFtpUsersValue($item);
 		}
@@ -762,7 +767,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setNewRelicKey($newRelicKey = null): self
 	{
-		$this->newRelicKey = $newRelicKey;
+		$this->newRelicKey = $newRelicKey === null ? null : (string) $newRelicKey;
 		return $this;
 	}
 
@@ -786,7 +791,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPhpMyAdmin($phpMyAdmin = null): self
 	{
-		$this->phpMyAdmin = $phpMyAdmin;
+		$this->phpMyAdmin = $phpMyAdmin === null ? null : (bool) $phpMyAdmin;
 		return $this;
 	}
 
@@ -810,7 +815,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setMonitor($monitor = null): self
 	{
-		$this->monitor = $monitor;
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
 		return $this;
 	}
 

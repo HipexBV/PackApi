@@ -79,7 +79,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -103,7 +103,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setCertificate($certificate = null): self
 	{
-		$this->certificate = $certificate;
+		$this->certificate = $certificate === null ? null : (string) $certificate;
 		return $this;
 	}
 
@@ -127,7 +127,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setChain($chain = null): self
 	{
-		$this->chain = $chain;
+		$this->chain = $chain === null ? null : (string) $chain;
 		return $this;
 	}
 
@@ -151,7 +151,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setKey($key = null): self
 	{
-		$this->key = $key;
+		$this->key = $key === null ? null : (string) $key;
 		return $this;
 	}
 
@@ -176,6 +176,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	public function setDomains($domains = null): self
 	{
 		$this->domains = [];
+		if ($domains === null) return $this;
 		foreach ($domains as $item) {
 		    $this->addDomainsValue($item);
 		}
@@ -209,6 +210,7 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	public function setDomainPointers($domainPointers = null): self
 	{
 		$this->domainPointers = [];
+		if ($domainPointers === null) return $this;
 		foreach ($domainPointers as $item) {
 		    $this->addDomainPointersValue($item);
 		}

@@ -75,7 +75,7 @@ class SortInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setDirection($direction = null): self
 	{
-		$this->direction = $direction;
+		$this->direction = $direction === null ? null : (string) $direction;
 		return $this;
 	}
 

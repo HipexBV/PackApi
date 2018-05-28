@@ -120,7 +120,7 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPasswordEnabled($passwordEnabled = null): self
 	{
-		$this->passwordEnabled = $passwordEnabled;
+		$this->passwordEnabled = $passwordEnabled === null ? null : (bool) $passwordEnabled;
 		return $this;
 	}
 
@@ -172,6 +172,7 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setSshKeys($sshKeys = null): self
 	{
 		$this->sshKeys = [];
+		if ($sshKeys === null) return $this;
 		foreach ($sshKeys as $item) {
 		    $this->addSshKeysValue($item);
 		}

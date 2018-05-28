@@ -96,7 +96,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setUsername($username = null): self
 	{
-		$this->username = $username;
+		$this->username = $username === null ? null : (string) $username;
 		return $this;
 	}
 
@@ -121,6 +121,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}
@@ -159,7 +160,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 		if ($domain !== null && !$domain instanceof \HipexPackApi\Generated\Schema\Type\Domain) {
 		    $domain = new \HipexPackApi\Generated\Schema\Type\Domain($domain);
 		}
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (Domain) $domain;
 		return $this;
 	}
 
@@ -183,7 +184,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setReadOnly($readOnly = null): self
 	{
-		$this->readOnly = $readOnly;
+		$this->readOnly = $readOnly === null ? null : (bool) $readOnly;
 		return $this;
 	}
 

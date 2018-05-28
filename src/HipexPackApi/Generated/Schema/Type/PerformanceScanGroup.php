@@ -58,7 +58,7 @@ class PerformanceScanGroup extends \HipexPackApi\Schema\BaseType implements Json
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -82,7 +82,7 @@ class PerformanceScanGroup extends \HipexPackApi\Schema\BaseType implements Json
 	 */
 	public function setScore($score = null): self
 	{
-		$this->score = $score;
+		$this->score = $score === null ? null : (float) $score;
 		return $this;
 	}
 
@@ -107,6 +107,7 @@ class PerformanceScanGroup extends \HipexPackApi\Schema\BaseType implements Json
 	public function setItems($items = null): self
 	{
 		$this->items = [];
+		if ($items === null) return $this;
 		foreach ($items as $item) {
 		    $this->addItemsValue($item);
 		}

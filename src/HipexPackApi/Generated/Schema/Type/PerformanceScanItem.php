@@ -65,7 +65,7 @@ class PerformanceScanItem extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -89,7 +89,7 @@ class PerformanceScanItem extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setValue($value = null): self
 	{
-		$this->value = $value;
+		$this->value = $value === null ? null : (string) $value;
 		return $this;
 	}
 
@@ -113,7 +113,7 @@ class PerformanceScanItem extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setGeneralDescription($generalDescription = null): self
 	{
-		$this->generalDescription = $generalDescription;
+		$this->generalDescription = $generalDescription === null ? null : (string) $generalDescription;
 		return $this;
 	}
 
@@ -137,7 +137,7 @@ class PerformanceScanItem extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function setScanDescription($scanDescription = null): self
 	{
-		$this->scanDescription = $scanDescription;
+		$this->scanDescription = $scanDescription === null ? null : (string) $scanDescription;
 		return $this;
 	}
 

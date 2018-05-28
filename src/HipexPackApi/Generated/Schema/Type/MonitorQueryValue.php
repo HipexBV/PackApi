@@ -76,6 +76,7 @@ class MonitorQueryValue extends \HipexPackApi\Schema\BaseType implements JsonSer
 	public function setValues($values = null): self
 	{
 		$this->values = [];
+		if ($values === null) return $this;
 		foreach ($values as $item) {
 		    $this->addValuesValue($item);
 		}

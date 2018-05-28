@@ -89,7 +89,7 @@ class ApplicationInfo extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setVersion($version = null): self
 	{
-		$this->version = $version;
+		$this->version = $version === null ? null : (string) $version;
 		return $this;
 	}
 
@@ -113,7 +113,7 @@ class ApplicationInfo extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setLatestVersion($latestVersion = null): self
 	{
-		$this->latestVersion = $latestVersion;
+		$this->latestVersion = $latestVersion === null ? null : (string) $latestVersion;
 		return $this;
 	}
 
@@ -137,7 +137,7 @@ class ApplicationInfo extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setUrl($url = null): self
 	{
-		$this->url = $url;
+		$this->url = $url === null ? null : (string) $url;
 		return $this;
 	}
 

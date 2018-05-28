@@ -179,7 +179,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -206,7 +206,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 		if ($domain !== null && !$domain instanceof \HipexPackApi\Generated\Schema\Type\Domain) {
 		    $domain = new \HipexPackApi\Generated\Schema\Type\Domain($domain);
 		}
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (Domain) $domain;
 		return $this;
 	}
 
@@ -230,7 +230,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -254,7 +254,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setScore($score = null): self
 	{
-		$this->score = $score;
+		$this->score = $score === null ? null : (float) $score;
 		return $this;
 	}
 
@@ -278,7 +278,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setScreenDesktop($screenDesktop = null): self
 	{
-		$this->screenDesktop = $screenDesktop;
+		$this->screenDesktop = $screenDesktop === null ? null : (string) $screenDesktop;
 		return $this;
 	}
 
@@ -302,7 +302,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setScreenMobile($screenMobile = null): self
 	{
-		$this->screenMobile = $screenMobile;
+		$this->screenMobile = $screenMobile === null ? null : (string) $screenMobile;
 		return $this;
 	}
 
@@ -327,6 +327,7 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	public function setGroups($groups = null): self
 	{
 		$this->groups = [];
+		if ($groups === null) return $this;
 		foreach ($groups as $item) {
 		    $this->addGroupsValue($item);
 		}

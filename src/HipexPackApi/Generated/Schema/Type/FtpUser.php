@@ -147,7 +147,7 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPath($path = null): self
 	{
-		$this->path = $path;
+		$this->path = $path === null ? null : (string) $path;
 		return $this;
 	}
 

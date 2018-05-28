@@ -72,7 +72,7 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -96,7 +96,7 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setUser($user = null): self
 	{
-		$this->user = $user;
+		$this->user = $user === null ? null : (string) $user;
 		return $this;
 	}
 
@@ -120,7 +120,7 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setPassword($password = null): self
 	{
-		$this->password = $password;
+		$this->password = $password === null ? null : (string) $password;
 		return $this;
 	}
 
@@ -144,7 +144,7 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setServer($server = null): self
 	{
-		$this->server = $server;
+		$this->server = $server === null ? null : (int) $server;
 		return $this;
 	}
 
@@ -168,7 +168,7 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setPasswordEnabled($passwordEnabled = null): self
 	{
-		$this->passwordEnabled = $passwordEnabled;
+		$this->passwordEnabled = $passwordEnabled === null ? null : (bool) $passwordEnabled;
 		return $this;
 	}
 

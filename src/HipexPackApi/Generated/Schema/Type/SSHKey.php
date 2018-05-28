@@ -110,7 +110,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -134,7 +134,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setType($type = null): self
 	{
-		$this->type = $type;
+		$this->type = $type === null ? null : (string) $type;
 		return $this;
 	}
 
@@ -158,7 +158,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setKey($key = null): self
 	{
-		$this->key = $key;
+		$this->key = $key === null ? null : (string) $key;
 		return $this;
 	}
 
@@ -182,7 +182,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setValidUntil($validUntil = null): self
 	{
-		$this->validUntil = $validUntil;
+		$this->validUntil = $validUntil === null ? null : (DateTime) $validUntil;
 		return $this;
 	}
 
@@ -207,6 +207,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setUsers($users = null): self
 	{
 		$this->users = [];
+		if ($users === null) return $this;
 		foreach ($users as $item) {
 		    $this->addUsersValue($item);
 		}
@@ -243,6 +244,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setServers($servers = null): self
 	{
 		$this->servers = [];
+		if ($servers === null) return $this;
 		foreach ($servers as $item) {
 		    $this->addServersValue($item);
 		}

@@ -58,7 +58,7 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setStarted($started = null): self
 	{
-		$this->started = $started;
+		$this->started = $started === null ? null : (DateTime) $started;
 		return $this;
 	}
 
@@ -82,7 +82,7 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -107,6 +107,7 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	public function setSteps($steps = null): self
 	{
 		$this->steps = [];
+		if ($steps === null) return $this;
 		foreach ($steps as $item) {
 		    $this->addStepsValue($item);
 		}

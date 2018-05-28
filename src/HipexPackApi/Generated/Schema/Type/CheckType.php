@@ -72,7 +72,7 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setTooltip($tooltip = null): self
 	{
-		$this->tooltip = $tooltip;
+		$this->tooltip = $tooltip === null ? null : (string) $tooltip;
 		return $this;
 	}
 
@@ -96,7 +96,7 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setTitle($title = null): self
 	{
-		$this->title = $title;
+		$this->title = $title === null ? null : (string) $title;
 		return $this;
 	}
 
@@ -120,7 +120,7 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setStatus($status = null): self
 	{
-		$this->status = $status;
+		$this->status = $status === null ? null : (string) $status;
 		return $this;
 	}
 
@@ -144,7 +144,7 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setStatusLevel($statusLevel = null): self
 	{
-		$this->statusLevel = $statusLevel;
+		$this->statusLevel = $statusLevel === null ? null : (int) $statusLevel;
 		return $this;
 	}
 
@@ -168,7 +168,7 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setError($error = null): self
 	{
-		$this->error = $error;
+		$this->error = $error === null ? null : (string) $error;
 		return $this;
 	}
 

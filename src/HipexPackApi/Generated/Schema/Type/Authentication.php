@@ -86,7 +86,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -110,7 +110,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setSuccess($success = null): self
 	{
-		$this->success = $success;
+		$this->success = $success === null ? null : (bool) $success;
 		return $this;
 	}
 
@@ -134,7 +134,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setErrorMessage($errorMessage = null): self
 	{
-		$this->errorMessage = $errorMessage;
+		$this->errorMessage = $errorMessage === null ? null : (string) $errorMessage;
 		return $this;
 	}
 
@@ -158,7 +158,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setErrorMessageId($errorMessageId = null): self
 	{
-		$this->errorMessageId = $errorMessageId;
+		$this->errorMessageId = $errorMessageId === null ? null : (string) $errorMessageId;
 		return $this;
 	}
 
@@ -182,7 +182,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setEmail($email = null): self
 	{
-		$this->email = $email;
+		$this->email = $email === null ? null : (string) $email;
 		return $this;
 	}
 
@@ -206,7 +206,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -231,6 +231,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setSettings($settings = null): self
 	{
 		$this->settings = [];
+		if ($settings === null) return $this;
 		foreach ($settings as $item) {
 		    $this->addSettingsValue($item);
 		}
