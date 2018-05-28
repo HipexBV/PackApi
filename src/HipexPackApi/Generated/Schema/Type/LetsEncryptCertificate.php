@@ -86,7 +86,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -110,7 +110,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setIssuer($issuer = null): self
 	{
-		$this->issuer = $issuer;
+		$this->issuer = $issuer === null ? null : (string) $issuer;
 		return $this;
 	}
 
@@ -134,7 +134,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setExpires($expires = null): self
 	{
-		$this->expires = $expires;
+		$this->expires = $expires === null ? null : (DateTime) $expires;
 		return $this;
 	}
 
@@ -158,7 +158,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setDomain($domain = null): self
 	{
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (string) $domain;
 		return $this;
 	}
 
@@ -182,7 +182,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setCertificate($certificate = null): self
 	{
-		$this->certificate = $certificate;
+		$this->certificate = $certificate === null ? null : (string) $certificate;
 		return $this;
 	}
 
@@ -206,7 +206,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setChain($chain = null): self
 	{
-		$this->chain = $chain;
+		$this->chain = $chain === null ? null : (string) $chain;
 		return $this;
 	}
 
@@ -230,7 +230,7 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function setKey($key = null): self
 	{
-		$this->key = $key;
+		$this->key = $key === null ? null : (string) $key;
 		return $this;
 	}
 

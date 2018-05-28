@@ -53,6 +53,13 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $SSLCertificate;
 
 	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
+	/**
 	 * domain
 	 *
 	 * @var string
@@ -198,7 +205,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -276,7 +283,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setLetsEncryptSsl($letsEncryptSsl = null): self
 	{
-		$this->letsEncryptSsl = $letsEncryptSsl;
+		$this->letsEncryptSsl = $letsEncryptSsl === null ? null : (bool) $letsEncryptSsl;
 		return $this;
 	}
 
@@ -304,6 +311,30 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    $SSLCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($SSLCertificate);
 		}
 		$this->SSLCertificate = $SSLCertificate;
+		return $this;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
 		return $this;
 	}
 
@@ -583,6 +614,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setPointers($pointers = null): self
 	{
 		$this->pointers = [];
+		if ($pointers === null) return $this;
 		foreach ($pointers as $item) {
 		    $this->addPointersValue($item);
 		}
@@ -619,6 +651,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}
@@ -655,6 +688,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setDatabaseUsers($databaseUsers = null): self
 	{
 		$this->databaseUsers = [];
+		if ($databaseUsers === null) return $this;
 		foreach ($databaseUsers as $item) {
 		    $this->addDatabaseUsersValue($item);
 		}
@@ -691,6 +725,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setIntegrationTests($integrationTests = null): self
 	{
 		$this->integrationTests = [];
+		if ($integrationTests === null) return $this;
 		foreach ($integrationTests as $item) {
 		    $this->addIntegrationTestsValue($item);
 		}
@@ -727,6 +762,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setFtpUsers($ftpUsers = null): self
 	{
 		$this->ftpUsers = [];
+		if ($ftpUsers === null) return $this;
 		foreach ($ftpUsers as $item) {
 		    $this->addFtpUsersValue($item);
 		}
@@ -762,7 +798,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setNewRelicKey($newRelicKey = null): self
 	{
-		$this->newRelicKey = $newRelicKey;
+		$this->newRelicKey = $newRelicKey === null ? null : (string) $newRelicKey;
 		return $this;
 	}
 
@@ -786,7 +822,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPhpMyAdmin($phpMyAdmin = null): self
 	{
-		$this->phpMyAdmin = $phpMyAdmin;
+		$this->phpMyAdmin = $phpMyAdmin === null ? null : (bool) $phpMyAdmin;
 		return $this;
 	}
 
@@ -810,7 +846,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setMonitor($monitor = null): self
 	{
-		$this->monitor = $monitor;
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
 		return $this;
 	}
 
@@ -826,6 +862,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
 		    'letsEncryptSsl' => $this->letsEncryptSsl,
 		    'SSLCertificate' => $this->SSLCertificate,
+		    'entityTypeName' => $this->entityTypeName,
 		    'domain' => $this->domain,
 		    'backup' => $this->backup,
 		    'user' => $this->user,

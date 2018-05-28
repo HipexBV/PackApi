@@ -51,7 +51,7 @@ class GroupType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setTitle($title = null): self
 	{
-		$this->title = $title;
+		$this->title = $title === null ? null : (string) $title;
 		return $this;
 	}
 
@@ -76,6 +76,7 @@ class GroupType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	public function setChecks($checks = null): self
 	{
 		$this->checks = [];
+		if ($checks === null) return $this;
 		foreach ($checks as $item) {
 		    $this->addChecksValue($item);
 		}

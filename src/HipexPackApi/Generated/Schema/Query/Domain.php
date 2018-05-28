@@ -24,6 +24,7 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        SSLCertificate {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        entityTypeName' . PHP_EOL;
 		$body .= '        domain' . PHP_EOL;
 		$body .= '        backup' . PHP_EOL;
 		$body .= '        user {' . PHP_EOL;

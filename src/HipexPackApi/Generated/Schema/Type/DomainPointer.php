@@ -53,6 +53,13 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	private $SSLCertificate;
 
 	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
+	/**
 	 * pointer
 	 *
 	 * @var string
@@ -86,7 +93,7 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -164,7 +171,7 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setLetsEncryptSsl($letsEncryptSsl = null): self
 	{
-		$this->letsEncryptSsl = $letsEncryptSsl;
+		$this->letsEncryptSsl = $letsEncryptSsl === null ? null : (bool) $letsEncryptSsl;
 		return $this;
 	}
 
@@ -192,6 +199,30 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		    $SSLCertificate = new \HipexPackApi\Generated\Schema\Type\SSLCertificate($SSLCertificate);
 		}
 		$this->SSLCertificate = $SSLCertificate;
+		return $this;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
 		return $this;
 	}
 
@@ -258,6 +289,7 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
 		    'letsEncryptSsl' => $this->letsEncryptSsl,
 		    'SSLCertificate' => $this->SSLCertificate,
+		    'entityTypeName' => $this->entityTypeName,
 		    'pointer' => $this->pointer,
 		    'domain' => $this->domain,
 		];

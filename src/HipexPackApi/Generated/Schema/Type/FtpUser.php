@@ -52,6 +52,13 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	private $domain;
 
+	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
 
 	/**
 	 * id
@@ -147,7 +154,7 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPath($path = null): self
 	{
-		$this->path = $path;
+		$this->path = $path === null ? null : (string) $path;
 		return $this;
 	}
 
@@ -180,6 +187,30 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -190,6 +221,7 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    'username' => $this->username,
 		    'path' => $this->path,
 		    'domain' => $this->domain,
+		    'entityTypeName' => $this->entityTypeName,
 		];
 	}
 }

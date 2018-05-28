@@ -164,7 +164,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setError($error = null): self
 	{
-		$this->error = $error;
+		$this->error = $error === null ? null : (string) $error;
 		return $this;
 	}
 
@@ -188,7 +188,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -213,6 +213,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	public function setGroups($groups = null): self
 	{
 		$this->groups = [];
+		if ($groups === null) return $this;
 		foreach ($groups as $item) {
 		    $this->addGroupsValue($item);
 		}

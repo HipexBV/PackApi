@@ -99,7 +99,7 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setField($field = null): self
 	{
-		$this->field = $field;
+		$this->field = $field === null ? null : (string) $field;
 		return $this;
 	}
 
@@ -123,7 +123,7 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setValue($value = null): self
 	{
-		$this->value = $value;
+		$this->value = $value === null ? null : (string) $value;
 		return $this;
 	}
 
@@ -147,7 +147,7 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setOperator($operator = null): self
 	{
-		$this->operator = $operator;
+		$this->operator = $operator === null ? null : (string) $operator;
 		return $this;
 	}
 
@@ -172,6 +172,7 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	public function setChildren($children = null): self
 	{
 		$this->children = [];
+		if ($children === null) return $this;
 		foreach ($children as $item) {
 		    $this->addChildrenValue($item);
 		}

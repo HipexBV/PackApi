@@ -65,7 +65,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setMessage($message = null): self
 	{
-		$this->message = $message;
+		$this->message = $message === null ? null : (string) $message;
 		return $this;
 	}
 
@@ -90,6 +90,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	public function setMessageArguments($messageArguments = null): self
 	{
 		$this->messageArguments = [];
+		if ($messageArguments === null) return $this;
 		foreach ($messageArguments as $item) {
 		    $this->addMessageArgumentsValue($item);
 		}
@@ -122,7 +123,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -146,7 +147,7 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function setSuccessful($successful = null): self
 	{
-		$this->successful = $successful;
+		$this->successful = $successful === null ? null : (bool) $successful;
 		return $this;
 	}
 

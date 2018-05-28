@@ -128,7 +128,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -152,7 +152,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setDomain($domain = null): self
 	{
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (string) $domain;
 		return $this;
 	}
 
@@ -176,7 +176,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setBackup($backup = null): self
 	{
-		$this->backup = $backup;
+		$this->backup = $backup === null ? null : (bool) $backup;
 		return $this;
 	}
 
@@ -248,7 +248,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setUser($user = null): self
 	{
-		$this->user = $user;
+		$this->user = $user === null ? null : (int) $user;
 		return $this;
 	}
 
@@ -272,7 +272,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setHost($host = null): self
 	{
-		$this->host = $host;
+		$this->host = $host === null ? null : (int) $host;
 		return $this;
 	}
 
@@ -296,7 +296,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setCertificate($certificate = null): self
 	{
-		$this->certificate = $certificate;
+		$this->certificate = $certificate === null ? null : (int) $certificate;
 		return $this;
 	}
 
@@ -320,7 +320,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setNewRelicKey($newRelicKey = null): self
 	{
-		$this->newRelicKey = $newRelicKey;
+		$this->newRelicKey = $newRelicKey === null ? null : (string) $newRelicKey;
 		return $this;
 	}
 
@@ -368,7 +368,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setPhpMyAdmin($phpMyAdmin = null): self
 	{
-		$this->phpMyAdmin = $phpMyAdmin;
+		$this->phpMyAdmin = $phpMyAdmin === null ? null : (bool) $phpMyAdmin;
 		return $this;
 	}
 
@@ -392,7 +392,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setMonitor($monitor = null): self
 	{
-		$this->monitor = $monitor;
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
 		return $this;
 	}
 
@@ -416,7 +416,7 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function setLetsEncryptSsl($letsEncryptSsl = null): self
 	{
-		$this->letsEncryptSsl = $letsEncryptSsl;
+		$this->letsEncryptSsl = $letsEncryptSsl === null ? null : (bool) $letsEncryptSsl;
 		return $this;
 	}
 

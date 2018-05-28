@@ -72,7 +72,7 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -96,7 +96,7 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function setUsername($username = null): self
 	{
-		$this->username = $username;
+		$this->username = $username === null ? null : (string) $username;
 		return $this;
 	}
 
@@ -120,7 +120,7 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function setPassword($password = null): self
 	{
-		$this->password = $password;
+		$this->password = $password === null ? null : (string) $password;
 		return $this;
 	}
 
@@ -144,7 +144,7 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function setReadOnly($readOnly = null): self
 	{
-		$this->readOnly = $readOnly;
+		$this->readOnly = $readOnly === null ? null : (bool) $readOnly;
 		return $this;
 	}
 
@@ -169,6 +169,7 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}

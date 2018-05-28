@@ -52,6 +52,13 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	private $readOnly;
 
+	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
 
 	/**
 	 * id
@@ -96,7 +103,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setUsername($username = null): self
 	{
-		$this->username = $username;
+		$this->username = $username === null ? null : (string) $username;
 		return $this;
 	}
 
@@ -121,6 +128,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setDatabases($databases = null): self
 	{
 		$this->databases = [];
+		if ($databases === null) return $this;
 		foreach ($databases as $item) {
 		    $this->addDatabasesValue($item);
 		}
@@ -183,7 +191,31 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setReadOnly($readOnly = null): self
 	{
-		$this->readOnly = $readOnly;
+		$this->readOnly = $readOnly === null ? null : (bool) $readOnly;
+		return $this;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
 		return $this;
 	}
 
@@ -199,6 +231,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 		    'databases' => $this->databases,
 		    'domain' => $this->domain,
 		    'readOnly' => $this->readOnly,
+		    'entityTypeName' => $this->entityTypeName,
 		];
 	}
 }

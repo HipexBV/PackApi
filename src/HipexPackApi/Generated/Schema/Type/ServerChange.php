@@ -230,7 +230,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setEntityId($entityId = null): self
 	{
-		$this->entityId = $entityId;
+		$this->entityId = $entityId === null ? null : (int) $entityId;
 		return $this;
 	}
 
@@ -302,7 +302,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setStarted($started = null): self
 	{
-		$this->started = $started;
+		$this->started = $started === null ? null : (DateTime) $started;
 		return $this;
 	}
 
@@ -326,7 +326,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -350,7 +350,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setExecutor($executor = null): self
 	{
-		$this->executor = $executor;
+		$this->executor = $executor === null ? null : (string) $executor;
 		return $this;
 	}
 
@@ -375,6 +375,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setMetaData($metaData = null): self
 	{
 		$this->metaData = [];
+		if ($metaData === null) return $this;
 		foreach ($metaData as $item) {
 		    $this->addMetaDataValue($item);
 		}
@@ -407,7 +408,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function setFailed($failed = null): self
 	{
-		$this->failed = $failed;
+		$this->failed = $failed === null ? null : (string) $failed;
 		return $this;
 	}
 
@@ -432,6 +433,7 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setExecutions($executions = null): self
 	{
 		$this->executions = [];
+		if ($executions === null) return $this;
 		foreach ($executions as $item) {
 		    $this->addExecutionsValue($item);
 		}

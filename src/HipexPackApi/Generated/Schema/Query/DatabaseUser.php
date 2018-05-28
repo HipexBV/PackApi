@@ -22,6 +22,7 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        readOnly' . PHP_EOL;
+		$body .= '        entityTypeName' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;

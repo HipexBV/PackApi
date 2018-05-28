@@ -144,7 +144,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setUrl($url = null): self
 	{
-		$this->url = $url;
+		$this->url = $url === null ? null : (string) $url;
 		return $this;
 	}
 
@@ -168,7 +168,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setStarted($started = null): self
 	{
-		$this->started = $started;
+		$this->started = $started === null ? null : (DateTime) $started;
 		return $this;
 	}
 
@@ -192,7 +192,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setTimeSpend($timeSpend = null): self
 	{
-		$this->timeSpend = $timeSpend;
+		$this->timeSpend = $timeSpend === null ? null : (float) $timeSpend;
 		return $this;
 	}
 
@@ -216,7 +216,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setStatus($status = null): self
 	{
-		$this->status = $status;
+		$this->status = $status === null ? null : (string) $status;
 		return $this;
 	}
 
@@ -240,7 +240,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setResult($result = null): self
 	{
-		$this->result = $result;
+		$this->result = $result === null ? null : (string) $result;
 		return $this;
 	}
 
@@ -264,7 +264,7 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setScreenShotPath($screenShotPath = null): self
 	{
-		$this->screenShotPath = $screenShotPath;
+		$this->screenShotPath = $screenShotPath === null ? null : (string) $screenShotPath;
 		return $this;
 	}
 

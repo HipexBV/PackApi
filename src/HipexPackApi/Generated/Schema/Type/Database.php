@@ -52,6 +52,13 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	private $domain;
 
+	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
 
 	/**
 	 * id
@@ -96,7 +103,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setDatabase($database = null): self
 	{
-		$this->database = $database;
+		$this->database = $database === null ? null : (string) $database;
 		return $this;
 	}
 
@@ -120,7 +127,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setBackup($backup = null): self
 	{
-		$this->backup = $backup;
+		$this->backup = $backup === null ? null : (bool) $backup;
 		return $this;
 	}
 
@@ -145,6 +152,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setUsers($users = null): self
 	{
 		$this->users = [];
+		if ($users === null) return $this;
 		foreach ($users as $item) {
 		    $this->addUsersValue($item);
 		}
@@ -189,6 +197,30 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -199,6 +231,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    'backup' => $this->backup,
 		    'users' => $this->users,
 		    'domain' => $this->domain,
+		    'entityTypeName' => $this->entityTypeName,
 		];
 	}
 }

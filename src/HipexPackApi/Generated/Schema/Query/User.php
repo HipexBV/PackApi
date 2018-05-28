@@ -22,6 +22,7 @@ class User extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        sshKeys {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        entityTypeName' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;

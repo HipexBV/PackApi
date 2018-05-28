@@ -124,7 +124,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setName($name = null): self
 	{
-		$this->name = $name;
+		$this->name = $name === null ? null : (string) $name;
 		return $this;
 	}
 
@@ -148,7 +148,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setFinished($finished = null): self
 	{
-		$this->finished = $finished;
+		$this->finished = $finished === null ? null : (DateTime) $finished;
 		return $this;
 	}
 
@@ -172,7 +172,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setMaxRequestTime($maxRequestTime = null): self
 	{
-		$this->maxRequestTime = $maxRequestTime;
+		$this->maxRequestTime = $maxRequestTime === null ? null : (int) $maxRequestTime;
 		return $this;
 	}
 
@@ -250,7 +250,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function setTotalTime($totalTime = null): self
 	{
-		$this->totalTime = $totalTime;
+		$this->totalTime = $totalTime === null ? null : (float) $totalTime;
 		return $this;
 	}
 
@@ -275,6 +275,7 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	public function setSteps($steps = null): self
 	{
 		$this->steps = [];
+		if ($steps === null) return $this;
 		foreach ($steps as $item) {
 		    $this->addStepsValue($item);
 		}

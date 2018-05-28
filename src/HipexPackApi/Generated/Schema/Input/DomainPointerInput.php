@@ -72,7 +72,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -96,7 +96,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function setPointer($pointer = null): self
 	{
-		$this->pointer = $pointer;
+		$this->pointer = $pointer === null ? null : (string) $pointer;
 		return $this;
 	}
 
@@ -120,7 +120,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function setDomain($domain = null): self
 	{
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (int) $domain;
 		return $this;
 	}
 
@@ -144,7 +144,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function setCertificate($certificate = null): self
 	{
-		$this->certificate = $certificate;
+		$this->certificate = $certificate === null ? null : (int) $certificate;
 		return $this;
 	}
 
@@ -168,7 +168,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function setLetsEncryptSsl($letsEncryptSsl = null): self
 	{
-		$this->letsEncryptSsl = $letsEncryptSsl;
+		$this->letsEncryptSsl = $letsEncryptSsl === null ? null : (bool) $letsEncryptSsl;
 		return $this;
 	}
 

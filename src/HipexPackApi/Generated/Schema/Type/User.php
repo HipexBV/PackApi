@@ -52,6 +52,13 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	private $sshKeys;
 
+	/**
+	 * entityTypeName
+	 *
+	 * @var string|null
+	 */
+	private $entityTypeName;
+
 
 	/**
 	 * id
@@ -120,7 +127,7 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function setPasswordEnabled($passwordEnabled = null): self
 	{
-		$this->passwordEnabled = $passwordEnabled;
+		$this->passwordEnabled = $passwordEnabled === null ? null : (bool) $passwordEnabled;
 		return $this;
 	}
 
@@ -172,6 +179,7 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setSshKeys($sshKeys = null): self
 	{
 		$this->sshKeys = [];
+		if ($sshKeys === null) return $this;
 		foreach ($sshKeys as $item) {
 		    $this->addSshKeysValue($item);
 		}
@@ -189,6 +197,30 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * entityTypeName
+	 *
+	 * @return string|null
+	 */
+	public function getEntityTypeName()
+	{
+		return $this->entityTypeName;
+	}
+
+
+	/**
+	 * entityTypeName
+	 *
+	 * @param string|null $entityTypeName
+	 * @return $this
+	 */
+	public function setEntityTypeName($entityTypeName = null): self
+	{
+		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -199,6 +231,7 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		    'passwordEnabled' => $this->passwordEnabled,
 		    'server' => $this->server,
 		    'sshKeys' => $this->sshKeys,
+		    'entityTypeName' => $this->entityTypeName,
 		];
 	}
 }

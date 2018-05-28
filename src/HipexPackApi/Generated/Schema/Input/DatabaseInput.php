@@ -79,7 +79,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 
@@ -103,7 +103,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setDomain($domain = null): self
 	{
-		$this->domain = $domain;
+		$this->domain = $domain === null ? null : (int) $domain;
 		return $this;
 	}
 
@@ -127,7 +127,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setDatabase($database = null): self
 	{
-		$this->database = $database;
+		$this->database = $database === null ? null : (string) $database;
 		return $this;
 	}
 
@@ -151,7 +151,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setUsername($username = null): self
 	{
-		$this->username = $username;
+		$this->username = $username === null ? null : (string) $username;
 		return $this;
 	}
 
@@ -175,7 +175,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setPassword($password = null): self
 	{
-		$this->password = $password;
+		$this->password = $password === null ? null : (string) $password;
 		return $this;
 	}
 
@@ -199,7 +199,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function setBackup($backup = null): self
 	{
-		$this->backup = $backup;
+		$this->backup = $backup === null ? null : (bool) $backup;
 		return $this;
 	}
 
