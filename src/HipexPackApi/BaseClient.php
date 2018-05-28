@@ -15,6 +15,7 @@ use HipexPackApi\Schema\SchemaType;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\CacheInterface;
+use Psr\SimpleCache\InvalidArgumentException as CacheInvalidArgumentException;
 
 /**
  * Class Client
@@ -79,15 +80,24 @@ class BaseClient
      * @param array $variables
      * @param array $headers
      * @return ResponseInterface
+     * @throws Exception\ExceptionInterface
      */
     public function rawQuery(string $query, array $variables = [], array $headers = []): ResponseInterface
     {
         if (empty($headers['Authorization'])) {
-            $headers['Authorization'] = $this->getAuthToken();
+            try {
+                $headers['Authorization'] = $this->getAuthToken();
+            } catch (CacheInvalidArgumentException $e) {
+                throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
+            }
         }
 
         $response = $this->client->raw($query, $variables, $headers);
-        $this->setAuthToken($response);
+        try {
+            $this->setAuthToken($response);
+        } catch (CacheInvalidArgumentException $e) {
+            throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
+        }
 
         return $response;
     }
@@ -109,7 +119,7 @@ class BaseClient
         }
 
         if (isset($data['errors'])) {
-            throw new Exception\RuntimeException(implode(PHP_EOL, array_column($data['errors'], 'message')));
+            $this->throwErrorResponseException($data['errors']);
         }
 
         if (!isset($data['data'])) {
@@ -142,7 +152,11 @@ class BaseClient
      */
     public function hasToken(): bool
     {
-        return (bool) $this->getAuthToken();
+        try {
+            return (bool)$this->getAuthToken();
+        } catch (CacheInvalidArgumentException $e) {
+            throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -151,12 +165,13 @@ class BaseClient
      */
     public function introspect(): SchemaType
     {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->query(new IntrospectQuery());
     }
 
     /**
      * @return string|null
-     * @throws Exception\RuntimeException
+     * @throws CacheInvalidArgumentException
      */
     private function getAuthToken()
     {
@@ -174,6 +189,7 @@ class BaseClient
     /**
      * @param ResponseInterface $response
      * @throws Exception\RuntimeException
+     * @throws CacheInvalidArgumentException
      */
     private function setAuthToken(ResponseInterface $response)
     {
@@ -194,5 +210,38 @@ class BaseClient
     private function getCacheKey(): string
     {
         return 'hipex-pack-api.auth-token.' . md5($this->url);
+    }
+
+    /**
+     * @throws Exception\QueryErrorException
+     */
+    private function throwErrorResponseException(array $errorData)
+    {
+        $errors = [];
+        foreach ($errorData as $error) {
+            $errors[] = $this->createQueryError($error);
+        }
+
+        throw new Exception\QueryErrorException($errors);
+    }
+
+    /**
+     * @param array $error
+     * @return Exception\QueryError\QueryErrorInterface
+     */
+    private function createQueryError(array $error): Exception\QueryError\QueryErrorInterface
+    {
+        if (isset($error['message'])) {
+            $message = $error['message'];
+            unset($error['message']);
+        } else {
+            $message = '';
+        }
+
+        if ($message === 'FormValidation::failed') {
+            return new Exception\QueryError\ValidationError($message, $error);
+        }
+
+        return new Exception\QueryError\QueryError($message, $error);
     }
 }

@@ -1,7 +1,8 @@
 <?php
 /**
- * @author Robert Fokken <rfokken@emico.nl>
- * @copyright (c) Emico B.V. 2018
+ * @author Hipex <info@hipex.io>
+ * @copyright (c) Hipex B.V. ${YEAR}
+ * @see https://www.hipex.io/
  */
 
 namespace HipexPackApi\Service;
