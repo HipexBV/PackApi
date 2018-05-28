@@ -70,7 +70,7 @@ class ServerChangeRepository extends AbstractRepository
         $filter->setOperator('$and');
         $filter->setChildren([
             (new FilterInput)->setField('entityId')->setValue($type->getId()),
-            (new FilterInput)->setField('entityType')->setValue($type->getEntityTypeName()()),
+            (new FilterInput)->setField('entityType')->setValue($type->getEntityTypeName()),
         ]);
 
         return $filter;
