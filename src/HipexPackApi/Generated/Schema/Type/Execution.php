@@ -34,6 +34,13 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	private $finished;
 
 	/**
+	 * successful
+	 *
+	 * @var bool|null
+	 */
+	private $successful;
+
+	/**
 	 * steps
 	 *
 	 * @var Execution_step[]|null
@@ -96,6 +103,30 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 
 
 	/**
+	 * successful
+	 *
+	 * @return bool|null
+	 */
+	public function getSuccessful()
+	{
+		return $this->successful;
+	}
+
+
+	/**
+	 * successful
+	 *
+	 * @param bool|null $successful
+	 * @return $this
+	 */
+	public function setSuccessful($successful = null): self
+	{
+		$this->successful = $successful === null ? null : (bool) $successful;
+		return $this;
+	}
+
+
+	/**
 	 * steps
 	 *
 	 * @return Execution_step[]|null
@@ -140,6 +171,7 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 		return [
 		    'started' => $this->started,
 		    'finished' => $this->finished,
+		    'successful' => $this->successful,
 		    'steps' => $this->steps,
 		];
 	}

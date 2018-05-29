@@ -34,13 +34,6 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	private $user;
 
 	/**
-	 * customer
-	 *
-	 * @var Customer|null
-	 */
-	private $customer;
-
-	/**
 	 * entityType
 	 *
 	 * @var string
@@ -69,6 +62,27 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	private $action;
 
 	/**
+	 * createdAt
+	 *
+	 * @var DateTimeInterface|null
+	 */
+	private $createdAt;
+
+	/**
+	 * metaData
+	 *
+	 * @var string[]|null
+	 */
+	private $metaData;
+
+	/**
+	 * executions
+	 *
+	 * @var Execution[]|null
+	 */
+	private $executions;
+
+	/**
 	 * started
 	 *
 	 * @var DateTimeInterface|null
@@ -83,32 +97,11 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	private $finished;
 
 	/**
-	 * executor
+	 * successful
 	 *
-	 * @var string|null
+	 * @var bool|null
 	 */
-	private $executor;
-
-	/**
-	 * metaData
-	 *
-	 * @var string[]|null
-	 */
-	private $metaData;
-
-	/**
-	 * failed
-	 *
-	 * @var string|null
-	 */
-	private $failed;
-
-	/**
-	 * executions
-	 *
-	 * @var Execution[]|null
-	 */
-	private $executions;
+	private $successful;
 
 
 	/**
@@ -158,33 +151,6 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 		    $user = new \HipexPackApi\Generated\Schema\Type\User($user);
 		}
 		$this->user = $user;
-		return $this;
-	}
-
-
-	/**
-	 * customer
-	 *
-	 * @return Customer|null
-	 */
-	public function getCustomer()
-	{
-		return $this->customer;
-	}
-
-
-	/**
-	 * customer
-	 *
-	 * @param Customer|null $customer
-	 * @return $this
-	 */
-	public function setCustomer($customer = null): self
-	{
-		if ($customer !== null && !$customer instanceof \HipexPackApi\Generated\Schema\Type\Customer) {
-		    $customer = new \HipexPackApi\Generated\Schema\Type\Customer($customer);
-		}
-		$this->customer = $customer;
 		return $this;
 	}
 
@@ -286,6 +252,104 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 
 
 	/**
+	 * createdAt
+	 *
+	 * @return DateTimeInterface|null
+	 */
+	public function getCreatedAt()
+	{
+		return $this->createdAt;
+	}
+
+
+	/**
+	 * createdAt
+	 *
+	 * @param DateTimeInterface|null $createdAt
+	 * @return $this
+	 */
+	public function setCreatedAt($createdAt = null): self
+	{
+		if ($createdAt !== null && !$createdAt instanceof DateTimeInterface) {
+		    $createdAt = new \DateTimeImmutable($createdAt);
+		}
+		$this->createdAt = $createdAt;
+		return $this;
+	}
+
+
+	/**
+	 * metaData
+	 *
+	 * @return string[]|null
+	 */
+	public function getMetaData()
+	{
+		return $this->metaData;
+	}
+
+
+	/**
+	 * metaData
+	 *
+	 * @param string[]|null $metaData
+	 * @return $this
+	 */
+	public function setMetaData($metaData = null): self
+	{
+		$this->metaData = [];
+		if ($metaData === null) return $this;
+		foreach ($metaData as $item) {
+		    $this->addMetaDataValue($item);
+		}
+		return $this;
+	}
+
+
+	private function addMetaDataValue($metaData)
+	{
+		$this->metaData[] = $metaData;
+	}
+
+
+	/**
+	 * executions
+	 *
+	 * @return Execution[]|null
+	 */
+	public function getExecutions()
+	{
+		return $this->executions;
+	}
+
+
+	/**
+	 * executions
+	 *
+	 * @param Execution[]|null $executions
+	 * @return $this
+	 */
+	public function setExecutions($executions = null): self
+	{
+		$this->executions = [];
+		if ($executions === null) return $this;
+		foreach ($executions as $item) {
+		    $this->addExecutionsValue($item);
+		}
+		return $this;
+	}
+
+
+	private function addExecutionsValue($executions)
+	{
+		if ($executions !== null && !$executions instanceof \HipexPackApi\Generated\Schema\Type\Execution) {
+		    $executions = new \HipexPackApi\Generated\Schema\Type\Execution($executions);
+		}
+		$this->executions[] = $executions;
+	}
+
+
+	/**
 	 * started
 	 *
 	 * @return DateTimeInterface|null
@@ -340,121 +404,26 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 
 
 	/**
-	 * executor
+	 * successful
 	 *
-	 * @return string|null
+	 * @return bool|null
 	 */
-	public function getExecutor()
+	public function getSuccessful()
 	{
-		return $this->executor;
+		return $this->successful;
 	}
 
 
 	/**
-	 * executor
+	 * successful
 	 *
-	 * @param string|null $executor
+	 * @param bool|null $successful
 	 * @return $this
 	 */
-	public function setExecutor($executor = null): self
+	public function setSuccessful($successful = null): self
 	{
-		$this->executor = $executor === null ? null : (string) $executor;
+		$this->successful = $successful === null ? null : (bool) $successful;
 		return $this;
-	}
-
-
-	/**
-	 * metaData
-	 *
-	 * @return string[]|null
-	 */
-	public function getMetaData()
-	{
-		return $this->metaData;
-	}
-
-
-	/**
-	 * metaData
-	 *
-	 * @param string[]|null $metaData
-	 * @return $this
-	 */
-	public function setMetaData($metaData = null): self
-	{
-		$this->metaData = [];
-		if ($metaData === null) return $this;
-		foreach ($metaData as $item) {
-		    $this->addMetaDataValue($item);
-		}
-		return $this;
-	}
-
-
-	private function addMetaDataValue($metaData)
-	{
-		$this->metaData[] = $metaData;
-	}
-
-
-	/**
-	 * failed
-	 *
-	 * @return string|null
-	 */
-	public function getFailed()
-	{
-		return $this->failed;
-	}
-
-
-	/**
-	 * failed
-	 *
-	 * @param string|null $failed
-	 * @return $this
-	 */
-	public function setFailed($failed = null): self
-	{
-		$this->failed = $failed === null ? null : (string) $failed;
-		return $this;
-	}
-
-
-	/**
-	 * executions
-	 *
-	 * @return Execution[]|null
-	 */
-	public function getExecutions()
-	{
-		return $this->executions;
-	}
-
-
-	/**
-	 * executions
-	 *
-	 * @param Execution[]|null $executions
-	 * @return $this
-	 */
-	public function setExecutions($executions = null): self
-	{
-		$this->executions = [];
-		if ($executions === null) return $this;
-		foreach ($executions as $item) {
-		    $this->addExecutionsValue($item);
-		}
-		return $this;
-	}
-
-
-	private function addExecutionsValue($executions)
-	{
-		if ($executions !== null && !$executions instanceof \HipexPackApi\Generated\Schema\Type\Execution) {
-		    $executions = new \HipexPackApi\Generated\Schema\Type\Execution($executions);
-		}
-		$this->executions[] = $executions;
 	}
 
 
@@ -466,17 +435,16 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 		return [
 		    'id' => $this->id,
 		    'user' => $this->user,
-		    'customer' => $this->customer,
 		    'entityType' => $this->entityType,
 		    'entityId' => $this->entityId,
 		    'entityName' => $this->entityName,
 		    'action' => $this->action,
+		    'createdAt' => $this->createdAt,
+		    'metaData' => $this->metaData,
+		    'executions' => $this->executions,
 		    'started' => $this->started,
 		    'finished' => $this->finished,
-		    'executor' => $this->executor,
-		    'metaData' => $this->metaData,
-		    'failed' => $this->failed,
-		    'executions' => $this->executions,
+		    'successful' => $this->successful,
 		];
 	}
 }
