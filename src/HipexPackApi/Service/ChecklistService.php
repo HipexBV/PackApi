@@ -11,6 +11,7 @@ use HipexPackApi\Exception\ExceptionInterface;
 use HipexPackApi\Exception\TimeoutException;
 use HipexPackApi\Generated\Schema\Type\Checklist;
 use HipexPackApi\Repository\ChecklistRepository;
+use Psr\Log\LoggerInterface;
 
 class ChecklistService
 {
@@ -23,16 +24,21 @@ class ChecklistService
      * @var ChecklistRepository $checklistRepository
      */
     private $checklistRepository;
+    /**
+     * @var LoggerInterface
+     */
+    private $log;
 
     /**
      * Checklist constructor.
      * @param Client $client
      * @param ChecklistRepository $checklistRepository
      */
-    public function __construct(Client $client, ChecklistRepository $checklistRepository)
+    public function __construct(Client $client, ChecklistRepository $checklistRepository, LoggerInterface $log)
     {
         $this->client = $client;
         $this->checklistRepository = $checklistRepository;
+        $this->log = $log;
     }
 
     /**
@@ -53,7 +59,8 @@ class ChecklistService
 
         $startTime = time();
         do {
-            if (time() - $startTime > $timeout) {
+            $timeElapsed = time() - $startTime;
+            if ($timeElapsed > $timeout) {
                 break;
             }
 
@@ -62,6 +69,7 @@ class ChecklistService
                 return $checklist;
             }
 
+            $this->log->debug(sprintf('[%s] Waiting for checklist to complete, timeout %s/%s.', __CLASS__, $timeElapsed, $timeout));
             sleep(2);
         } while (true);
 

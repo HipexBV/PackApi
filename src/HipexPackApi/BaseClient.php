@@ -14,6 +14,7 @@ use HipexPackApi\Schema\IntrospectQuery;
 use HipexPackApi\Schema\SchemaType;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerInterface;
 use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException as CacheInvalidArgumentException;
 
@@ -42,20 +43,28 @@ class BaseClient
      * @var GraphQLClient|null
      */
     private $client;
+    
     /**
      * @var string
      */
     private $url;
+    
+    /**
+     * @var LoggerInterface
+     */
+    private $log;
 
     /**
      * Client constructor.
      *
      * @param string $url
+     * @param LoggerInterface $log
      */
-    public function __construct(string $url = self::API_URL)
+    public function __construct(string $url = self::API_URL, LoggerInterface $log)
     {
         $this->client = new GraphQLClient($url);
         $this->url = $url;
+        $this->log = $log;
     }
 
     /**
@@ -199,6 +208,7 @@ class BaseClient
         }
 
         $this->token = $auth[0];
+        $this->log->info(sprintf('[%s] Received new auth token', __CLASS__));
         if ($this->tokenStorage) {
             $this->tokenStorage->set($this->getCacheKey(), $auth[0]);
         }
