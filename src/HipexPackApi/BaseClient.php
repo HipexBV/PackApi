@@ -162,7 +162,7 @@ class BaseClient
     public function hasToken(): bool
     {
         try {
-            return (bool)$this->getAuthToken();
+            return (bool) $this->getAuthToken();
         } catch (CacheInvalidArgumentException $e) {
             throw new Exception\RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
@@ -204,6 +204,10 @@ class BaseClient
     {
         $auth = $response->getHeader('Authorization');
         if (empty($auth)) {
+            return;
+        }
+
+        if ($this->token === $auth[0]) {
             return;
         }
 
