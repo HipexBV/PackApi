@@ -54,7 +54,7 @@ class ServerChangeService
     public function waitForServerUpdate(BaseType $type, int $timeout = 600): void
     {
         $start = time();
-        while ($this->isServerUpdateFinished($type)) {
+        while (!$this->isServerUpdateFinished($type)) {
             $timeElapsed = time() - $start;
             if ($timeElapsed > $timeout) {
                 throw new TimeoutException(sprintf('Waiting for server update of %s timed out', \get_class($type)));
