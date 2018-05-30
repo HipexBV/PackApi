@@ -129,10 +129,10 @@ class PerformanceScanGroup extends \HipexPackApi\Schema\BaseType implements Json
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'name' => $this->name,
-		    'score' => $this->score,
-		    'items' => $this->items,
-		];
+		$result = [];
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->score !== null) $result['score'] = $this->score;
+		if ($this->items !== null) $result['items'] = $this->items;
+		return $result;
 	}
 }

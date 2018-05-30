@@ -405,18 +405,18 @@ class SSLCertificate extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'connectedDomainPointers' => $this->connectedDomainPointers,
-		    'connectedDomains' => $this->connectedDomains,
-		    'certificateError' => $this->certificateError,
-		    'alternativeDomains' => $this->alternativeDomains,
-		    'id' => $this->id,
-		    'issuer' => $this->issuer,
-		    'expires' => $this->expires,
-		    'domain' => $this->domain,
-		    'certificate' => $this->certificate,
-		    'chain' => $this->chain,
-		    'key' => $this->key,
-		];
+		$result = [];
+		if ($this->connectedDomainPointers !== null) $result['connectedDomainPointers'] = $this->connectedDomainPointers;
+		if ($this->connectedDomains !== null) $result['connectedDomains'] = $this->connectedDomains;
+		if ($this->certificateError !== null) $result['certificateError'] = $this->certificateError;
+		if ($this->alternativeDomains !== null) $result['alternativeDomains'] = $this->alternativeDomains;
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->issuer !== null) $result['issuer'] = $this->issuer;
+		if ($this->expires !== null) $result['expires'] = $this->expires;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
+		if ($this->chain !== null) $result['chain'] = $this->chain;
+		if ($this->key !== null) $result['key'] = $this->key;
+		return $result;
 	}
 }

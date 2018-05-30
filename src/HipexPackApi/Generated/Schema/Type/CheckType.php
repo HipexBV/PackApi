@@ -178,12 +178,12 @@ class CheckType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'tooltip' => $this->tooltip,
-		    'title' => $this->title,
-		    'status' => $this->status,
-		    'statusLevel' => $this->statusLevel,
-		    'error' => $this->error,
-		];
+		$result = [];
+		if ($this->tooltip !== null) $result['tooltip'] = $this->tooltip;
+		if ($this->title !== null) $result['title'] = $this->title;
+		if ($this->status !== null) $result['status'] = $this->status;
+		if ($this->statusLevel !== null) $result['statusLevel'] = $this->statusLevel;
+		if ($this->error !== null) $result['error'] = $this->error;
+		return $result;
 	}
 }

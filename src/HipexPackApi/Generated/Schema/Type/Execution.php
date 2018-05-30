@@ -168,11 +168,11 @@ class Execution extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'started' => $this->started,
-		    'finished' => $this->finished,
-		    'successful' => $this->successful,
-		    'steps' => $this->steps,
-		];
+		$result = [];
+		if ($this->started !== null) $result['started'] = $this->started;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->successful !== null) $result['successful'] = $this->successful;
+		if ($this->steps !== null) $result['steps'] = $this->steps;
+		return $result;
 	}
 }

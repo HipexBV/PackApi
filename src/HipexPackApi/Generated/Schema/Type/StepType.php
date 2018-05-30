@@ -279,15 +279,15 @@ class StepType extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'test' => $this->test,
-		    'url' => $this->url,
-		    'started' => $this->started,
-		    'timeSpend' => $this->timeSpend,
-		    'status' => $this->status,
-		    'result' => $this->result,
-		    'screenShotPath' => $this->screenShotPath,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->test !== null) $result['test'] = $this->test;
+		if ($this->url !== null) $result['url'] = $this->url;
+		if ($this->started !== null) $result['started'] = $this->started;
+		if ($this->timeSpend !== null) $result['timeSpend'] = $this->timeSpend;
+		if ($this->status !== null) $result['status'] = $this->status;
+		if ($this->result !== null) $result['result'] = $this->result;
+		if ($this->screenShotPath !== null) $result['screenShotPath'] = $this->screenShotPath;
+		return $result;
 	}
 }

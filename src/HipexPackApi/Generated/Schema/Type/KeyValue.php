@@ -85,9 +85,9 @@ class KeyValue extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'key' => $this->key,
-		    'value' => $this->value,
-		];
+		$result = [];
+		if ($this->key !== null) $result['key'] = $this->key;
+		if ($this->value !== null) $result['value'] = $this->value;
+		return $result;
 	}
 }

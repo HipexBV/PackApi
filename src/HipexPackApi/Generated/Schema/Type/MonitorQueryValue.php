@@ -98,9 +98,9 @@ class MonitorQueryValue extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'date' => $this->date,
-		    'values' => $this->values,
-		];
+		$result = [];
+		if ($this->date !== null) $result['date'] = $this->date;
+		if ($this->values !== null) $result['values'] = $this->values;
+		return $result;
 	}
 }

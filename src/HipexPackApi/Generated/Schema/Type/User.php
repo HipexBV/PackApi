@@ -225,13 +225,13 @@ class User extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'user' => $this->user,
-		    'passwordEnabled' => $this->passwordEnabled,
-		    'server' => $this->server,
-		    'sshKeys' => $this->sshKeys,
-		    'entityTypeName' => $this->entityTypeName,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->passwordEnabled !== null) $result['passwordEnabled'] = $this->passwordEnabled;
+		if ($this->server !== null) $result['server'] = $this->server;
+		if ($this->sshKeys !== null) $result['sshKeys'] = $this->sshKeys;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		return $result;
 	}
 }

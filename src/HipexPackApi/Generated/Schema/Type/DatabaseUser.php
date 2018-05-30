@@ -225,13 +225,13 @@ class DatabaseUser extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'username' => $this->username,
-		    'databases' => $this->databases,
-		    'domain' => $this->domain,
-		    'readOnly' => $this->readOnly,
-		    'entityTypeName' => $this->entityTypeName,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->username !== null) $result['username'] = $this->username;
+		if ($this->databases !== null) $result['databases'] = $this->databases;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->readOnly !== null) $result['readOnly'] = $this->readOnly;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		return $result;
 	}
 }

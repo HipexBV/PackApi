@@ -856,31 +856,31 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'server' => $this->server,
-		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
-		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		    'SSLCertificate' => $this->SSLCertificate,
-		    'entityTypeName' => $this->entityTypeName,
-		    'domain' => $this->domain,
-		    'backup' => $this->backup,
-		    'user' => $this->user,
-		    'customer' => $this->customer,
-		    'lastPerformanceScan' => $this->lastPerformanceScan,
-		    'lastChecklist' => $this->lastChecklist,
-		    'lastIntegrationTest' => $this->lastIntegrationTest,
-		    'mainPhp' => $this->mainPhp,
-		    'accessLogs' => $this->accessLogs,
-		    'alternativePhp' => $this->alternativePhp,
-		    'pointers' => $this->pointers,
-		    'databases' => $this->databases,
-		    'databaseUsers' => $this->databaseUsers,
-		    'integrationTests' => $this->integrationTests,
-		    'ftpUsers' => $this->ftpUsers,
-		    'newRelicKey' => $this->newRelicKey,
-		    'phpMyAdmin' => $this->phpMyAdmin,
-		    'monitor' => $this->monitor,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->server !== null) $result['server'] = $this->server;
+		if ($this->letsEncryptCertificate !== null) $result['letsEncryptCertificate'] = $this->letsEncryptCertificate;
+		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
+		if ($this->SSLCertificate !== null) $result['SSLCertificate'] = $this->SSLCertificate;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->backup !== null) $result['backup'] = $this->backup;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->customer !== null) $result['customer'] = $this->customer;
+		if ($this->lastPerformanceScan !== null) $result['lastPerformanceScan'] = $this->lastPerformanceScan;
+		if ($this->lastChecklist !== null) $result['lastChecklist'] = $this->lastChecklist;
+		if ($this->lastIntegrationTest !== null) $result['lastIntegrationTest'] = $this->lastIntegrationTest;
+		if ($this->mainPhp !== null) $result['mainPhp'] = $this->mainPhp;
+		if ($this->accessLogs !== null) $result['accessLogs'] = $this->accessLogs;
+		if ($this->alternativePhp !== null) $result['alternativePhp'] = $this->alternativePhp;
+		if ($this->pointers !== null) $result['pointers'] = $this->pointers;
+		if ($this->databases !== null) $result['databases'] = $this->databases;
+		if ($this->databaseUsers !== null) $result['databaseUsers'] = $this->databaseUsers;
+		if ($this->integrationTests !== null) $result['integrationTests'] = $this->integrationTests;
+		if ($this->ftpUsers !== null) $result['ftpUsers'] = $this->ftpUsers;
+		if ($this->newRelicKey !== null) $result['newRelicKey'] = $this->newRelicKey;
+		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
+		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
+		return $result;
 	}
 }

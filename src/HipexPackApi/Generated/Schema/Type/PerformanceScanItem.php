@@ -147,11 +147,11 @@ class PerformanceScanItem extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'name' => $this->name,
-		    'value' => $this->value,
-		    'generalDescription' => $this->generalDescription,
-		    'scanDescription' => $this->scanDescription,
-		];
+		$result = [];
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->value !== null) $result['value'] = $this->value;
+		if ($this->generalDescription !== null) $result['generalDescription'] = $this->generalDescription;
+		if ($this->scanDescription !== null) $result['scanDescription'] = $this->scanDescription;
+		return $result;
 	}
 }

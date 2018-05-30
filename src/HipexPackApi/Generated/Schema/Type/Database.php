@@ -225,13 +225,13 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'database' => $this->database,
-		    'backup' => $this->backup,
-		    'users' => $this->users,
-		    'domain' => $this->domain,
-		    'entityTypeName' => $this->entityTypeName,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->database !== null) $result['database'] = $this->database;
+		if ($this->backup !== null) $result['backup'] = $this->backup;
+		if ($this->users !== null) $result['users'] = $this->users;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		return $result;
 	}
 }

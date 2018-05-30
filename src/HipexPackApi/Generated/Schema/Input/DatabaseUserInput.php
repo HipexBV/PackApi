@@ -188,12 +188,12 @@ class DatabaseUserInput extends \HipexPackApi\Schema\BaseType implements JsonSer
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'username' => $this->username,
-		    'password' => $this->password,
-		    'readOnly' => $this->readOnly,
-		    'databases' => $this->databases,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->username !== null) $result['username'] = $this->username;
+		if ($this->password !== null) $result['password'] = $this->password;
+		if ($this->readOnly !== null) $result['readOnly'] = $this->readOnly;
+		if ($this->databases !== null) $result['databases'] = $this->databases;
+		return $result;
 	}
 }

@@ -283,15 +283,15 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'server' => $this->server,
-		    'letsEncryptCertificate' => $this->letsEncryptCertificate,
-		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		    'SSLCertificate' => $this->SSLCertificate,
-		    'entityTypeName' => $this->entityTypeName,
-		    'pointer' => $this->pointer,
-		    'domain' => $this->domain,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->server !== null) $result['server'] = $this->server;
+		if ($this->letsEncryptCertificate !== null) $result['letsEncryptCertificate'] = $this->letsEncryptCertificate;
+		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
+		if ($this->SSLCertificate !== null) $result['SSLCertificate'] = $this->SSLCertificate;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		if ($this->pointer !== null) $result['pointer'] = $this->pointer;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		return $result;
 	}
 }

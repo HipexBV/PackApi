@@ -229,13 +229,13 @@ class SslCertificateInput extends \HipexPackApi\Schema\BaseType implements JsonS
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'certificate' => $this->certificate,
-		    'chain' => $this->chain,
-		    'key' => $this->key,
-		    'domains' => $this->domains,
-		    'domainPointers' => $this->domainPointers,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
+		if ($this->chain !== null) $result['chain'] = $this->chain;
+		if ($this->key !== null) $result['key'] = $this->key;
+		if ($this->domains !== null) $result['domains'] = $this->domains;
+		if ($this->domainPointers !== null) $result['domainPointers'] = $this->domainPointers;
+		return $result;
 	}
 }

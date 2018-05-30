@@ -329,16 +329,16 @@ class IntegrationTest extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'name' => $this->name,
-		    'finished' => $this->finished,
-		    'maxRequestTime' => $this->maxRequestTime,
-		    'previousTest' => $this->previousTest,
-		    'domain' => $this->domain,
-		    'totalTime' => $this->totalTime,
-		    'steps' => $this->steps,
-		    'schedule' => $this->schedule,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->maxRequestTime !== null) $result['maxRequestTime'] = $this->maxRequestTime;
+		if ($this->previousTest !== null) $result['previousTest'] = $this->previousTest;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->totalTime !== null) $result['totalTime'] = $this->totalTime;
+		if ($this->steps !== null) $result['steps'] = $this->steps;
+		if ($this->schedule !== null) $result['schedule'] = $this->schedule;
+		return $result;
 	}
 }

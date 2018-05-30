@@ -357,17 +357,17 @@ class PerformanceScan extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'url' => $this->url,
-		    'createdAt' => $this->createdAt,
-		    'name' => $this->name,
-		    'domain' => $this->domain,
-		    'finished' => $this->finished,
-		    'score' => $this->score,
-		    'screenDesktop' => $this->screenDesktop,
-		    'screenMobile' => $this->screenMobile,
-		    'groups' => $this->groups,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->url !== null) $result['url'] = $this->url;
+		if ($this->createdAt !== null) $result['createdAt'] = $this->createdAt;
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->score !== null) $result['score'] = $this->score;
+		if ($this->screenDesktop !== null) $result['screenDesktop'] = $this->screenDesktop;
+		if ($this->screenMobile !== null) $result['screenMobile'] = $this->screenMobile;
+		if ($this->groups !== null) $result['groups'] = $this->groups;
+		return $result;
 	}
 }

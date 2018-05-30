@@ -85,9 +85,9 @@ class Customer extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'name' => $this->name,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->name !== null) $result['name'] = $this->name;
+		return $result;
 	}
 }

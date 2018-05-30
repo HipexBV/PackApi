@@ -251,13 +251,13 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'name' => $this->name,
-		    'customer' => $this->customer,
-		    'domains' => $this->domains,
-		    'users' => $this->users,
-		    'sshKeys' => $this->sshKeys,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->customer !== null) $result['customer'] = $this->customer;
+		if ($this->domains !== null) $result['domains'] = $this->domains;
+		if ($this->users !== null) $result['users'] = $this->users;
+		if ($this->sshKeys !== null) $result['sshKeys'] = $this->sshKeys;
+		return $result;
 	}
 }

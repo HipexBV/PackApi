@@ -152,11 +152,11 @@ class Filesystem extends \HipexPackApi\Schema\BaseType implements JsonSerializab
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'path' => $this->path,
-		    'size' => $this->size,
-		    'type' => $this->type,
-		    'modifiedTime' => $this->modifiedTime,
-		];
+		$result = [];
+		if ($this->path !== null) $result['path'] = $this->path;
+		if ($this->size !== null) $result['size'] = $this->size;
+		if ($this->type !== null) $result['type'] = $this->type;
+		if ($this->modifiedTime !== null) $result['modifiedTime'] = $this->modifiedTime;
+		return $result;
 	}
 }

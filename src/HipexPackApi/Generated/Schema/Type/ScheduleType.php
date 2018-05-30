@@ -54,8 +54,8 @@ class ScheduleType extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		return $result;
 	}
 }
