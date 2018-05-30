@@ -137,7 +137,7 @@ class BaseClient
 
         $returnKey = $query->getReturnKey();
         if (!isset($data['data'][$returnKey])) {
-            throw new Exception\RuntimeException(sprintf('Response key %s not found in response', $returnKey));
+            return [];
         }
 
         $returnType = $query->getReturnType();
