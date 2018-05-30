@@ -48,7 +48,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * domain
 	 *
-	 * @var Domain
+	 * @var Domain|null
 	 */
 	private $domain;
 
@@ -172,9 +172,9 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * domain
 	 *
-	 * @return Domain
+	 * @return Domain|null
 	 */
-	public function getDomain(): Domain
+	public function getDomain()
 	{
 		return $this->domain;
 	}
@@ -183,10 +183,10 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	/**
 	 * domain
 	 *
-	 * @param Domain $domain
+	 * @param Domain|null $domain
 	 * @return $this
 	 */
-	public function setDomain($domain): self
+	public function setDomain($domain = null): self
 	{
 		if ($domain !== null && !$domain instanceof \HipexPackApi\Generated\Schema\Type\Domain) {
 		    $domain = new \HipexPackApi\Generated\Schema\Type\Domain($domain);
