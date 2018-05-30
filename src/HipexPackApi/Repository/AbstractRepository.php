@@ -88,7 +88,7 @@ abstract class AbstractRepository
      * @return BaseType
      * @throws ResultNonUniqueException
      */
-    public function findOneOrNullByField(string $field, $value): BaseType
+    public function findOneOrNullByField(string $field, $value): ?BaseType
     {
         try {
             return $this->findOneByField($field, $value);
