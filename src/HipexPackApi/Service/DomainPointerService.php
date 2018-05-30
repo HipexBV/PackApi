@@ -14,17 +14,19 @@ use HipexPackApi\Generated\Schema\Type;
 use HipexPackApi\Repository\DomainPointerRepository;
 use HipexPackApi\Schema\BaseQuery;
 use HipexPackApi\Schema\BaseType;
+use Psr\Log\LoggerInterface;
 
 class DomainPointerService extends AbstractEntityService
 {
     /**
+     * @param LoggerInterface $log
      * @param ServerChangeService $changeService
      * @param Client $client
      * @param DomainPointerRepository $repository
      */
-    public function __construct(ServerChangeService $changeService, Client $client, DomainPointerRepository $repository)
+    public function __construct(LoggerInterface $log, ServerChangeService $changeService, Client $client, DomainPointerRepository $repository)
     {
-        parent::__construct($changeService, $client, $repository);
+        parent::__construct($log, $changeService, $client, $repository);
     }
 
     /**
@@ -47,10 +49,10 @@ class DomainPointerService extends AbstractEntityService
      * @param int $timeout
      * @return Type\DomainPointer
      */
-    public function create(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = 600): Type\DomainPointer
+    public function mutate(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = 600): Type\DomainPointer
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return $this->runCreate($input, $waitForServer, $timeout);
+        return $this->runMutate($input, $waitForServer, $timeout);
     }
 
     /**

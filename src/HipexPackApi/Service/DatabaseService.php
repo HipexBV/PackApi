@@ -14,17 +14,19 @@ use HipexPackApi\Generated\Schema\Type;
 use HipexPackApi\Repository\DatabaseRepository;
 use HipexPackApi\Schema\BaseQuery;
 use HipexPackApi\Schema\BaseType;
+use Psr\Log\LoggerInterface;
 
 class DatabaseService extends AbstractEntityService
 {
     /**
+     * @param LoggerInterface $log
      * @param ServerChangeService $changeService
      * @param Client $client
      * @param DatabaseRepository $repository
      */
-    public function __construct(ServerChangeService $changeService, Client $client, DatabaseRepository $repository)
+    public function __construct(LoggerInterface $log, ServerChangeService $changeService, Client $client, DatabaseRepository $repository)
     {
-        parent::__construct($changeService, $client, $repository);
+        parent::__construct($log, $changeService, $client, $repository);
     }
 
     /**
@@ -47,10 +49,10 @@ class DatabaseService extends AbstractEntityService
      * @param int $timeout
      * @return Type\Database
      */
-    public function create(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = 600): Type\Database
+    public function mutate(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = 600): Type\Database
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return $this->runCreate($input, $waitForServer, $timeout);
+        return $this->runMutate($input, $waitForServer, $timeout);
     }
 
     /**

@@ -14,17 +14,19 @@ use HipexPackApi\Generated\Schema\Type;
 use HipexPackApi\Repository\UserRepository;
 use HipexPackApi\Schema\BaseQuery;
 use HipexPackApi\Schema\BaseType;
+use Psr\Log\LoggerInterface;
 
 class UserService extends AbstractEntityService
 {
     /**
+     * @param LoggerInterface $log
      * @param ServerChangeService $changeService
      * @param Client $client
      * @param UserRepository $repository
      */
-    public function __construct(ServerChangeService $changeService, Client $client, UserRepository $repository)
+    public function __construct(LoggerInterface $log, ServerChangeService $changeService, Client $client, UserRepository $repository)
     {
-        parent::__construct($changeService, $client, $repository);
+        parent::__construct($log, $changeService, $client, $repository);
     }
 
     /**
@@ -47,10 +49,10 @@ class UserService extends AbstractEntityService
      * @param int $timeout
      * @return Type\User
      */
-    public function create(Input\UserInput $input, bool $waitForServer = false, int $timeout = 600): Type\User
+    public function mutate(Input\UserInput $input, bool $waitForServer = false, int $timeout = 600): Type\User
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return $this->runCreate($input, $waitForServer, $timeout);
+        return $this->runMutate($input, $waitForServer, $timeout);
     }
 
     /**
@@ -62,7 +64,7 @@ class UserService extends AbstractEntityService
         $filter = new Input\FilterInput();
         $filter->setOperator('$and');
         $filter->setChildren([
-            (new Input\FilterInput)->setField('server.id')->setValue($input->getServer()),
+            (new Input\FilterInput)->setField('host.id')->setValue($input->getServer()),
             (new Input\FilterInput)->setField('user')->setValue($input->getUser()),
         ]);
         return $filter;
