@@ -147,11 +147,11 @@ class ApplicationInfo extends \HipexPackApi\Schema\BaseType implements JsonSeria
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'type' => $this->type,
-		    'version' => $this->version,
-		    'latestVersion' => $this->latestVersion,
-		    'url' => $this->url,
-		];
+		$result = [];
+		if ($this->type !== null) $result['type'] = $this->type;
+		if ($this->version !== null) $result['version'] = $this->version;
+		if ($this->latestVersion !== null) $result['latestVersion'] = $this->latestVersion;
+		if ($this->url !== null) $result['url'] = $this->url;
+		return $result;
 	}
 }

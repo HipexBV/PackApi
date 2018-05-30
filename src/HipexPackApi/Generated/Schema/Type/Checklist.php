@@ -264,14 +264,14 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'domain' => $this->domain,
-		    'applicationInfo' => $this->applicationInfo,
-		    'error' => $this->error,
-		    'finished' => $this->finished,
-		    'groups' => $this->groups,
-		    'status' => $this->status,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->applicationInfo !== null) $result['applicationInfo'] = $this->applicationInfo;
+		if ($this->error !== null) $result['error'] = $this->error;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->groups !== null) $result['groups'] = $this->groups;
+		if ($this->status !== null) $result['status'] = $this->status;
+		return $result;
 	}
 }

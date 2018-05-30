@@ -162,11 +162,11 @@ class Execution_step extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'message' => $this->message,
-		    'messageArguments' => $this->messageArguments,
-		    'finished' => $this->finished,
-		    'successful' => $this->successful,
-		];
+		$result = [];
+		if ($this->message !== null) $result['message'] = $this->message;
+		if ($this->messageArguments !== null) $result['messageArguments'] = $this->messageArguments;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->successful !== null) $result['successful'] = $this->successful;
+		return $result;
 	}
 }

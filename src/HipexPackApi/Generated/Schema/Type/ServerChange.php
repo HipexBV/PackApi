@@ -432,19 +432,19 @@ class ServerChange extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'user' => $this->user,
-		    'entityType' => $this->entityType,
-		    'entityId' => $this->entityId,
-		    'entityName' => $this->entityName,
-		    'action' => $this->action,
-		    'createdAt' => $this->createdAt,
-		    'metaData' => $this->metaData,
-		    'executions' => $this->executions,
-		    'started' => $this->started,
-		    'finished' => $this->finished,
-		    'successful' => $this->successful,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->entityType !== null) $result['entityType'] = $this->entityType;
+		if ($this->entityId !== null) $result['entityId'] = $this->entityId;
+		if ($this->entityName !== null) $result['entityName'] = $this->entityName;
+		if ($this->action !== null) $result['action'] = $this->action;
+		if ($this->createdAt !== null) $result['createdAt'] = $this->createdAt;
+		if ($this->metaData !== null) $result['metaData'] = $this->metaData;
+		if ($this->executions !== null) $result['executions'] = $this->executions;
+		if ($this->started !== null) $result['started'] = $this->started;
+		if ($this->finished !== null) $result['finished'] = $this->finished;
+		if ($this->successful !== null) $result['successful'] = $this->successful;
+		return $result;
 	}
 }

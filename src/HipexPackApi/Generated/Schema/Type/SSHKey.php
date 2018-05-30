@@ -302,15 +302,15 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'name' => $this->name,
-		    'type' => $this->type,
-		    'key' => $this->key,
-		    'validUntil' => $this->validUntil,
-		    'users' => $this->users,
-		    'servers' => $this->servers,
-		    'entityTypeName' => $this->entityTypeName,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->type !== null) $result['type'] = $this->type;
+		if ($this->key !== null) $result['key'] = $this->key;
+		if ($this->validUntil !== null) $result['validUntil'] = $this->validUntil;
+		if ($this->users !== null) $result['users'] = $this->users;
+		if ($this->servers !== null) $result['servers'] = $this->servers;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		return $result;
 	}
 }

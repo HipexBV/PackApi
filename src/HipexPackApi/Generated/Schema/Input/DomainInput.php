@@ -426,20 +426,20 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'domain' => $this->domain,
-		    'backup' => $this->backup,
-		    'mainPhp' => $this->mainPhp,
-		    'alternativePhp' => $this->alternativePhp,
-		    'user' => $this->user,
-		    'host' => $this->host,
-		    'certificate' => $this->certificate,
-		    'newRelicKey' => $this->newRelicKey,
-		    'saveAccessLogs' => $this->saveAccessLogs,
-		    'phpMyAdmin' => $this->phpMyAdmin,
-		    'monitor' => $this->monitor,
-		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->backup !== null) $result['backup'] = $this->backup;
+		if ($this->mainPhp !== null) $result['mainPhp'] = $this->mainPhp;
+		if ($this->alternativePhp !== null) $result['alternativePhp'] = $this->alternativePhp;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->host !== null) $result['host'] = $this->host;
+		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
+		if ($this->newRelicKey !== null) $result['newRelicKey'] = $this->newRelicKey;
+		if ($this->saveAccessLogs !== null) $result['saveAccessLogs'] = $this->saveAccessLogs;
+		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
+		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
+		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
+		return $result;
 	}
 }

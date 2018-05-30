@@ -85,9 +85,9 @@ class SortInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'field' => $this->field,
-		    'direction' => $this->direction,
-		];
+		$result = [];
+		if ($this->field !== null) $result['field'] = $this->field;
+		if ($this->direction !== null) $result['direction'] = $this->direction;
+		return $result;
 	}
 }

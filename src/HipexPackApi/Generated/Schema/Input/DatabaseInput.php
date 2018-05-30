@@ -209,13 +209,13 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'domain' => $this->domain,
-		    'database' => $this->database,
-		    'username' => $this->username,
-		    'password' => $this->password,
-		    'backup' => $this->backup,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->database !== null) $result['database'] = $this->database;
+		if ($this->username !== null) $result['username'] = $this->username;
+		if ($this->password !== null) $result['password'] = $this->password;
+		if ($this->backup !== null) $result['backup'] = $this->backup;
+		return $result;
 	}
 }

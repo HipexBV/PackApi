@@ -178,12 +178,12 @@ class UserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'user' => $this->user,
-		    'password' => $this->password,
-		    'server' => $this->server,
-		    'passwordEnabled' => $this->passwordEnabled,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->password !== null) $result['password'] = $this->password;
+		if ($this->server !== null) $result['server'] = $this->server;
+		if ($this->passwordEnabled !== null) $result['passwordEnabled'] = $this->passwordEnabled;
+		return $result;
 	}
 }

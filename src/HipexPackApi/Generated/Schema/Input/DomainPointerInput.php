@@ -178,12 +178,12 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'pointer' => $this->pointer,
-		    'domain' => $this->domain,
-		    'certificate' => $this->certificate,
-		    'letsEncryptSsl' => $this->letsEncryptSsl,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->pointer !== null) $result['pointer'] = $this->pointer;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
+		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
+		return $result;
 	}
 }

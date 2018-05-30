@@ -245,14 +245,14 @@ class LetsEncryptCertificate extends \HipexPackApi\Schema\BaseType implements Js
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'issuer' => $this->issuer,
-		    'expires' => $this->expires,
-		    'domain' => $this->domain,
-		    'certificate' => $this->certificate,
-		    'chain' => $this->chain,
-		    'key' => $this->key,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->issuer !== null) $result['issuer'] = $this->issuer;
+		if ($this->expires !== null) $result['expires'] = $this->expires;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
+		if ($this->chain !== null) $result['chain'] = $this->chain;
+		if ($this->key !== null) $result['key'] = $this->key;
+		return $result;
 	}
 }

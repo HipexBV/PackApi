@@ -209,13 +209,13 @@ class FtpUserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'domain' => $this->domain,
-		    'user' => $this->user,
-		    'username' => $this->username,
-		    'password' => $this->password,
-		    'path' => $this->path,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->username !== null) $result['username'] = $this->username;
+		if ($this->password !== null) $result['password'] = $this->password;
+		if ($this->path !== null) $result['path'] = $this->path;
+		return $result;
 	}
 }

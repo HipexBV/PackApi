@@ -215,13 +215,13 @@ class FtpUser extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'user' => $this->user,
-		    'username' => $this->username,
-		    'path' => $this->path,
-		    'domain' => $this->domain,
-		    'entityTypeName' => $this->entityTypeName,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->user !== null) $result['user'] = $this->user;
+		if ($this->username !== null) $result['username'] = $this->username;
+		if ($this->path !== null) $result['path'] = $this->path;
+		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		return $result;
 	}
 }

@@ -253,14 +253,14 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'id' => $this->id,
-		    'success' => $this->success,
-		    'errorMessage' => $this->errorMessage,
-		    'errorMessageId' => $this->errorMessageId,
-		    'email' => $this->email,
-		    'name' => $this->name,
-		    'settings' => $this->settings,
-		];
+		$result = [];
+		if ($this->id !== null) $result['id'] = $this->id;
+		if ($this->success !== null) $result['success'] = $this->success;
+		if ($this->errorMessage !== null) $result['errorMessage'] = $this->errorMessage;
+		if ($this->errorMessageId !== null) $result['errorMessageId'] = $this->errorMessageId;
+		if ($this->email !== null) $result['email'] = $this->email;
+		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->settings !== null) $result['settings'] = $this->settings;
+		return $result;
 	}
 }

@@ -194,11 +194,11 @@ class FilterInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'field' => $this->field,
-		    'value' => $this->value,
-		    'operator' => $this->operator,
-		    'children' => $this->children,
-		];
+		$result = [];
+		if ($this->field !== null) $result['field'] = $this->field;
+		if ($this->value !== null) $result['value'] = $this->value;
+		if ($this->operator !== null) $result['operator'] = $this->operator;
+		if ($this->children !== null) $result['children'] = $this->children;
+		return $result;
 	}
 }

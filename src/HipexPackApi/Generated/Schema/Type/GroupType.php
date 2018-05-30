@@ -98,9 +98,9 @@ class GroupType extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	 */
 	public function jsonSerialize()
 	{
-		return [
-		    'title' => $this->title,
-		    'checks' => $this->checks,
-		];
+		$result = [];
+		if ($this->title !== null) $result['title'] = $this->title;
+		if ($this->checks !== null) $result['checks'] = $this->checks;
+		return $result;
 	}
 }
