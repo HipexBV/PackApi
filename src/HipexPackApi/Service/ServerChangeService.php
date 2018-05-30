@@ -6,6 +6,7 @@
 
 namespace HipexPackApi\Service;
 
+use HipexPackApi\Exception\EntityNotFoundException;
 use HipexPackApi\Exception\TimeoutException;
 use HipexPackApi\Repository\ServerChangeRepository;
 use HipexPackApi\Schema\BaseType;
@@ -41,8 +42,14 @@ class ServerChangeService
      */
     public function isServerUpdateFinished(BaseType $type): bool
     {
-        $change = $this->repository->findLastByEntity($type);
-        return (bool) $change->getFinished();
+        try {
+            $change = $this->repository->findLastByEntity($type);
+            return (bool) $change->getFinished();
+        } catch (EntityNotFoundException $e) {
+            /** @noinspection PhpUndefinedMethodInspection */
+            $this->log->debug(sprintf('[%s] Could not found change for entity %s (ID %s)', __CLASS__, \get_class($type), $type->getId()));
+            return true;
+        }
     }
 
     /**
