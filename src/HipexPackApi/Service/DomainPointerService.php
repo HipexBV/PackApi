@@ -37,7 +37,7 @@ class DomainPointerService extends AbstractEntityService
      * @param int $timeout
      * @return Type\DomainPointer
      */
-    public function ensure(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = 600): Type\DomainPointer
+    public function ensure(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\DomainPointer
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runEnsure($input, $waitForServer, $timeout);
@@ -49,7 +49,7 @@ class DomainPointerService extends AbstractEntityService
      * @param int $timeout
      * @return Type\DomainPointer
      */
-    public function mutate(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = 600): Type\DomainPointer
+    public function mutate(Input\DomainPointerInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\DomainPointer
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runMutate($input, $waitForServer, $timeout);

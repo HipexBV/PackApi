@@ -39,7 +39,7 @@ class DatabaseUserService extends AbstractEntityService
      * @param int $timeout
      * @return Type\DatabaseUser
      */
-    public function ensure(int $serverId, Input\DatabaseUserInput $input, bool $waitForServer = false, int $timeout = 600): Type\DatabaseUser
+    public function ensure(int $serverId, Input\DatabaseUserInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\DatabaseUser
     {
         $entity = $this->repository->findOneOrNull($this->createFilter($input, $serverId));
         if (!$entity) {
@@ -62,7 +62,7 @@ class DatabaseUserService extends AbstractEntityService
      * @param int $timeout
      * @return Type\DatabaseUser
      */
-    public function mutate(Input\DatabaseUserInput $input, bool $waitForServer = false, int $timeout = 600): Type\DatabaseUser
+    public function mutate(Input\DatabaseUserInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\DatabaseUser
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runMutate($input, $waitForServer, $timeout);

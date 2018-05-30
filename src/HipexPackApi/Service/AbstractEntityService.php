@@ -71,7 +71,7 @@ abstract class AbstractEntityService
      * @param int $timeout
      * @return BaseType
      */
-    protected function runEnsure(BaseType $input, bool $waitForServer = false, int $timeout = 600): BaseType
+    protected function runEnsure(BaseType $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): BaseType
     {
         $entity = $this->repository->findOneOrNull($this->createFilter($input));
         if (!$entity) {
@@ -93,7 +93,7 @@ abstract class AbstractEntityService
      * @param int $timeout
      * @return BaseType
      */
-    protected function runMutate(BaseType $input, bool $waitForServer = false, int $timeout = 600): BaseType
+    protected function runMutate(BaseType $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): BaseType
     {
         $entity = $this->client->query($this->createMutation(), ['entity' => $input, 'delete' => false]);
         $this->log->info(sprintf('Created / updated %s', $this->objectToString($entity)));

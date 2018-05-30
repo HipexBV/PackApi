@@ -38,7 +38,7 @@ class DomainService extends AbstractEntityService
      * @param int $timeout
      * @return Type\Domain
      */
-    public function ensure(Input\DomainInput $input, bool $waitForServer = false, int $timeout = 600): Type\Domain
+    public function ensure(Input\DomainInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\Domain
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runEnsure($input, $waitForServer, $timeout);
@@ -50,7 +50,7 @@ class DomainService extends AbstractEntityService
      * @param int $timeout
      * @return Type\Domain
      */
-    public function mutate(Input\DomainInput $input, bool $waitForServer = false, int $timeout = 600): Type\Domain
+    public function mutate(Input\DomainInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\Domain
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runMutate($input, $waitForServer, $timeout);

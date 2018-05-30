@@ -37,7 +37,7 @@ class DatabaseService extends AbstractEntityService
      * @param int $timeout
      * @return Type\Database
      */
-    public function ensure(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = 600): Type\Database
+    public function ensure(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\Database
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runEnsure($input, $waitForServer, $timeout);
@@ -49,7 +49,7 @@ class DatabaseService extends AbstractEntityService
      * @param int $timeout
      * @return Type\Database
      */
-    public function mutate(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = 600): Type\Database
+    public function mutate(Input\DatabaseInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\Database
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runMutate($input, $waitForServer, $timeout);

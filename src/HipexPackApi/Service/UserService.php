@@ -37,7 +37,7 @@ class UserService extends AbstractEntityService
      * @param int $timeout
      * @return Type\User
      */
-    public function ensure(Input\UserInput $input, bool $waitForServer = false, int $timeout = 600): Type\User
+    public function ensure(Input\UserInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\User
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runEnsure($input, $waitForServer, $timeout);
@@ -49,7 +49,7 @@ class UserService extends AbstractEntityService
      * @param int $timeout
      * @return Type\User
      */
-    public function mutate(Input\UserInput $input, bool $waitForServer = false, int $timeout = 600): Type\User
+    public function mutate(Input\UserInput $input, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): Type\User
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->runMutate($input, $waitForServer, $timeout);

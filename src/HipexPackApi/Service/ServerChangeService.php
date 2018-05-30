@@ -15,6 +15,11 @@ use Psr\Log\LoggerInterface;
 class ServerChangeService
 {
     /**
+     * Default timeout for waiting on server updates
+     */
+    public const DEFAULT_UPDATE_TIMEOUT = 1200;
+
+    /**
      * @var ServerChangeRepository
      */
     private $repository;
@@ -58,7 +63,7 @@ class ServerChangeService
      * @param BaseType $type
      * @param int $timeout
      */
-    public function waitForServerUpdate(BaseType $type, int $timeout = 600): void
+    public function waitForServerUpdate(BaseType $type, int $timeout = self::DEFAULT_UPDATE_TIMEOUT): void
     {
         $start = time();
         while (!$this->isServerUpdateFinished($type)) {
