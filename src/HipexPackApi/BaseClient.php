@@ -212,7 +212,7 @@ class BaseClient
         }
 
         $this->token = $auth[0];
-        $this->log->info(sprintf('[%s] Received new auth token', __CLASS__));
+        $this->log->debug(sprintf('[%s] Received new auth token', __CLASS__));
         if ($this->tokenStorage) {
             $this->tokenStorage->set($this->getCacheKey(), $auth[0]);
         }
