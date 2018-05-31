@@ -11,6 +11,7 @@ namespace HipexPackApi\Generated;
 
 use HipexPackApi\BaseClient;
 use HipexPackApi\Exception\ExceptionInterface;
+use HipexPackApi\Generated\Schema\Input\ChecklistStartInput;
 use HipexPackApi\Generated\Schema\Input\DatabaseInput;
 use HipexPackApi\Generated\Schema\Input\DatabaseUserInput;
 use HipexPackApi\Generated\Schema\Input\DomainInput;
@@ -464,14 +465,14 @@ class Client extends BaseClient
 
 
 	/**
-	 * @param int $id
+	 * @param ChecklistStartInput|null $checklist
 	 * @return Checklist|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateChecklistStart(int $id)
+	public function mutateChecklistStart(ChecklistStartInput $checklist = null)
 	{
 		$arguments = [];
-		$arguments['id'] = $id;
+		$arguments['checklist'] = $checklist;
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ChecklistStart(), $arguments);

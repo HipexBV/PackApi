@@ -11,8 +11,8 @@ class ChecklistStart extends \HipexPackApi\Schema\BaseQuery
 	public function getBody(): string
 	{
 		$body = '';
-		$body .= 'mutation ChecklistStart($id: Int!) {' . PHP_EOL;
-		$body .= '    ChecklistStart(id: $id) {' . PHP_EOL;
+		$body .= 'mutation ChecklistStart($checklist: ChecklistStartInput) {' . PHP_EOL;
+		$body .= '    ChecklistStart(checklist: $checklist) {' . PHP_EOL;
 		$body .= '        id' . PHP_EOL;
 		$body .= '        domain {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
@@ -35,6 +35,7 @@ class ChecklistStart extends \HipexPackApi\Schema\BaseQuery
 		$body .= '                error' . PHP_EOL;
 		$body .= '            }' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        groupsToRun' . PHP_EOL;
 		$body .= '        status' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;

@@ -62,6 +62,13 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 	private $groups;
 
 	/**
+	 * groupsToRun
+	 *
+	 * @var string[]|null
+	 */
+	private $groupsToRun;
+
+	/**
 	 * status
 	 *
 	 * @var string|null
@@ -236,6 +243,40 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 
 
 	/**
+	 * groupsToRun
+	 *
+	 * @return string[]|null
+	 */
+	public function getGroupsToRun()
+	{
+		return $this->groupsToRun;
+	}
+
+
+	/**
+	 * groupsToRun
+	 *
+	 * @param string[]|null $groupsToRun
+	 * @return $this
+	 */
+	public function setGroupsToRun($groupsToRun = null): self
+	{
+		$this->groupsToRun = [];
+		if ($groupsToRun === null) return $this;
+		foreach ($groupsToRun as $item) {
+		    $this->addGroupsToRunValue($item);
+		}
+		return $this;
+	}
+
+
+	private function addGroupsToRunValue($groupsToRun)
+	{
+		$this->groupsToRun[] = $groupsToRun;
+	}
+
+
+	/**
 	 * status
 	 *
 	 * @return string|null
@@ -271,6 +312,7 @@ class Checklist extends \HipexPackApi\Schema\BaseType implements JsonSerializabl
 		if ($this->error !== null) $result['error'] = $this->error;
 		if ($this->finished !== null) $result['finished'] = $this->finished;
 		if ($this->groups !== null) $result['groups'] = $this->groups;
+		if ($this->groupsToRun !== null) $result['groupsToRun'] = $this->groupsToRun;
 		if ($this->status !== null) $result['status'] = $this->status;
 		return $result;
 	}
