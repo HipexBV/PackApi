@@ -31,7 +31,7 @@ class DomainRepository extends AbstractRepository
         $filter->setOperator('$and');
         $filter->setChildren([
             (new FilterInput)->setField('domain')->setValue($domainName),
-            (new FilterInput)->setField('server.name')->setValue($server),
+            (new FilterInput)->setField('host.name')->setValue($server),
         ]);
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->findOne($filter);
