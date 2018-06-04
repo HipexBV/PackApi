@@ -53,6 +53,24 @@ abstract class AbstractEntityService
     }
 
     /**
+     * @param int $id
+     * @param bool $waitForServer
+     * @param int $timeout
+     * @return []
+     */
+    public function delete(int $id, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): array
+    {
+        $entity = $this->client->query($this->createMutation(), ['entity' => ['id' => $id], 'delete' => false]);
+        $this->log->info(sprintf('Created / updated %s', $this->objectToString($entity)));
+
+        if ($waitForServer) {
+            $this->changeService->waitForServerUpdate($entity, $timeout);
+        }
+
+        return $entity;
+    }
+
+    /**
      * @param BaseType $input
      * @return Input\FilterInput
      */
