@@ -60,8 +60,8 @@ abstract class AbstractEntityService
      */
     public function delete(int $id, bool $waitForServer = false, int $timeout = ServerChangeService::DEFAULT_UPDATE_TIMEOUT): array
     {
-        $entity = $this->client->query($this->createMutation(), ['entity' => ['id' => $id], 'delete' => false]);
-        $this->log->info(sprintf('Created / updated %s', $this->objectToString($entity)));
+        $entity = $this->client->query($this->createMutation(), ['entity' => ['id' => $id], 'delete' => true]);
+        $this->log->info(sprintf('Deleted ID %s', $id));
 
         if ($waitForServer) {
             $this->changeService->waitForServerUpdate($entity, $timeout);
