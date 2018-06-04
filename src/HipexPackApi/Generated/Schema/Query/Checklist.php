@@ -35,6 +35,7 @@ class Checklist extends \HipexPackApi\Schema\BaseQuery
 		$body .= '                error' . PHP_EOL;
 		$body .= '            }' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        groupsToRun' . PHP_EOL;
 		$body .= '        status' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
