@@ -32,13 +32,6 @@ class FtpUserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	private $domain;
 
 	/**
-	 * user
-	 *
-	 * @var int
-	 */
-	private $user;
-
-	/**
 	 * username
 	 *
 	 * @var string
@@ -104,30 +97,6 @@ class FtpUserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 	public function setDomain($domain = null): self
 	{
 		$this->domain = $domain === null ? null : (int) $domain;
-		return $this;
-	}
-
-
-	/**
-	 * user
-	 *
-	 * @return int
-	 */
-	public function getUser(): int
-	{
-		return $this->user;
-	}
-
-
-	/**
-	 * user
-	 *
-	 * @param int $user
-	 * @return $this
-	 */
-	public function setUser($user): self
-	{
-		$this->user = $user;
 		return $this;
 	}
 
@@ -212,7 +181,6 @@ class FtpUserInput extends \HipexPackApi\Schema\BaseType implements JsonSerializ
 		$result = [];
 		if ($this->id !== null) $result['id'] = $this->id;
 		if ($this->domain !== null) $result['domain'] = $this->domain;
-		if ($this->user !== null) $result['user'] = $this->user;
 		if ($this->username !== null) $result['username'] = $this->username;
 		if ($this->password !== null) $result['password'] = $this->password;
 		if ($this->path !== null) $result['path'] = $this->path;
