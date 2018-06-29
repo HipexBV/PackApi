@@ -42,16 +42,21 @@ class ChecklistService
     }
 
     /**
-     * @param int $domainId
-     * @param bool $waitForFinish
-     * @param int $timeout
-     * @return Checklist
-     * @throws ExceptionInterface
-     */
-    public function start(int $domainId, bool $waitForFinish = false, int $timeout = 300): Checklist
+      * @param int $domainId
+      * @param array|null $groups
+      * @param bool $waitForFinish
+      * @param int $timeout
+      * @return Checklist
+      * @throws ExceptionInterface
+      */
+    public function start(int $domainId, array $groups = null, bool $waitForFinish = false, int $timeout = 300): Checklist
     {
+        $input = new ChecklistStartInput();
+        $input->setDomainId($domainId);
+        $input->setGroupsToRun($groups);
+
         /** @var Checklist $checklist */
-        $checklist = $this->client->mutateChecklistStart($domainId);
+        $checklist = $this->client->mutateChecklistStart($input);
 
         if (!$waitForFinish) {
             return $checklist;
