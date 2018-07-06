@@ -19,6 +19,7 @@ use HipexPackApi\Generated\Schema\Input\DomainPointerInput;
 use HipexPackApi\Generated\Schema\Input\FilterInput;
 use HipexPackApi\Generated\Schema\Input\FtpUserInput;
 use HipexPackApi\Generated\Schema\Input\SortInput;
+use HipexPackApi\Generated\Schema\Input\SshKeyInput;
 use HipexPackApi\Generated\Schema\Input\SslCertificateInput;
 use HipexPackApi\Generated\Schema\Input\UserInput;
 use HipexPackApi\Generated\Schema\Type\Authentication;
@@ -29,6 +30,7 @@ use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
+use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
 
@@ -223,6 +225,25 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\DomainPointer(), $arguments);
+	}
+
+
+	/**
+	 * @param int|null $domain
+	 * @param int|null $database
+	 * @param string|null $id
+	 * @return Backup[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryBackup(int $domain = null, int $database = null, string $id = null)
+	{
+		$arguments = [];
+		$arguments['domain'] = $domain;
+		$arguments['database'] = $database;
+		$arguments['id'] = $id;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Backup(), $arguments);
 	}
 
 
@@ -444,6 +465,23 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\SSHKey(), $arguments);
+	}
+
+
+	/**
+	 * @param SshKeyInput|null $entity
+	 * @param bool $delete
+	 * @return SSHKey|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateSSHKey(SshKeyInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSHKey(), $arguments);
 	}
 
 
