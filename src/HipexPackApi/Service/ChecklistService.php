@@ -9,6 +9,7 @@ namespace HipexPackApi\Service;
 use HipexPackApi\Client;
 use HipexPackApi\Exception\ExceptionInterface;
 use HipexPackApi\Exception\TimeoutException;
+use HipexPackApi\Generated\Schema\Input\ChecklistStartInput;
 use HipexPackApi\Generated\Schema\Type\Checklist;
 use HipexPackApi\Repository\ChecklistRepository;
 use Psr\Log\LoggerInterface;
