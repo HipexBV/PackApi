@@ -39,6 +39,13 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 	private $domain;
 
 	/**
+	 * monitor
+	 *
+	 * @var bool|null
+	 */
+	private $monitor;
+
+	/**
 	 * certificate
 	 *
 	 * @var int|null
@@ -126,6 +133,30 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 
 
 	/**
+	 * monitor
+	 *
+	 * @return bool|null
+	 */
+	public function getMonitor()
+	{
+		return $this->monitor;
+	}
+
+
+	/**
+	 * monitor
+	 *
+	 * @param bool|null $monitor
+	 * @return $this
+	 */
+	public function setMonitor($monitor = null): self
+	{
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
+		return $this;
+	}
+
+
+	/**
 	 * certificate
 	 *
 	 * @return int|null
@@ -182,6 +213,7 @@ class DomainPointerInput extends \HipexPackApi\Schema\BaseType implements JsonSe
 		if ($this->id !== null) $result['id'] = $this->id;
 		if ($this->pointer !== null) $result['pointer'] = $this->pointer;
 		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
 		if ($this->certificate !== null) $result['certificate'] = $this->certificate;
 		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
 		return $result;

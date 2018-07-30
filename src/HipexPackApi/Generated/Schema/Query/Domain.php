@@ -25,6 +25,7 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        entityTypeName' . PHP_EOL;
+		$body .= '        monitor' . PHP_EOL;
 		$body .= '        domain' . PHP_EOL;
 		$body .= '        backup' . PHP_EOL;
 		$body .= '        user {' . PHP_EOL;
@@ -62,7 +63,6 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        }' . PHP_EOL;
 		$body .= '        newRelicKey' . PHP_EOL;
 		$body .= '        phpMyAdmin' . PHP_EOL;
-		$body .= '        monitor' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;

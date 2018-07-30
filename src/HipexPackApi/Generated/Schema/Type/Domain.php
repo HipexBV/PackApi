@@ -60,6 +60,13 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $entityTypeName;
 
 	/**
+	 * monitor
+	 *
+	 * @var bool|null
+	 */
+	private $monitor;
+
+	/**
 	 * domain
 	 *
 	 * @var string
@@ -177,13 +184,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 * @var bool|null
 	 */
 	private $phpMyAdmin;
-
-	/**
-	 * monitor
-	 *
-	 * @var bool|null
-	 */
-	private $monitor;
 
 
 	/**
@@ -335,6 +335,30 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setEntityTypeName($entityTypeName = null): self
 	{
 		$this->entityTypeName = $entityTypeName === null ? null : (string) $entityTypeName;
+		return $this;
+	}
+
+
+	/**
+	 * monitor
+	 *
+	 * @return bool|null
+	 */
+	public function getMonitor()
+	{
+		return $this->monitor;
+	}
+
+
+	/**
+	 * monitor
+	 *
+	 * @param bool|null $monitor
+	 * @return $this
+	 */
+	public function setMonitor($monitor = null): self
+	{
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
 		return $this;
 	}
 
@@ -828,30 +852,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
-	 * monitor
-	 *
-	 * @return bool|null
-	 */
-	public function getMonitor()
-	{
-		return $this->monitor;
-	}
-
-
-	/**
-	 * monitor
-	 *
-	 * @param bool|null $monitor
-	 * @return $this
-	 */
-	public function setMonitor($monitor = null): self
-	{
-		$this->monitor = $monitor === null ? null : (bool) $monitor;
-		return $this;
-	}
-
-
-	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -863,6 +863,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
 		if ($this->SSLCertificate !== null) $result['SSLCertificate'] = $this->SSLCertificate;
 		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
 		if ($this->domain !== null) $result['domain'] = $this->domain;
 		if ($this->backup !== null) $result['backup'] = $this->backup;
 		if ($this->user !== null) $result['user'] = $this->user;
@@ -880,7 +881,6 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->ftpUsers !== null) $result['ftpUsers'] = $this->ftpUsers;
 		if ($this->newRelicKey !== null) $result['newRelicKey'] = $this->newRelicKey;
 		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
-		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
 		return $result;
 	}
 }

@@ -60,6 +60,13 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	private $entityTypeName;
 
 	/**
+	 * monitor
+	 *
+	 * @var bool|null
+	 */
+	private $monitor;
+
+	/**
 	 * pointer
 	 *
 	 * @var string
@@ -228,6 +235,30 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 
 
 	/**
+	 * monitor
+	 *
+	 * @return bool|null
+	 */
+	public function getMonitor()
+	{
+		return $this->monitor;
+	}
+
+
+	/**
+	 * monitor
+	 *
+	 * @param bool|null $monitor
+	 * @return $this
+	 */
+	public function setMonitor($monitor = null): self
+	{
+		$this->monitor = $monitor === null ? null : (bool) $monitor;
+		return $this;
+	}
+
+
+	/**
 	 * pointer
 	 *
 	 * @return string
@@ -290,6 +321,7 @@ class DomainPointer extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
 		if ($this->SSLCertificate !== null) $result['SSLCertificate'] = $this->SSLCertificate;
 		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
+		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
 		if ($this->pointer !== null) $result['pointer'] = $this->pointer;
 		if ($this->domain !== null) $result['domain'] = $this->domain;
 		return $result;

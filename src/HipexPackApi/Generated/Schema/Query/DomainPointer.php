@@ -25,6 +25,7 @@ class DomainPointer extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        entityTypeName' . PHP_EOL;
+		$body .= '        monitor' . PHP_EOL;
 		$body .= '        pointer' . PHP_EOL;
 		$body .= '        domain {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
