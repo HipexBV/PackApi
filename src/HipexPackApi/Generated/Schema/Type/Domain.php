@@ -179,6 +179,20 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $newRelicKey;
 
 	/**
+	 * blackFireId
+	 *
+	 * @var string|null
+	 */
+	private $blackFireId;
+
+	/**
+	 * blackFireToken
+	 *
+	 * @var string|null
+	 */
+	private $blackFireToken;
+
+	/**
 	 * phpMyAdmin
 	 *
 	 * @var bool|null
@@ -828,6 +842,54 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * blackFireId
+	 *
+	 * @return string|null
+	 */
+	public function getBlackFireId()
+	{
+		return $this->blackFireId;
+	}
+
+
+	/**
+	 * blackFireId
+	 *
+	 * @param string|null $blackFireId
+	 * @return $this
+	 */
+	public function setBlackFireId($blackFireId = null): self
+	{
+		$this->blackFireId = $blackFireId === null ? null : (string) $blackFireId;
+		return $this;
+	}
+
+
+	/**
+	 * blackFireToken
+	 *
+	 * @return string|null
+	 */
+	public function getBlackFireToken()
+	{
+		return $this->blackFireToken;
+	}
+
+
+	/**
+	 * blackFireToken
+	 *
+	 * @param string|null $blackFireToken
+	 * @return $this
+	 */
+	public function setBlackFireToken($blackFireToken = null): self
+	{
+		$this->blackFireToken = $blackFireToken === null ? null : (string) $blackFireToken;
+		return $this;
+	}
+
+
+	/**
 	 * phpMyAdmin
 	 *
 	 * @return bool|null
@@ -880,6 +942,8 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->integrationTests !== null) $result['integrationTests'] = $this->integrationTests;
 		if ($this->ftpUsers !== null) $result['ftpUsers'] = $this->ftpUsers;
 		if ($this->newRelicKey !== null) $result['newRelicKey'] = $this->newRelicKey;
+		if ($this->blackFireId !== null) $result['blackFireId'] = $this->blackFireId;
+		if ($this->blackFireToken !== null) $result['blackFireToken'] = $this->blackFireToken;
 		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
 		return $result;
 	}

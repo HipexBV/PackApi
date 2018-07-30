@@ -62,6 +62,8 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
 		$body .= '        newRelicKey' . PHP_EOL;
+		$body .= '        blackFireId' . PHP_EOL;
+		$body .= '        blackFireToken' . PHP_EOL;
 		$body .= '        phpMyAdmin' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;

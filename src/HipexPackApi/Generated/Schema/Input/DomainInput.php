@@ -108,6 +108,20 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	 */
 	private $letsEncryptSsl;
 
+	/**
+	 * blackFireId
+	 *
+	 * @var string|null
+	 */
+	private $blackFireId;
+
+	/**
+	 * blackFireToken
+	 *
+	 * @var string|null
+	 */
+	private $blackFireToken;
+
 
 	/**
 	 * id
@@ -422,6 +436,54 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 
 
 	/**
+	 * blackFireId
+	 *
+	 * @return string|null
+	 */
+	public function getBlackFireId()
+	{
+		return $this->blackFireId;
+	}
+
+
+	/**
+	 * blackFireId
+	 *
+	 * @param string|null $blackFireId
+	 * @return $this
+	 */
+	public function setBlackFireId($blackFireId = null): self
+	{
+		$this->blackFireId = $blackFireId === null ? null : (string) $blackFireId;
+		return $this;
+	}
+
+
+	/**
+	 * blackFireToken
+	 *
+	 * @return string|null
+	 */
+	public function getBlackFireToken()
+	{
+		return $this->blackFireToken;
+	}
+
+
+	/**
+	 * blackFireToken
+	 *
+	 * @param string|null $blackFireToken
+	 * @return $this
+	 */
+	public function setBlackFireToken($blackFireToken = null): self
+	{
+		$this->blackFireToken = $blackFireToken === null ? null : (string) $blackFireToken;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -440,6 +502,8 @@ class DomainInput extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
 		if ($this->monitor !== null) $result['monitor'] = $this->monitor;
 		if ($this->letsEncryptSsl !== null) $result['letsEncryptSsl'] = $this->letsEncryptSsl;
+		if ($this->blackFireId !== null) $result['blackFireId'] = $this->blackFireId;
+		if ($this->blackFireToken !== null) $result['blackFireToken'] = $this->blackFireToken;
 		return $result;
 	}
 }
