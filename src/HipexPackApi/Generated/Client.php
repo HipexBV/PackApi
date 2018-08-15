@@ -30,6 +30,7 @@ use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
+use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
@@ -482,6 +483,21 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSHKey(), $arguments);
+	}
+
+
+	/**
+	 * @param string $website
+	 * @return PerformanceScan|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutatePerformanceScanStart(string $website)
+	{
+		$arguments = [];
+		$arguments['website'] = $website;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\PerformanceScanStart(), $arguments);
 	}
 
 
