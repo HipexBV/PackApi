@@ -30,6 +30,7 @@ use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
+use HipexPackApi\Generated\Schema\Type\MonitorValidation;
 use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
@@ -184,6 +185,21 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\User(), $arguments);
+	}
+
+
+	/**
+	 * @param string|null $domainName
+	 * @return MonitorValidation|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryMonitorValidate(string $domainName = null)
+	{
+		$arguments = [];
+		$arguments['domainName'] = $domainName;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorValidate(), $arguments);
 	}
 
 
