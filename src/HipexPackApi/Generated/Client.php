@@ -11,6 +11,7 @@ namespace HipexPackApi\Generated;
 
 use HipexPackApi\BaseClient;
 use HipexPackApi\Exception\ExceptionInterface;
+use HipexPackApi\Generated\Schema\Input\AccountSelfInput;
 use HipexPackApi\Generated\Schema\Input\ChecklistStartInput;
 use HipexPackApi\Generated\Schema\Input\DatabaseInput;
 use HipexPackApi\Generated\Schema\Input\DatabaseUserInput;
@@ -22,6 +23,7 @@ use HipexPackApi\Generated\Schema\Input\SortInput;
 use HipexPackApi\Generated\Schema\Input\SshKeyInput;
 use HipexPackApi\Generated\Schema\Input\SslCertificateInput;
 use HipexPackApi\Generated\Schema\Input\UserInput;
+use HipexPackApi\Generated\Schema\Type\AccountSelf;
 use HipexPackApi\Generated\Schema\Type\Authentication;
 use HipexPackApi\Generated\Schema\Type\Checklist;
 use HipexPackApi\Generated\Schema\Type\Database;
@@ -563,6 +565,21 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\Login(), $arguments);
+	}
+
+
+	/**
+	 * @param AccountSelfInput|null $accountSelf
+	 * @return AccountSelf|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateAccountSelf(AccountSelfInput $accountSelf = null)
+	{
+		$arguments = [];
+		$arguments['accountSelf'] = $accountSelf;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\AccountSelf(), $arguments);
 	}
 
 
