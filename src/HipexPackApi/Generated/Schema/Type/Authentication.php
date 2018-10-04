@@ -60,6 +60,13 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	private $name;
 
 	/**
+	 * locale
+	 *
+	 * @var string|null
+	 */
+	private $locale;
+
+	/**
 	 * settings
 	 *
 	 * @var KeyValue[]|null
@@ -212,6 +219,30 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 
 
 	/**
+	 * locale
+	 *
+	 * @return string|null
+	 */
+	public function getLocale()
+	{
+		return $this->locale;
+	}
+
+
+	/**
+	 * locale
+	 *
+	 * @param string|null $locale
+	 * @return $this
+	 */
+	public function setLocale($locale = null): self
+	{
+		$this->locale = $locale;
+		return $this;
+	}
+
+
+	/**
 	 * settings
 	 *
 	 * @return KeyValue[]|null
@@ -260,6 +291,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 		if ($this->errorMessageId !== null) $result['errorMessageId'] = $this->errorMessageId;
 		if ($this->email !== null) $result['email'] = $this->email;
 		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->locale !== null) $result['locale'] = $this->locale;
 		if ($this->settings !== null) $result['settings'] = $this->settings;
 		return $result;
 	}

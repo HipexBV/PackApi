@@ -19,6 +19,7 @@ class Login extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        errorMessageId' . PHP_EOL;
 		$body .= '        email' . PHP_EOL;
 		$body .= '        name' . PHP_EOL;
+		$body .= '        locale' . PHP_EOL;
 		$body .= '        settings {' . PHP_EOL;
 		$body .= '            key' . PHP_EOL;
 		$body .= '            value' . PHP_EOL;
