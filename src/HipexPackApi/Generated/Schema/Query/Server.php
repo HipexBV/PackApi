@@ -15,6 +15,7 @@ class Server extends \HipexPackApi\Schema\BaseQuery
 		$body .= '    Server(filter: $filter, limit: $limit, skip: $skip, sort: $sort) {' . PHP_EOL;
 		$body .= '        id' . PHP_EOL;
 		$body .= '        name' . PHP_EOL;
+		$body .= '        development' . PHP_EOL;
 		$body .= '        customer {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;

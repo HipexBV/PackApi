@@ -32,6 +32,13 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $name;
 
 	/**
+	 * development
+	 *
+	 * @var bool
+	 */
+	private $development;
+
+	/**
 	 * customer
 	 *
 	 * @var Customer|null
@@ -104,6 +111,30 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	public function setName($name): self
 	{
 		$this->name = $name;
+		return $this;
+	}
+
+
+	/**
+	 * development
+	 *
+	 * @return bool
+	 */
+	public function getDevelopment(): bool
+	{
+		return $this->development;
+	}
+
+
+	/**
+	 * development
+	 *
+	 * @param bool $development
+	 * @return $this
+	 */
+	public function setDevelopment($development): self
+	{
+		$this->development = $development;
 		return $this;
 	}
 
@@ -254,6 +285,7 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		$result = [];
 		if ($this->id !== null) $result['id'] = $this->id;
 		if ($this->name !== null) $result['name'] = $this->name;
+		if ($this->development !== null) $result['development'] = $this->development;
 		if ($this->customer !== null) $result['customer'] = $this->customer;
 		if ($this->domains !== null) $result['domains'] = $this->domains;
 		if ($this->users !== null) $result['users'] = $this->users;

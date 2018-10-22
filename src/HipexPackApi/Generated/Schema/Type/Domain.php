@@ -199,6 +199,13 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	private $phpMyAdmin;
 
+	/**
+	 * development
+	 *
+	 * @var bool|null
+	 */
+	private $development;
+
 
 	/**
 	 * id
@@ -914,6 +921,30 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * development
+	 *
+	 * @return bool|null
+	 */
+	public function getDevelopment()
+	{
+		return $this->development;
+	}
+
+
+	/**
+	 * development
+	 *
+	 * @param bool|null $development
+	 * @return $this
+	 */
+	public function setDevelopment($development = null): self
+	{
+		$this->development = $development === null ? null : (bool) $development;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -945,6 +976,7 @@ class Domain extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->blackFireId !== null) $result['blackFireId'] = $this->blackFireId;
 		if ($this->blackFireToken !== null) $result['blackFireToken'] = $this->blackFireToken;
 		if ($this->phpMyAdmin !== null) $result['phpMyAdmin'] = $this->phpMyAdmin;
+		if ($this->development !== null) $result['development'] = $this->development;
 		return $result;
 	}
 }
