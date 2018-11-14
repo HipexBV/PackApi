@@ -28,6 +28,13 @@ class Server extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        sshKeys {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        type' . PHP_EOL;
+		$body .= '        parent {' . PHP_EOL;
+		$body .= '            id' . PHP_EOL;
+		$body .= '        }' . PHP_EOL;
+		$body .= '        children {' . PHP_EOL;
+		$body .= '            id' . PHP_EOL;
+		$body .= '        }' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;

@@ -66,6 +66,27 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	 */
 	private $sshKeys;
 
+	/**
+	 * type
+	 *
+	 * @var string|null
+	 */
+	private $type;
+
+	/**
+	 * parent
+	 *
+	 * @var Server|null
+	 */
+	private $parent;
+
+	/**
+	 * children
+	 *
+	 * @var Server[]|null
+	 */
+	private $children;
+
 
 	/**
 	 * id
@@ -278,6 +299,94 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * type
+	 *
+	 * @return string|null
+	 */
+	public function getType()
+	{
+		return $this->type;
+	}
+
+
+	/**
+	 * type
+	 *
+	 * @param string|null $type
+	 * @return $this
+	 */
+	public function setType($type = null): self
+	{
+		$this->type = $type;
+		return $this;
+	}
+
+
+	/**
+	 * parent
+	 *
+	 * @return Server|null
+	 */
+	public function getParent()
+	{
+		return $this->parent;
+	}
+
+
+	/**
+	 * parent
+	 *
+	 * @param Server|null $parent
+	 * @return $this
+	 */
+	public function setParent($parent = null): self
+	{
+		if ($parent !== null && !$parent instanceof \HipexPackApi\Generated\Schema\Type\Server) {
+		    $parent = new \HipexPackApi\Generated\Schema\Type\Server($parent);
+		}
+		$this->parent = $parent;
+		return $this;
+	}
+
+
+	/**
+	 * children
+	 *
+	 * @return Server[]|null
+	 */
+	public function getChildren()
+	{
+		return $this->children;
+	}
+
+
+	/**
+	 * children
+	 *
+	 * @param Server[]|null $children
+	 * @return $this
+	 */
+	public function setChildren($children = null): self
+	{
+		$this->children = [];
+		if ($children === null) return $this;
+		foreach ($children as $item) {
+		    $this->addChildrenValue($item);
+		}
+		return $this;
+	}
+
+
+	private function addChildrenValue($children)
+	{
+		if ($children !== null && !$children instanceof \HipexPackApi\Generated\Schema\Type\Server) {
+		    $children = new \HipexPackApi\Generated\Schema\Type\Server($children);
+		}
+		$this->children[] = $children;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -290,6 +399,9 @@ class Server extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->domains !== null) $result['domains'] = $this->domains;
 		if ($this->users !== null) $result['users'] = $this->users;
 		if ($this->sshKeys !== null) $result['sshKeys'] = $this->sshKeys;
+		if ($this->type !== null) $result['type'] = $this->type;
+		if ($this->parent !== null) $result['parent'] = $this->parent;
+		if ($this->children !== null) $result['children'] = $this->children;
 		return $result;
 	}
 }
