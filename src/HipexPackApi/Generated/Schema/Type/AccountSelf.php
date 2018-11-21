@@ -20,7 +20,7 @@ class AccountSelf extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * id
 	 *
-	 * @var int
+	 * @var int|null
 	 */
 	private $id;
 
@@ -42,9 +42,9 @@ class AccountSelf extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * id
 	 *
-	 * @return int
+	 * @return int|null
 	 */
-	public function getId(): int
+	public function getId()
 	{
 		return $this->id;
 	}
@@ -53,12 +53,12 @@ class AccountSelf extends \HipexPackApi\Schema\BaseType implements JsonSerializa
 	/**
 	 * id
 	 *
-	 * @param int $id
+	 * @param int|null $id
 	 * @return $this
 	 */
-	public function setId($id): self
+	public function setId($id = null): self
 	{
-		$this->id = $id;
+		$this->id = $id === null ? null : (int) $id;
 		return $this;
 	}
 

@@ -11,8 +11,8 @@ class AccountSelf extends \HipexPackApi\Schema\BaseQuery
 	public function getBody(): string
 	{
 		$body = '';
-		$body .= 'mutation AccountSelf($accountSelf: AccountSelfInput) {' . PHP_EOL;
-		$body .= '    AccountSelf(accountSelf: $accountSelf) {' . PHP_EOL;
+		$body .= 'mutation AccountSelf($entity: AccountSelfInput, $delete: Boolean!) {' . PHP_EOL;
+		$body .= '    AccountSelf(entity: $entity, delete: $delete) {' . PHP_EOL;
 		$body .= '        id' . PHP_EOL;
 		$body .= '        email' . PHP_EOL;
 		$body .= '        locale' . PHP_EOL;

@@ -18,13 +18,6 @@ use JsonSerializable;
 class AccountSelfInput extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 {
 	/**
-	 * id
-	 *
-	 * @var int|null
-	 */
-	private $id;
-
-	/**
 	 * email
 	 *
 	 * @var string|null
@@ -32,11 +25,25 @@ class AccountSelfInput extends \HipexPackApi\Schema\BaseType implements JsonSeri
 	private $email;
 
 	/**
-	 * password
+	 * currentPassword
 	 *
 	 * @var string|null
 	 */
-	private $password;
+	private $currentPassword;
+
+	/**
+	 * newPassword
+	 *
+	 * @var string|null
+	 */
+	private $newPassword;
+
+	/**
+	 * confirmNewPassword
+	 *
+	 * @var string|null
+	 */
+	private $confirmNewPassword;
 
 	/**
 	 * locale
@@ -44,30 +51,6 @@ class AccountSelfInput extends \HipexPackApi\Schema\BaseType implements JsonSeri
 	 * @var string|null
 	 */
 	private $locale;
-
-
-	/**
-	 * id
-	 *
-	 * @return int|null
-	 */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-
-	/**
-	 * id
-	 *
-	 * @param int|null $id
-	 * @return $this
-	 */
-	public function setId($id = null): self
-	{
-		$this->id = $id === null ? null : (int) $id;
-		return $this;
-	}
 
 
 	/**
@@ -95,25 +78,73 @@ class AccountSelfInput extends \HipexPackApi\Schema\BaseType implements JsonSeri
 
 
 	/**
-	 * password
+	 * currentPassword
 	 *
 	 * @return string|null
 	 */
-	public function getPassword()
+	public function getCurrentPassword()
 	{
-		return $this->password;
+		return $this->currentPassword;
 	}
 
 
 	/**
-	 * password
+	 * currentPassword
 	 *
-	 * @param string|null $password
+	 * @param string|null $currentPassword
 	 * @return $this
 	 */
-	public function setPassword($password = null): self
+	public function setCurrentPassword($currentPassword = null): self
 	{
-		$this->password = $password === null ? null : (string) $password;
+		$this->currentPassword = $currentPassword === null ? null : (string) $currentPassword;
+		return $this;
+	}
+
+
+	/**
+	 * newPassword
+	 *
+	 * @return string|null
+	 */
+	public function getNewPassword()
+	{
+		return $this->newPassword;
+	}
+
+
+	/**
+	 * newPassword
+	 *
+	 * @param string|null $newPassword
+	 * @return $this
+	 */
+	public function setNewPassword($newPassword = null): self
+	{
+		$this->newPassword = $newPassword === null ? null : (string) $newPassword;
+		return $this;
+	}
+
+
+	/**
+	 * confirmNewPassword
+	 *
+	 * @return string|null
+	 */
+	public function getConfirmNewPassword()
+	{
+		return $this->confirmNewPassword;
+	}
+
+
+	/**
+	 * confirmNewPassword
+	 *
+	 * @param string|null $confirmNewPassword
+	 * @return $this
+	 */
+	public function setConfirmNewPassword($confirmNewPassword = null): self
+	{
+		$this->confirmNewPassword = $confirmNewPassword === null ? null : (string) $confirmNewPassword;
 		return $this;
 	}
 
@@ -148,9 +179,10 @@ class AccountSelfInput extends \HipexPackApi\Schema\BaseType implements JsonSeri
 	public function jsonSerialize()
 	{
 		$result = [];
-		if ($this->id !== null) $result['id'] = $this->id;
 		if ($this->email !== null) $result['email'] = $this->email;
-		if ($this->password !== null) $result['password'] = $this->password;
+		if ($this->currentPassword !== null) $result['currentPassword'] = $this->currentPassword;
+		if ($this->newPassword !== null) $result['newPassword'] = $this->newPassword;
+		if ($this->confirmNewPassword !== null) $result['confirmNewPassword'] = $this->confirmNewPassword;
 		if ($this->locale !== null) $result['locale'] = $this->locale;
 		return $result;
 	}

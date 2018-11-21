@@ -569,14 +569,16 @@ class Client extends BaseClient
 
 
 	/**
-	 * @param AccountSelfInput|null $accountSelf
+	 * @param AccountSelfInput|null $entity
+	 * @param bool $delete
 	 * @return AccountSelf|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateAccountSelf(AccountSelfInput $accountSelf = null)
+	public function mutateAccountSelf(AccountSelfInput $entity = null, bool $delete)
 	{
 		$arguments = [];
-		$arguments['accountSelf'] = $accountSelf;
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\AccountSelf(), $arguments);
