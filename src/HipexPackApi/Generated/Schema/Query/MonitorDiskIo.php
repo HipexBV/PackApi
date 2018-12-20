@@ -11,8 +11,8 @@ class MonitorDiskIo extends \HipexPackApi\Schema\BaseQuery
 	public function getBody(): string
 	{
 		$body = '';
-		$body .= 'query MonitorDiskIo($applicationId: String, $startTime: String, $endTime: String) {' . PHP_EOL;
-		$body .= '    MonitorDiskIo(applicationId: $applicationId, startTime: $startTime, endTime: $endTime) {' . PHP_EOL;
+		$body .= 'query MonitorDiskIo($applicationId: String, $serverId: String, $startTime: String, $endTime: String) {' . PHP_EOL;
+		$body .= '    MonitorDiskIo(applicationId: $applicationId, serverId: $serverId, startTime: $startTime, endTime: $endTime) {' . PHP_EOL;
 		$body .= '        date' . PHP_EOL;
 		$body .= '        values {' . PHP_EOL;
 		$body .= '            key' . PHP_EOL;

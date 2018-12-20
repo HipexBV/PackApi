@@ -268,15 +268,17 @@ class Client extends BaseClient
 
 	/**
 	 * @param string|null $applicationId
+	 * @param string|null $serverId
 	 * @param string|null $startTime
 	 * @param string|null $endTime
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorDiskSpace(string $applicationId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorDiskSpace(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
+		$arguments['serverId'] = $serverId;
 		$arguments['startTime'] = $startTime;
 		$arguments['endTime'] = $endTime;
 
@@ -287,15 +289,17 @@ class Client extends BaseClient
 
 	/**
 	 * @param string|null $applicationId
+	 * @param string|null $serverId
 	 * @param string|null $startTime
 	 * @param string|null $endTime
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorDiskIo(string $applicationId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorDiskIo(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
+		$arguments['serverId'] = $serverId;
 		$arguments['startTime'] = $startTime;
 		$arguments['endTime'] = $endTime;
 
@@ -306,15 +310,17 @@ class Client extends BaseClient
 
 	/**
 	 * @param string|null $applicationId
+	 * @param string|null $serverId
 	 * @param string|null $startTime
 	 * @param string|null $endTime
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorNetworkTraffic(string $applicationId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorNetworkTraffic(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
+		$arguments['serverId'] = $serverId;
 		$arguments['startTime'] = $startTime;
 		$arguments['endTime'] = $endTime;
 
@@ -325,15 +331,17 @@ class Client extends BaseClient
 
 	/**
 	 * @param string|null $applicationId
+	 * @param string|null $serverId
 	 * @param string|null $startTime
 	 * @param string|null $endTime
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorServerLoad(string $applicationId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorServerLoad(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
+		$arguments['serverId'] = $serverId;
 		$arguments['startTime'] = $startTime;
 		$arguments['endTime'] = $endTime;
 
@@ -344,15 +352,17 @@ class Client extends BaseClient
 
 	/**
 	 * @param string|null $applicationId
+	 * @param string|null $serverId
 	 * @param string|null $startTime
 	 * @param string|null $endTime
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorMemoryUsage(string $applicationId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorMemoryUsage(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
+		$arguments['serverId'] = $serverId;
 		$arguments['startTime'] = $startTime;
 		$arguments['endTime'] = $endTime;
 

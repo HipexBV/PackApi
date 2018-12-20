@@ -11,8 +11,8 @@ class MonitorServerLoad extends \HipexPackApi\Schema\BaseQuery
 	public function getBody(): string
 	{
 		$body = '';
-		$body .= 'query MonitorServerLoad($applicationId: String, $startTime: String, $endTime: String) {' . PHP_EOL;
-		$body .= '    MonitorServerLoad(applicationId: $applicationId, startTime: $startTime, endTime: $endTime) {' . PHP_EOL;
+		$body .= 'query MonitorServerLoad($applicationId: String, $serverId: String, $startTime: String, $endTime: String) {' . PHP_EOL;
+		$body .= '    MonitorServerLoad(applicationId: $applicationId, serverId: $serverId, startTime: $startTime, endTime: $endTime) {' . PHP_EOL;
 		$body .= '        date' . PHP_EOL;
 		$body .= '        values {' . PHP_EOL;
 		$body .= '            key' . PHP_EOL;
