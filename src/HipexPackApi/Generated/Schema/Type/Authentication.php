@@ -73,6 +73,13 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	 */
 	private $settings;
 
+	/**
+	 * kayakoJwt
+	 *
+	 * @var string|null
+	 */
+	private $kayakoJwt;
+
 
 	/**
 	 * id
@@ -280,6 +287,30 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 
 
 	/**
+	 * kayakoJwt
+	 *
+	 * @return string|null
+	 */
+	public function getKayakoJwt()
+	{
+		return $this->kayakoJwt;
+	}
+
+
+	/**
+	 * kayakoJwt
+	 *
+	 * @param string|null $kayakoJwt
+	 * @return $this
+	 */
+	public function setKayakoJwt($kayakoJwt = null): self
+	{
+		$this->kayakoJwt = $kayakoJwt === null ? null : (string) $kayakoJwt;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -293,6 +324,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 		if ($this->name !== null) $result['name'] = $this->name;
 		if ($this->locale !== null) $result['locale'] = $this->locale;
 		if ($this->settings !== null) $result['settings'] = $this->settings;
+		if ($this->kayakoJwt !== null) $result['kayakoJwt'] = $this->kayakoJwt;
 		return $result;
 	}
 }

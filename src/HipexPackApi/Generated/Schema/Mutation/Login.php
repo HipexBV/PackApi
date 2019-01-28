@@ -24,6 +24,7 @@ class Login extends \HipexPackApi\Schema\BaseQuery
 		$body .= '            key' . PHP_EOL;
 		$body .= '            value' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;
+		$body .= '        kayakoJwt' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;

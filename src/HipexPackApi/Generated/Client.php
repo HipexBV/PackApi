@@ -30,13 +30,16 @@ use HipexPackApi\Generated\Schema\Type\Database;
 use HipexPackApi\Generated\Schema\Type\DatabaseUser;
 use HipexPackApi\Generated\Schema\Type\Domain;
 use HipexPackApi\Generated\Schema\Type\DomainPointer;
+use HipexPackApi\Generated\Schema\Type\ForgotPassword;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
 use HipexPackApi\Generated\Schema\Type\MonitorValidation;
 use HipexPackApi\Generated\Schema\Type\PerformanceScan;
+use HipexPackApi\Generated\Schema\Type\RegisterUser;
 use HipexPackApi\Generated\Schema\Type\SSHKey;
 use HipexPackApi\Generated\Schema\Type\SSLCertificate;
 use HipexPackApi\Generated\Schema\Type\User;
+use HipexPackApi\Generated\Schema\Type\Verification;
 
 /**
  * @codeCoverageIgnore
@@ -658,6 +661,78 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\Domain(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
+	 * @param string $name
+	 * @param string $password
+	 * @return RegisterUser|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateRegisterUser(string $email, string $name, string $password)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+		$arguments['name'] = $name;
+		$arguments['password'] = $password;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\RegisterUser(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
+	 * @param string $verificationToken
+	 * @param string $newPassword
+	 * @param string $confirmNewPassword
+	 * @return Verification|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateVerifyForgotPassword(string $email, string $verificationToken, string $newPassword, string $confirmNewPassword)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+		$arguments['verificationToken'] = $verificationToken;
+		$arguments['newPassword'] = $newPassword;
+		$arguments['confirmNewPassword'] = $confirmNewPassword;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\VerifyForgotPassword(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
+	 * @param string $verificationToken
+	 * @return Verification|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateVerifyRegisteredUser(string $email, string $verificationToken)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+		$arguments['verificationToken'] = $verificationToken;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\VerifyRegisteredUser(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
+	 * @return ForgotPassword|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateForgotPassword(string $email)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ForgotPassword(), $arguments);
 	}
 
 
