@@ -59,6 +59,13 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	 */
 	private $backup;
 
+	/**
+	 * readOnly
+	 *
+	 * @var bool|null
+	 */
+	private $readOnly;
+
 
 	/**
 	 * id
@@ -205,6 +212,30 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 
 
 	/**
+	 * readOnly
+	 *
+	 * @return bool|null
+	 */
+	public function getReadOnly()
+	{
+		return $this->readOnly;
+	}
+
+
+	/**
+	 * readOnly
+	 *
+	 * @param bool|null $readOnly
+	 * @return $this
+	 */
+	public function setReadOnly($readOnly = null): self
+	{
+		$this->readOnly = $readOnly === null ? null : (bool) $readOnly;
+		return $this;
+	}
+
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function jsonSerialize()
@@ -216,6 +247,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		if ($this->username !== null) $result['username'] = $this->username;
 		if ($this->password !== null) $result['password'] = $this->password;
 		if ($this->backup !== null) $result['backup'] = $this->backup;
+		if ($this->readOnly !== null) $result['readOnly'] = $this->readOnly;
 		return $result;
 	}
 }

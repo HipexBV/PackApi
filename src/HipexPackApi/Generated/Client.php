@@ -156,6 +156,27 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
+	 * @return Invoice[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryInvoice(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Invoice(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
 	 * @return FtpUser[]|null
 	 * @throws ExceptionInterface
 	 */
