@@ -8,6 +8,7 @@ is generated from the File generated from [https://service.hipex.io/hipex-pack-a
 For a more extended documentation and API explorer please check out [https://service.hipex.io/hipex-pack-api/docs/](https://service.hipex.io/hipex-pack-api/docs/).
 
 ## Installation
+Any implementation of `psr/log-implementation` is required https://packagist.org/providers/psr/log-implementation. For Magento 2 `monolog/monolog` is already installed.
 
 ```bash
 composer require hipex/pack-api
