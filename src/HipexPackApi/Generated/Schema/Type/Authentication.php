@@ -74,11 +74,11 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 	private $settings;
 
 	/**
-	 * kayakoJwt
+	 * ssoJwt
 	 *
 	 * @var string|null
 	 */
-	private $kayakoJwt;
+	private $ssoJwt;
 
 
 	/**
@@ -287,25 +287,25 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 
 
 	/**
-	 * kayakoJwt
+	 * ssoJwt
 	 *
 	 * @return string|null
 	 */
-	public function getKayakoJwt()
+	public function getSsoJwt()
 	{
-		return $this->kayakoJwt;
+		return $this->ssoJwt;
 	}
 
 
 	/**
-	 * kayakoJwt
+	 * ssoJwt
 	 *
-	 * @param string|null $kayakoJwt
+	 * @param string|null $ssoJwt
 	 * @return $this
 	 */
-	public function setKayakoJwt($kayakoJwt = null): self
+	public function setSsoJwt($ssoJwt = null): self
 	{
-		$this->kayakoJwt = $kayakoJwt === null ? null : (string) $kayakoJwt;
+		$this->ssoJwt = $ssoJwt === null ? null : (string) $ssoJwt;
 		return $this;
 	}
 
@@ -324,7 +324,7 @@ class Authentication extends \HipexPackApi\Schema\BaseType implements JsonSerial
 		if ($this->name !== null) $result['name'] = $this->name;
 		if ($this->locale !== null) $result['locale'] = $this->locale;
 		if ($this->settings !== null) $result['settings'] = $this->settings;
-		if ($this->kayakoJwt !== null) $result['kayakoJwt'] = $this->kayakoJwt;
+		if ($this->ssoJwt !== null) $result['ssoJwt'] = $this->ssoJwt;
 		return $result;
 	}
 }
