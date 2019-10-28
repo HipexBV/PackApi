@@ -19,13 +19,13 @@ class PhpVersionEnum extends \HipexPackApi\Schema\BaseType
 	const VALUE_PHP72 = 'php72';
 	/** PHP 7.1 */
 	const VALUE_PHP71 = 'php71';
-	/** PHP 7.0 */
+	/** PHP 7.0 - DEPRECATED */
 	const VALUE_PHP70 = 'php70';
-	/** PHP 5.6 */
+	/** PHP 5.6 - NOT SUPPORTED */
 	const VALUE_PHP56 = 'php56';
-	/** PHP 5.5 */
+	/** PHP 5.5 - NOT SUPPORTED */
 	const VALUE_PHP55 = 'php55';
-	/** HipHop VM */
+	/** HipHop VM - NOT SUPPORTED */
 	const VALUE_HHVM = 'hhvm';
 
 }
