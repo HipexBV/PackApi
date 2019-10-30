@@ -15,6 +15,10 @@ namespace HipexPackApi\Generated\Schema\Type;
  */
 class PhpVersionEnum extends \HipexPackApi\Schema\BaseType
 {
+	/** PHP 7.4 - BETA */
+	const VALUE_PHP74 = 'php74';
+	/** PHP 7.3 */
+	const VALUE_PHP73 = 'php73';
 	/** PHP 7.2 */
 	const VALUE_PHP72 = 'php72';
 	/** PHP 7.1 */
