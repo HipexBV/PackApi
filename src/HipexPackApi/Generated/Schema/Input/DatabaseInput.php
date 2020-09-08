@@ -60,6 +60,13 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 	private $backup;
 
 	/**
+	 * charset
+	 *
+	 * @var string|null
+	 */
+	private $charset;
+
+	/**
 	 * readOnly
 	 *
 	 * @var bool|null
@@ -212,6 +219,30 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 
 
 	/**
+	 * charset
+	 *
+	 * @return string|null
+	 */
+	public function getCharset()
+	{
+		return $this->charset;
+	}
+
+
+	/**
+	 * charset
+	 *
+	 * @param string|null $charset
+	 * @return $this
+	 */
+	public function setCharset($charset = null): self
+	{
+		$this->charset = $charset;
+		return $this;
+	}
+
+
+	/**
 	 * readOnly
 	 *
 	 * @return bool|null
@@ -247,6 +278,7 @@ class DatabaseInput extends \HipexPackApi\Schema\BaseType implements JsonSeriali
 		if ($this->username !== null) $result['username'] = $this->username;
 		if ($this->password !== null) $result['password'] = $this->password;
 		if ($this->backup !== null) $result['backup'] = $this->backup;
+		if ($this->charset !== null) $result['charset'] = $this->charset;
 		if ($this->readOnly !== null) $result['readOnly'] = $this->readOnly;
 		return $result;
 	}

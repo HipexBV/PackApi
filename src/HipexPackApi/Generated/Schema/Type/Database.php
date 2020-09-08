@@ -53,6 +53,13 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $domain;
 
 	/**
+	 * charset
+	 *
+	 * @var string|null
+	 */
+	private $charset;
+
+	/**
 	 * entityTypeName
 	 *
 	 * @var string|null
@@ -197,6 +204,30 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * charset
+	 *
+	 * @return string|null
+	 */
+	public function getCharset()
+	{
+		return $this->charset;
+	}
+
+
+	/**
+	 * charset
+	 *
+	 * @param string|null $charset
+	 * @return $this
+	 */
+	public function setCharset($charset = null): self
+	{
+		$this->charset = $charset;
+		return $this;
+	}
+
+
+	/**
 	 * entityTypeName
 	 *
 	 * @return string|null
@@ -231,6 +262,7 @@ class Database extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->backup !== null) $result['backup'] = $this->backup;
 		if ($this->users !== null) $result['users'] = $this->users;
 		if ($this->domain !== null) $result['domain'] = $this->domain;
+		if ($this->charset !== null) $result['charset'] = $this->charset;
 		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
 		return $result;
 	}
