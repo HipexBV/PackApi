@@ -66,6 +66,7 @@ class Domain extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        blackFireToken' . PHP_EOL;
 		$body .= '        phpMyAdmin' . PHP_EOL;
 		$body .= '        development' . PHP_EOL;
+		$body .= '        devOpsAsAService' . PHP_EOL;
 		$body .= '    }' . PHP_EOL;
 		$body .= '}' . PHP_EOL;
 		return $body;
