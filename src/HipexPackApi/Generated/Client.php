@@ -19,6 +19,7 @@ use HipexPackApi\Generated\Schema\Input\DomainInput;
 use HipexPackApi\Generated\Schema\Input\DomainPointerInput;
 use HipexPackApi\Generated\Schema\Input\FilterInput;
 use HipexPackApi\Generated\Schema\Input\FtpUserInput;
+use HipexPackApi\Generated\Schema\Input\LetsEncryptRequestInput;
 use HipexPackApi\Generated\Schema\Input\SortInput;
 use HipexPackApi\Generated\Schema\Input\SshKeyInput;
 use HipexPackApi\Generated\Schema\Input\SslCertificateInput;
@@ -33,6 +34,7 @@ use HipexPackApi\Generated\Schema\Type\DomainPointer;
 use HipexPackApi\Generated\Schema\Type\ForgotPassword;
 use HipexPackApi\Generated\Schema\Type\FtpUser;
 use HipexPackApi\Generated\Schema\Type\IntegrationTest;
+use HipexPackApi\Generated\Schema\Type\LetsEncryptValidation;
 use HipexPackApi\Generated\Schema\Type\MonitorValidation;
 use HipexPackApi\Generated\Schema\Type\PerformanceScan;
 use HipexPackApi\Generated\Schema\Type\RegisterUser;
@@ -767,6 +769,21 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\Database(), $arguments);
+	}
+
+
+	/**
+	 * @param LetsEncryptRequestInput|null $entity
+	 * @return LetsEncryptValidation|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateLetsEncryptRequest(LetsEncryptRequestInput $entity = null)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\LetsEncryptRequest(), $arguments);
 	}
 
 
