@@ -18,6 +18,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseQuery
 		$body .= '        type' . PHP_EOL;
 		$body .= '        key' . PHP_EOL;
 		$body .= '        validUntil' . PHP_EOL;
+		$body .= '        fromPattern' . PHP_EOL;
 		$body .= '        users {' . PHP_EOL;
 		$body .= '            id' . PHP_EOL;
 		$body .= '        }' . PHP_EOL;

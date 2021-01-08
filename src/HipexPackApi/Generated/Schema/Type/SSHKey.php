@@ -55,6 +55,13 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 	private $validUntil;
 
 	/**
+	 * fromPattern
+	 *
+	 * @var string|null
+	 */
+	private $fromPattern;
+
+	/**
 	 * users
 	 *
 	 * @var User[]|null
@@ -200,6 +207,30 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 
 
 	/**
+	 * fromPattern
+	 *
+	 * @return string|null
+	 */
+	public function getFromPattern()
+	{
+		return $this->fromPattern;
+	}
+
+
+	/**
+	 * fromPattern
+	 *
+	 * @param string|null $fromPattern
+	 * @return $this
+	 */
+	public function setFromPattern($fromPattern = null): self
+	{
+		$this->fromPattern = $fromPattern === null ? null : (string) $fromPattern;
+		return $this;
+	}
+
+
+	/**
 	 * users
 	 *
 	 * @return User[]|null
@@ -308,6 +339,7 @@ class SSHKey extends \HipexPackApi\Schema\BaseType implements JsonSerializable
 		if ($this->type !== null) $result['type'] = $this->type;
 		if ($this->key !== null) $result['key'] = $this->key;
 		if ($this->validUntil !== null) $result['validUntil'] = $this->validUntil;
+		if ($this->fromPattern !== null) $result['fromPattern'] = $this->fromPattern;
 		if ($this->users !== null) $result['users'] = $this->users;
 		if ($this->servers !== null) $result['servers'] = $this->servers;
 		if ($this->entityTypeName !== null) $result['entityTypeName'] = $this->entityTypeName;
