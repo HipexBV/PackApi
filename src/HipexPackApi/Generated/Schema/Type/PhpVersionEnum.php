@@ -15,13 +15,15 @@ namespace HipexPackApi\Generated\Schema\Type;
  */
 class PhpVersionEnum extends \HipexPackApi\Schema\BaseType
 {
+	/** PHP 8.0 */
+	const VALUE_PHP80 = 'php80';
 	/** PHP 7.4 */
 	const VALUE_PHP74 = 'php74';
-	/** PHP 7.3 */
+	/** PHP 7.3 - DEPRECATED */
 	const VALUE_PHP73 = 'php73';
-	/** PHP 7.2 */
+	/** PHP 7.2 - NOT SUPPORTED */
 	const VALUE_PHP72 = 'php72';
-	/** PHP 7.1 - DEPRECATED */
+	/** PHP 7.1 - NOT SUPPORTED */
 	const VALUE_PHP71 = 'php71';
 	/** PHP 7.0 - NOT SUPPORTED */
 	const VALUE_PHP70 = 'php70';
