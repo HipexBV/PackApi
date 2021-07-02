@@ -53,10 +53,10 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return Checklist[]|null
+	 * @return ServerChange[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryChecklist(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	public function queryServerChange(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
 		$arguments['filter'] = $filter;
@@ -65,7 +65,28 @@ class Client extends BaseClient
 		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\Checklist(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\ServerChange(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return FtpUser[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryFtpUser(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\FtpUser(), $arguments);
 	}
 
 
@@ -116,10 +137,10 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return Domain[]|null
+	 * @return Server[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryDomain(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	public function queryServer(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
 		$arguments['filter'] = $filter;
@@ -128,7 +149,28 @@ class Client extends BaseClient
 		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\Domain(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Server(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return SSHKey[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function querySSHKey(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\SSHKey(), $arguments);
 	}
 
 
@@ -158,10 +200,10 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return FtpUser[]|null
+	 * @return Domain[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryFtpUser(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	public function queryDomain(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
 		$arguments['filter'] = $filter;
@@ -170,85 +212,7 @@ class Client extends BaseClient
 		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\FtpUser(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return User[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryUser(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\User(), $arguments);
-	}
-
-
-	/**
-	 * @param string|null $domainName
-	 * @return MonitorValidation|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryMonitorValidate(string $domainName = null)
-	{
-		$arguments = [];
-		$arguments['domainName'] = $domainName;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorValidate(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return Server[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryServer(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\Server(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return DomainPointer[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryDomainPointer(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\DomainPointer(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Domain(), $arguments);
 	}
 
 
@@ -268,6 +232,27 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Query\Backup(), $arguments);
+	}
+
+
+	/**
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return PerformanceScan[]|null
+	 * @throws ExceptionInterface
+	 */
+	public function queryPerformanceScan(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	{
+		$arguments = [];
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\PerformanceScan(), $arguments);
 	}
 
 
@@ -300,7 +285,7 @@ class Client extends BaseClient
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorDiskIo(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorNetworkTraffic(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
@@ -309,7 +294,7 @@ class Client extends BaseClient
 		$arguments['endTime'] = $endTime;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorDiskIo(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorNetworkTraffic(), $arguments);
 	}
 
 
@@ -321,7 +306,7 @@ class Client extends BaseClient
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorNetworkTraffic(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorMemoryUsage(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
@@ -330,7 +315,7 @@ class Client extends BaseClient
 		$arguments['endTime'] = $endTime;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorNetworkTraffic(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorMemoryUsage(), $arguments);
 	}
 
 
@@ -363,7 +348,7 @@ class Client extends BaseClient
 	 * @return MonitorQueryValue[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryMonitorMemoryUsage(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
+	public function queryMonitorDiskIo(string $applicationId = null, string $serverId = null, string $startTime = null, string $endTime = null)
 	{
 		$arguments = [];
 		$arguments['applicationId'] = $applicationId;
@@ -372,70 +357,7 @@ class Client extends BaseClient
 		$arguments['endTime'] = $endTime;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorMemoryUsage(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return SSLCertificate[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function querySSLCertificate(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\SSLCertificate(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return Database[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryDatabase(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\Database(), $arguments);
-	}
-
-
-	/**
-	 * @param FilterInput|null $filter
-	 * @param int|null $limit
-	 * @param int|null $skip
-	 * @param SortInput|null $sort
-	 * @return ServerChange[]|null
-	 * @throws ExceptionInterface
-	 */
-	public function queryServerChange(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
-	{
-		$arguments = [];
-		$arguments['filter'] = $filter;
-		$arguments['limit'] = $limit;
-		$arguments['skip'] = $skip;
-		$arguments['sort'] = $sort;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\ServerChange(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorDiskIo(), $arguments);
 	}
 
 
@@ -465,10 +387,10 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return PerformanceScan[]|null
+	 * @return User[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function queryPerformanceScan(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	public function queryUser(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
 		$arguments['filter'] = $filter;
@@ -477,7 +399,7 @@ class Client extends BaseClient
 		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\PerformanceScan(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\User(), $arguments);
 	}
 
 
@@ -486,10 +408,10 @@ class Client extends BaseClient
 	 * @param int|null $limit
 	 * @param int|null $skip
 	 * @param SortInput|null $sort
-	 * @return SSHKey[]|null
+	 * @return SSLCertificate[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function querySSHKey(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
+	public function querySSLCertificate(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
 		$arguments['filter'] = $filter;
@@ -498,88 +420,85 @@ class Client extends BaseClient
 		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Query\SSHKey(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\SSLCertificate(), $arguments);
 	}
 
 
 	/**
-	 * @param SshKeyInput|null $entity
-	 * @param bool $delete
-	 * @return SSHKey|null
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return Checklist[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateSSHKey(SshKeyInput $entity = null, bool $delete)
+	public function queryChecklist(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
-		$arguments['entity'] = $entity;
-		$arguments['delete'] = $delete;
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSHKey(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Checklist(), $arguments);
 	}
 
 
 	/**
-	 * @param string $website
-	 * @return PerformanceScan|null
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return Database[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutatePerformanceScanStart(string $website)
+	public function queryDatabase(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
-		$arguments['website'] = $website;
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\PerformanceScanStart(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\Database(), $arguments);
 	}
 
 
 	/**
-	 * @param UserInput|null $entity
-	 * @param bool $delete
-	 * @return User|null
+	 * @param FilterInput|null $filter
+	 * @param int|null $limit
+	 * @param int|null $skip
+	 * @param SortInput|null $sort
+	 * @return DomainPointer[]|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateUser(UserInput $entity = null, bool $delete)
+	public function queryDomainPointer(FilterInput $filter = null, int $limit = null, int $skip = null, SortInput $sort = null)
 	{
 		$arguments = [];
-		$arguments['entity'] = $entity;
-		$arguments['delete'] = $delete;
+		$arguments['filter'] = $filter;
+		$arguments['limit'] = $limit;
+		$arguments['skip'] = $skip;
+		$arguments['sort'] = $sort;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\User(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\DomainPointer(), $arguments);
 	}
 
 
 	/**
-	 * @param ChecklistStartInput|null $checklist
-	 * @return Checklist|null
+	 * @param string|null $domainName
+	 * @return MonitorValidation|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateChecklistStart(ChecklistStartInput $checklist = null)
+	public function queryMonitorValidate(string $domainName = null)
 	{
 		$arguments = [];
-		$arguments['checklist'] = $checklist;
+		$arguments['domainName'] = $domainName;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ChecklistStart(), $arguments);
-	}
-
-
-	/**
-	 * @param string $username
-	 * @param string $password
-	 * @return Authentication|null
-	 * @throws ExceptionInterface
-	 */
-	public function mutateLogin(string $username, string $password)
-	{
-		$arguments = [];
-		$arguments['username'] = $username;
-		$arguments['password'] = $password;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\Login(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Query\MonitorValidate(), $arguments);
 	}
 
 
@@ -601,51 +520,17 @@ class Client extends BaseClient
 
 
 	/**
-	 * @param DomainPointerInput|null $entity
-	 * @param bool $delete
-	 * @return DomainPointer|null
+	 * @param string $website
+	 * @return PerformanceScan|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateDomainPointer(DomainPointerInput $entity = null, bool $delete)
+	public function mutatePerformanceScanStart(string $website)
 	{
 		$arguments = [];
-		$arguments['entity'] = $entity;
-		$arguments['delete'] = $delete;
+		$arguments['website'] = $website;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\DomainPointer(), $arguments);
-	}
-
-
-	/**
-	 * @param int $id
-	 * @return IntegrationTest|null
-	 * @throws ExceptionInterface
-	 */
-	public function mutateIntegrationTestStart(int $id)
-	{
-		$arguments = [];
-		$arguments['id'] = $id;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\IntegrationTestStart(), $arguments);
-	}
-
-
-	/**
-	 * @param FtpUserInput|null $entity
-	 * @param bool $delete
-	 * @return FtpUser|null
-	 * @throws ExceptionInterface
-	 */
-	public function mutateFtpUser(FtpUserInput $entity = null, bool $delete)
-	{
-		$arguments = [];
-		$arguments['entity'] = $entity;
-		$arguments['delete'] = $delete;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\FtpUser(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\PerformanceScanStart(), $arguments);
 	}
 
 
@@ -668,6 +553,23 @@ class Client extends BaseClient
 
 	/**
 	 * @param string $email
+	 * @param string $verificationToken
+	 * @return Verification|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateVerifyRegisteredUser(string $email, string $verificationToken)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+		$arguments['verificationToken'] = $verificationToken;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\VerifyRegisteredUser(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
 	 * @param string $name
 	 * @param string $password
 	 * @return RegisterUser|null
@@ -682,6 +584,21 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\RegisterUser(), $arguments);
+	}
+
+
+	/**
+	 * @param string $email
+	 * @return ForgotPassword|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateForgotPassword(string $email)
+	{
+		$arguments = [];
+		$arguments['email'] = $email;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ForgotPassword(), $arguments);
 	}
 
 
@@ -707,51 +624,17 @@ class Client extends BaseClient
 
 
 	/**
-	 * @param string $email
-	 * @param string $verificationToken
-	 * @return Verification|null
+	 * @param ChecklistStartInput|null $checklist
+	 * @return Checklist|null
 	 * @throws ExceptionInterface
 	 */
-	public function mutateVerifyRegisteredUser(string $email, string $verificationToken)
+	public function mutateChecklistStart(ChecklistStartInput $checklist = null)
 	{
 		$arguments = [];
-		$arguments['email'] = $email;
-		$arguments['verificationToken'] = $verificationToken;
+		$arguments['checklist'] = $checklist;
 
 		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\VerifyRegisteredUser(), $arguments);
-	}
-
-
-	/**
-	 * @param string $email
-	 * @return ForgotPassword|null
-	 * @throws ExceptionInterface
-	 */
-	public function mutateForgotPassword(string $email)
-	{
-		$arguments = [];
-		$arguments['email'] = $email;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ForgotPassword(), $arguments);
-	}
-
-
-	/**
-	 * @param SslCertificateInput|null $entity
-	 * @param bool $delete
-	 * @return SSLCertificate|null
-	 * @throws ExceptionInterface
-	 */
-	public function mutateSSLCertificate(SslCertificateInput $entity = null, bool $delete)
-	{
-		$arguments = [];
-		$arguments['entity'] = $entity;
-		$arguments['delete'] = $delete;
-
-		/** @noinspection PhpUndefinedFieldInspection */
-		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSLCertificate(), $arguments);
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\ChecklistStart(), $arguments);
 	}
 
 
@@ -788,6 +671,21 @@ class Client extends BaseClient
 
 
 	/**
+	 * @param int $id
+	 * @return IntegrationTest|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateIntegrationTestStart(int $id)
+	{
+		$arguments = [];
+		$arguments['id'] = $id;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\IntegrationTestStart(), $arguments);
+	}
+
+
+	/**
 	 * @param DatabaseUserInput|null $entity
 	 * @param bool $delete
 	 * @return DatabaseUser|null
@@ -801,5 +699,107 @@ class Client extends BaseClient
 
 		/** @noinspection PhpUndefinedFieldInspection */
 		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\DatabaseUser(), $arguments);
+	}
+
+
+	/**
+	 * @param UserInput|null $entity
+	 * @param bool $delete
+	 * @return User|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateUser(UserInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\User(), $arguments);
+	}
+
+
+	/**
+	 * @param SshKeyInput|null $entity
+	 * @param bool $delete
+	 * @return SSHKey|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateSSHKey(SshKeyInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSHKey(), $arguments);
+	}
+
+
+	/**
+	 * @param SslCertificateInput|null $entity
+	 * @param bool $delete
+	 * @return SSLCertificate|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateSSLCertificate(SslCertificateInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\SSLCertificate(), $arguments);
+	}
+
+
+	/**
+	 * @param string $username
+	 * @param string $password
+	 * @return Authentication|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateLogin(string $username, string $password)
+	{
+		$arguments = [];
+		$arguments['username'] = $username;
+		$arguments['password'] = $password;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\Login(), $arguments);
+	}
+
+
+	/**
+	 * @param FtpUserInput|null $entity
+	 * @param bool $delete
+	 * @return FtpUser|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateFtpUser(FtpUserInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\FtpUser(), $arguments);
+	}
+
+
+	/**
+	 * @param DomainPointerInput|null $entity
+	 * @param bool $delete
+	 * @return DomainPointer|null
+	 * @throws ExceptionInterface
+	 */
+	public function mutateDomainPointer(DomainPointerInput $entity = null, bool $delete)
+	{
+		$arguments = [];
+		$arguments['entity'] = $entity;
+		$arguments['delete'] = $delete;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		return $this->query(new \HipexPackApi\Generated\Schema\Mutation\DomainPointer(), $arguments);
 	}
 }
